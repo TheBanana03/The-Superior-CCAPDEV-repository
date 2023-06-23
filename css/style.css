@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Tsukimi+Rounded:wght@700&display=swap');
+
+body {
+    color: #262626;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: Roboto, sans-serif
+}
+
+
+.banner {
+    background-color: #d9d9d9;
+    border-bottom: 0.5px solid #000000;
+    position: fixed;
+    display: flex;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    padding: 1rem;
+}
+
+.bannertext {
+    font-family:'Tsukimi Rounded', sans-serif;
+    font-size: 1.4rem;
+    margin-left: 0.5%;
+}
+
+.bannerbuttons {
+    margin-left: auto;
+    margin-right: 0%;
+}
+
+.bannerbutton {
+    font-size: 1rem;
+    padding: 1rem;
+    color:#000000;
+    text-decoration: none;
+}
+
+.bannerbutton:hover {
+    background-color: rgba(149, 149, 149, 0.5);
+}
+
+
+.spacer {
+    padding: 2%;
+}
+
+
+.page {
+    display: flex;
+    flex-direction: row;
+}
+
+.scroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 2%;
+    height: 300px;
+    width: 27%;
+    top: 9%;
+    position: sticky;
+}
+
+.scroll2 {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 300px;
+    padding: 2%;
+    width: 400px;
+    margin-right: 0%;
+    margin-left: auto;
+    top: 9%;
+    position: sticky;
+}
+
+
+div.profile {
+    background-color: #fafafa;
+    border: 1px solid #E8EAED;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+div.posts {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+}
+
+div.post {
+    width: 450px;
+    background-color: #fafafa;
+    border: 1px solid #E8EAED;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-top: 2%;
+    margin-bottom: 10%;
+}
+
+div.header {
+    height: 35px;
+    border-bottom: 0.5px solid #EFEFEF;
+    padding: 16px;
+    display: flex;
+}
+
+img.pp {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background-color: #FAFAFA;
+    vertical-align: baseline;
+    border: 1px solid #EFEFEF;
+}
+
+div.user {
+    display: flex;
+    flex-direction: row;
+    max-width: 240px;        
+}
+
+.username {
+    font-size: inherit;
+    font-weight: 700;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+
+span.verified {
+    background-image: url("https://files.catbox.moe/0b83ph.png");
+    background-size: 410px 396px;
+    background-position: -164px -366px;
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 12px;
+    margin-top: 3px;
+    margin-left: 5px;
+}
+
+a.follow {
+    border: 0;
+    color: #3897f0;
+    font-weight: 700;
+    text-align: center;
+}
+
+div.location {
+    color: #262626;
+    line-height: 15px;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+img.imgpost {
+    width: 450px;
+}
+
+div.footer {
+    padding: 0 16px;
+    padding-top: 2.5%;
+}
+
+span.actions {
+    margin-top: 4px;
+    margin-right: 0%;
+    display: flex;
+}
+
+span.actiontext {
+    margin-right: 10px;
+    margin-top: 12px;
+    margin-left: 5px;
+}
+
+span.commentsharetext {
+    margin-right: 20px;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+span.like {
+    display: inline-block;
+    background-image: url("../assets/sprites2.png");
+    background-size: 411px 393px;
+    background-position: 0px -319px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    margin: 8px 4px 8px 8px;
+}
+
+.comment_share {
+    margin-top: 8px;
+    margin-left: auto;
+    display: flex;
+}
+
+.comment {
+    display: inline-block;
+    background-image: url("../assets/sprites2.png");
+    background-size: 411px 393px;
+    background-position: -125px -294px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+.share {
+    display: inline-block;
+    background-image: url("../assets/sprites2.png");
+    background-size: 411px 393px;
+    background-position: -275px -344px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+div.desc {
+    text-align: justify;
+}
+
+a.user-handle {
+    color: #262626;
+    font-weight: 600;
+    padding-left: 5px;
+    margin-left: -5px;
+}
+
+div.date {
+    color: #999;
+    margin-bottom: 5px;
+    text-transform: uppercase; 
+    font-size: 10px;
+    letter-spacing: .2px;
+}
+
+a.link {
+    color: #003469;
+}
