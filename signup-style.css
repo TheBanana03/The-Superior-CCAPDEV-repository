@@ -2,6 +2,8 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f2f2f2;
+  background-image: url('assets/arrow-green.png');
+  background-repeat: repeat;
   margin: 0;
   padding: 0;
 }
@@ -43,7 +45,7 @@ h3 {
 .input-group input {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 3px solid lightgray;
   border-radius: 100px;
 }
 

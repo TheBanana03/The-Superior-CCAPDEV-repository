@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Edit Profile</title>
+  <title>ANIMO - Edit Profile</title>
   <link rel="stylesheet" type="text/css" href="editprofile-style.css">
 </head>
 <body>
   <h1>Edit Profile</h1>
-
-  <label for="upload-image" class="profile-picture">
-    <input type="file" id="upload-image" accept="image/*">
-    Edit Profile Picture
-  </label>
-
-  <form>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" placeholder="Enter your username">
-
-    <input type="submit" value="Save">
-  </form>
+  <div class="container">
+    <div class="profile-container">
+    <label for="upload-image" class="profile-picture">
+        <input type="file" id="upload-image" accept="image/*">
+        Edit Profile Picture
+    </label>
+    </div>
+    <div class="details-container">
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your new username">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your new email">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your new password">
+        <input type="submit" value="Save">
+    </form>
+    </div>
+  </div>
 </body>
 </html>

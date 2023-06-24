@@ -2,9 +2,11 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: #083704;
+  background-image: url('assets/arrow-black.png');
   margin: 0;
   padding: 0;
 }
+
 
 .container {
   width: 300px;
@@ -43,7 +45,7 @@ h3 {
 .input-group input {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 3px solid lightgray;
   border-radius: 100px;
 }
 

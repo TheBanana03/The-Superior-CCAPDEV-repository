@@ -3,12 +3,32 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f2f2f2;
+  background-image: url('assets/arrow-green.png');
+  background-repeat: repeat;
   margin: 0;
   padding: 0;
 }
 
+.container {
+  margin-left: 500px;
+  margin-right: 500px;
+  display: flex;
+}
+
+.profile-container {
+  width: 25%;
+}
+
+.details-container {
+  flex-grow: 1;
+}
+
+
 h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
     text-align: center;
+    color: #083704;
 }
   
   .profile-picture {
@@ -16,7 +36,9 @@ h1 {
     width: 200px;
     height: 200px;
     margin: 0 auto 20px;
-    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 100%;
     background-color: lightgray;
     text-align: center;
     line-height: 200px;
@@ -41,27 +63,37 @@ h1 {
   
   form {
     max-width: 300px;
-    margin: 0 auto;
+    margin-left: 40px;
   }
   
   label {
+    color: #083704;
     display: block;
     margin-bottom: 10px;
   }
   
-  input[type="text"] {
-    width: 100%;
+  input {
+    width: 200%;
     padding: 8px;
-    border-radius: 5px;
-    border: 1px solid lightgray;
+    border-radius: 100px;
+    border: 3px solid lightgray;
+    margin-bottom: 15px;
   }
   
   input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #083704;
-    color: white;
+    display: block;
+    width: 50%;
+    padding: 8px;
     border: none;
-    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
     cursor: pointer;
+    border-radius: 100px;
+    margin-left: 240px;
+    margin-top: 100px;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
   }
