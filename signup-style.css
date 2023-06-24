@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 200px;
+}
+
+h2 {
+  color: #083704;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 96px;
+  font-family: Inter;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+  color: #083704;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 24px;
+  font-family: Inter;
+  font-weight: 700;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #777;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 100px;
+}
+
+.btn {
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.p-login { 
+  margin-top: 75px;
+  text-align: center;
+  font-size: 14px;
+  color: #777; 
+}
+
+.btn-login {
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.btn-login:hover {
+  background-color: #45a049;
+}
