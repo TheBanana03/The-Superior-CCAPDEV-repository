@@ -5,12 +5,14 @@ body {
     color: #262626;
     font-size: 14px;
     line-height: 18px;
-    font-family: Roboto, sans-serif
+    font-family: Roboto, sans-serif;
+    background-color: #eeeeee;
 }
 
 
 .banner {
-    background-color: #d9d9d9;
+    background-color: #01381a;
+    color:#ffffff;
     border-bottom: 0.5px solid #000000;
     position: fixed;
     display: flex;
@@ -18,33 +20,63 @@ body {
     left: 0%;
     right: 0%;
     padding: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.bannermid {
+    margin-left: 40%;
+    display: flex;
+    flex-direction: column;
+    width:20%;
 }
 
 .bannertext {
     font-family:'Tsukimi Rounded', sans-serif;
-    font-size: 1.4rem;
-    margin-left: 0.5%;
+    font-size: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.bannermessage {
+    padding: 0.5em;
+    border-radius: 75px;
+    width: 98%;
+    resize: vertical;
+    height: 1rem;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .bannerbuttons {
     margin-left: auto;
     margin-right: 0%;
+    margin-bottom: auto;
 }
 
 .bannerbutton {
     font-size: 1rem;
-    padding: 1rem;
     color:#000000;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #ffffff;
+    border-radius: 100px;
     text-decoration: none;
+    margin: 4px;
+    margin-top: 12px;
 }
 
 .bannerbutton:hover {
-    background-color: rgba(149, 149, 149, 0.5);
+    background-color: rgba(212, 212, 212, 0.5);
 }
 
 
 .spacer {
-    padding: 2%;
+    padding: 4%;
 }
 
 
@@ -58,21 +90,39 @@ body {
     overflow-x: hidden;
     padding: 2%;
     height: 300px;
-    width: 27%;
-    top: 9%;
+    width: 25%;
+    top: 17.5%;
     position: sticky;
+    background-color: #dadada;
+    margin-left: 2.5%;
 }
 
 .scroll2 {
-    overflow-y: scroll;
+    overflow-y:hidden;
     overflow-x: hidden;
     height: 300px;
-    padding: 2%;
-    width: 400px;
-    margin-right: 0%;
+    width: 350px;
+    margin-right: 2%;
     margin-left: auto;
-    top: 9%;
+    top: 17.5%;
     position: sticky;
+    background-color: #dadada;
+}
+
+.scroll2:hover {
+    overflow-y: scroll;
+}
+
+.chat {
+    height: 35px;
+    border-bottom: 0.5px solid #EFEFEF;
+    padding: 16px;
+    padding-left: 12px;
+    display: flex;
+}
+
+.chat:hover {
+    background-color: #e2e2e2;
 }
 
 
