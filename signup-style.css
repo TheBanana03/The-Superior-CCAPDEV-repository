@@ -2,8 +2,6 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f2f2f2;
-  background-image: url('assets/arrow-green.png');
-  background-repeat: repeat;
   margin: 0;
   padding: 0;
 }
@@ -12,6 +10,14 @@ body {
   width: 300px;
   margin: 0 auto;
   padding: 200px;
+}
+
+.card {
+  background-color: lightgray;
+  margin-right: 200px;
+  width: 300px;
+  height: 250px;
+  border-radius: 10px;
 }
 
 h2 {
@@ -43,9 +49,10 @@ h3 {
 }
 
 .input-group input {
-  width: 100%;
+  margin-left: 17px;
+  width: 80%;
   padding: 8px;
-  border: 3px solid lightgray;
+  border: 3px solid #f2f2f2;
   border-radius: 100px;
 }
 
@@ -68,7 +75,7 @@ h3 {
 }
 
 .p-login { 
-  margin-top: 75px;
+  margin-top: 20px;
   text-align: center;
   font-size: 14px;
   color: #777; 
