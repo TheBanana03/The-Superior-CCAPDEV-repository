@@ -99,6 +99,7 @@ h3 {
   border-radius: 100px;
   margin: 0 auto;
   margin-bottom: 30px;
+  text-decoration: none;
 }
 
 .btn-login:hover {

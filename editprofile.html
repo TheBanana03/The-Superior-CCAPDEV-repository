@@ -8,21 +8,40 @@
   <h1>Edit Profile</h1>
   <div class="container">
     <div class="profile-container">
-    <label for="upload-image" class="profile-picture">
+      <label for="upload-image" class="profile-picture">
         <input type="file" id="upload-image" accept="image/*">
         Edit Profile Picture
-    </label>
+      </label>
     </div>
     <div class="details-container">
-    <form>
+      <form>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your new username">
+        <input type="text" id="username" name="username" placeholder="Enter your new username" value="Juan">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your new email">
+        <input type="email" id="email" name="email" placeholder="Enter your new email" value="juan@dlsu.edu.ph">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your new password">
-        <input type="submit" value="Save">
-    </form>
+        <input type="password" id="password" name="password" placeholder="Enter your new password" value="CCAPDEV">
+        <label for="idnum">ID Number:</label>
+        <input type="number" id="idnum" name="idnum" placeholder="Enter your new ID Number" value="121">
+        <label for="College">College:</label>
+        <select name="dropdown" id="dropdown">
+          <option value="-">-</option>
+          <option value="bagced">BAGCED</option>
+          <option value="ccs" selected>CCS</option>
+          <option value="tdsol">TDSOL</option>
+          <option value="cla">CLA</option>
+          <option value="cos">COS</option>
+          <option value="gcoe">GCOE</option>
+          <option value="cob">COB</option>
+          <option value="soe">SOE</option>
+        </select>
+        <label for="Course">Course:</label>
+        <input type="text" id="course" name="course" placeholder="Enter your new course" value="BS CS-ST">
+        <div class="buttons-container">
+          <input type="reset" value="Reset">
+          <input type="submit" value="Save">
+        </div>
+      </form>
     </div>
   </div>
 </body>
