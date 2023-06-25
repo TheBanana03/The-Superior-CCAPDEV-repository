@@ -20,7 +20,7 @@ body {
     left: 0%;
     right: 0%;
     padding: 1rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1%;
 }
 
 .bannermid {
@@ -35,20 +35,38 @@ body {
     font-size: 3rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 30px;
+    margin-bottom: 10%;
 }
 
 .bannermessage {
     padding: 0.5em;
-    border-radius: 75px;
     width: 98%;
-    resize: vertical;
-    height: 1rem;
-    background-color: #ffffff;
-    margin-left: auto;
-    margin-right: auto;
+    height: 15%;
     resize: none;
     font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20rem;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    padding: 0.25rem;
+}
+
+.searchmessage {
+    height: 1rem;
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.search-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 0.25rem 0 0.5rem;
 }
 
 .bannerbuttons {
@@ -75,36 +93,51 @@ body {
 }
 
 
-.spacer {
-    padding: 4%;
-}
-
-
 .page {
     display: flex;
     flex-direction: row;
 }
 
 .scroll {
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
-    padding: 2%;
-    height: 300px;
+    height: 100%;
     width: 25%;
     top: 17.5%;
     position: sticky;
+    left: 0;
+}
+
+.scroll:hover {
+    overflow-y: scroll;
+}
+
+.rhs {
+    width: 25%;
+    margin-right: 2%;
+    margin-left: auto;
+    position: sticky;
+    top:17.5%;
+}
+
+.userinfo {
+    top: 17.5%;
+    height: 225px;
+    width: 100%;
     background-color: #dadada;
-    margin-left: 2.5%;
+    position: sticky;
+    border-radius: 20px;
+    margin-bottom:2.5%;
 }
 
 .scroll2 {
     overflow-y:hidden;
     overflow-x: hidden;
-    height: 300px;
-    width: 350px;
+    height: 250px;
+    width: 100%;
     margin-right: 2%;
     margin-left: auto;
-    top: 17.5%;
+    top: 55%;
     position: sticky;
     background-color: #dadada;
 }
@@ -123,6 +156,7 @@ body {
 
 .chat:hover {
     background-color: #e2e2e2;
+    box-shadow: inset 4px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -131,12 +165,60 @@ div.profile {
     border: 1px solid #E8EAED;
     font-size: 14px;
     box-sizing: border-box;
+
+    box-shadow: inset 4px 0px 4px rgba(0, 0, 0, 0.25);
 }
+
+.userprofile {
+    padding: 16px;
+    padding-left: 12px;
+    display: flex;
+}
+
+.userdesc {
+    height: 187px;
+    display: flex;
+    flex-direction: column;
+}
+
+.userdescription {
+    text-overflow: ellipsis;
+    overflow-wrap:break-word;
+    margin-left: 5%;
+}
+
+.userprofilename {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 8%;
+}
+
+img.ppp {
+    width: 64px;
+    height: 64px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background-color: #FAFAFA;
+    vertical-align: baseline;
+    border: 1px solid #EFEFEF;
+}
+
 
 div.posts {
     display: flex;
     flex-direction: column;
     margin-left: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 8%;
+    border-left: 1px solid #d3d3d3;
+    border-right: 1px solid #d3d3d3;
 }
 
 div.post {
