@@ -155,7 +155,6 @@
             <div class="posts">
                 <div class = "post">
                     <div class = "header">
-                        <img class = "pp"; src = "assets/Hoshino.jpg">
                         <div>
                             <div class = "user">
                                 <a href="userpage.html" class="username">friendly_neighborhood_ojisan</a>
@@ -180,13 +179,15 @@
                         </div>
                         <hr>
                         <span class = "actions">
-                            <span class = "like"></span>
+                            <span class="like" onclick="likeThis()">
+                                <span class="likecontainer" id="like"></span>
+                            </span>
                             <span class="actiontext">
                                 Like
                             </span>
                             <span class = "comment_share">
-                                <span class = "comment"></span>
-                                <span class="commentsharetext">
+                                <span id ="myBtn2" class = "comment"></span>
+                                <span  class="commentsharetext">
                                     Comment
                                 </span>
                                 <span class = "share"></span>
@@ -357,7 +358,6 @@
         </div>
 
 
-
         <div id="myModal" class="modal">
 
             <!-- Modal content -->
@@ -396,7 +396,9 @@
                         </div>
                         <hr>
                         <span class = "actions">
-                            <span class = "like"></span>
+                            <span class="like" onclick="likeThis2()">
+                                <span class="likecontainer" id="like2"></span>
+                            </span>
                             <span class="actiontext">
                                 Like
                             </span>
@@ -471,11 +473,16 @@
                     </div>
                 </div>
               </div>
+              <form class="commentbox">
+                <span class = "send"></span>
+                <textarea placeholder="Write a comment..."></textarea>
+            </form>
             </div>
           </div>
 
     </body>
 
     <script src="js/modal.js"></script>
-
+    <script src="js/modal2.js"></script>
+    <script src="js/like.js"></script>
 </html>
