@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #083704;
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 200px;
+}
+
+.card {
+  background-color: #061d04;
+  margin-right: 200px;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+h2 {
+  color: #f2f2f2;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 96px;
+  font-family: Inter;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+  color: #f2f2f2;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 24px;
+  font-family: Inter;
+  font-weight: 700;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #777;
+}
+
+.input-group input {
+  margin-left: 17px;
+  width: 80%;
+  padding: 8px;
+  border: 3px solid lightgray;
+  border-radius: 100px;
+}
+
+.btn {
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.p-signup { 
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #f2f2f2; 
+}
+
+.btn-signup {
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.btn-signup:hover {
+  background-color: #45a049;
+}
