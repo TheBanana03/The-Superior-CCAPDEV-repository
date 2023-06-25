@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Tsukimi+Rounded:wght@700&display=swap');
 
+:root {
+    --primary-color: #083704;
+    --main-font: 'Inter', sans-serif;
+
+    font-family: var(--main-font);
+    font-size: 16px;
+}
+
 body {
     color: #262626;
     font-size: 14px;
@@ -10,87 +18,70 @@ body {
 }
 
 
-.banner {
-    background-color: #01381a;
-    color:#ffffff;
-    border-bottom: 0.5px solid #000000;
+.nav {
+    color: white;
+
+    background-color: var(--primary-color);
+
+    z-index: 10;
     position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
     display: flex;
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    padding: 1rem;
-    padding-bottom: 1%;
+    justify-content: space-between;
 }
 
-.bannermid {
-    margin-left: 40%;
-    display: flex;
-    flex-direction: column;
-    width:20%;
+.animo {
+    font-family: var(--main-font);
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0 0 0 0.5rem;
+    margin-top: 1%;
+
+    cursor: pointer;
 }
 
-.bannertext {
-    font-family:'Tsukimi Rounded', sans-serif;
-    font-size: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10%;
-}
-
-.bannermessage {
-    padding: 0.5em;
-    width: 98%;
-    height: 15%;
-    resize: none;
-    font-family: Arial, Helvetica, sans-serif;
-
+.search-bar-small {
     display: flex;
     align-items: center;
     background-color: #ffffff;
-    border-radius: 20rem;
+    border-radius: 0.75rem;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    padding: 0.25rem;
+    margin: 0.5rem 1rem;
+    padding: 0.25rem 0.75rem;
 }
-
-.searchmessage {
-    height: 1rem;
+  
+.search-bar-small input {
     border: none;
     outline: none;
-    resize: none;
     background-color: transparent;
-    overflow: hidden;
+
+    min-width: 30vw;
 }
 
-.search-icon {
+.search-bar-small img.search-icon {
     width: 1.2rem;
     height: 1.2rem;
-    margin: 0 0.25rem 0 0.5rem;
+    margin: 0 0.25rem 0 0.25rem;
 }
 
-.bannerbuttons {
-    margin-left: auto;
-    margin-right: 0%;
-    margin-bottom: auto;
-}
-
-.bannerbutton {
+#btn-login {
+    font-family: var(--main-font);
+    font-weight: 300;
     font-size: 1rem;
-    color:#000000;
-    padding: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: #ffffff;
-    border-radius: 100px;
-    text-decoration: none;
-    margin: 4px;
-    margin-top: 12px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0.75rem;
+    border: 0px;
+    cursor: pointer;
+
+    margin: 0.5rem 1rem;
+    padding: 0.25rem 0.75rem;
 }
 
-.bannerbutton:hover {
-    background-color: rgba(212, 212, 212, 0.5);
-}
 
 
 .page {
@@ -98,93 +89,124 @@ body {
     flex-direction: row;
 }
 
+.lhs {
+    width: 25%;
+    top: 10%;
+    position: sticky;
+}
+
+.lhscontainer {
+    top: 10%;
+    width: 100%;
+    height: 450px;
+    position: sticky;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+}
+
+.communities {
+    font-family: var(--main-font);
+    height: 15%;
+    width: 100%;
+    align-items: center;
+    display:flex;
+}
+
+.communitytext {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color:#ffffff;
+}
+
+img.communitypic {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background-color: #FAFAFA;
+    vertical-align: baseline;
+    border: 1px solid #EFEFEF;
+    overflow: hidden;
+}
+
 .scroll {
     overflow-y: hidden;
     overflow-x: hidden;
     height: 100%;
-    width: 25%;
-    top: 17.5%;
+    width: 100%;
+    top: 12%;
     position: sticky;
     left: 0;
+    background-color: #eeeeee;
 }
 
 .scroll:hover {
     overflow-y: scroll;
 }
 
-.rhs {
-    width: 25%;
-    margin-right: 2%;
-    margin-left: auto;
-    position: sticky;
-    top:17.5%;
-}
-
-.userinfo {
-    top: 17.5%;
-    height: 225px;
-    width: 100%;
-    background-color: #dadada;
-    position: sticky;
-    border-radius: 20px;
-    margin-bottom:2.5%;
-}
-
-.scroll2 {
-    overflow-y:hidden;
-    overflow-x: hidden;
-    height: 250px;
-    width: 100%;
-    margin-right: 2%;
-    margin-left: auto;
-    top: 55%;
-    position: sticky;
-    background-color: #dadada;
-}
-
-.scroll2:hover {
-    overflow-y: scroll;
-}
-
-.chat {
+.communitybtn {
     height: 35px;
     border-bottom: 0.5px solid #EFEFEF;
     padding: 16px;
-    padding-left: 12px;
     display: flex;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.chat:hover {
+.communitybtn:hover {
     background-color: #e2e2e2;
     box-shadow: inset 4px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 
-div.profile {
-    background-color: #fafafa;
-    border: 1px solid #E8EAED;
-    font-size: 14px;
-    box-sizing: border-box;
 
-    box-shadow: inset 4px 0px 4px rgba(0, 0, 0, 0.25);
+.rhs {
+    width: 25%;
+    margin-right: 2%;
+    margin-left: auto;
+    position: sticky;
+    top:10%;
+}
+
+.userinfo {
+    top: 10%;
+    height: 225px;
+    width: 100%;
+    background-color: var(--primary-color);
+    position: sticky;
+    border-radius: 20px;
+    margin-bottom:2.5%;
 }
 
 .userprofile {
     padding: 16px;
+    padding-bottom: 12px;
     padding-left: 12px;
     display: flex;
 }
 
 .userdesc {
-    height: 187px;
+    height: 195px;
     display: flex;
     flex-direction: column;
 }
 
 .userdescription {
+    display: -webkit-box;
     text-overflow: ellipsis;
     overflow-wrap:break-word;
+    overflow: hidden;
     margin-left: 5%;
+    text-align: justify;
+    padding-right: 3.5%;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
 }
 
 .userprofilename {
@@ -210,13 +232,57 @@ img.ppp {
 }
 
 
+.scroll2 {
+    overflow-y:hidden;
+    overflow-x: hidden;
+    height: 275px;
+    width: 100%;
+    margin-right: 2%;
+    margin-left: auto;
+    top: 47%;
+    position: sticky;
+    background-color: #dadada;
+}
+
+.scroll2:hover {
+    overflow-y: scroll;
+}
+
+.chat {
+    height: 35px;
+    border-bottom: 0.5px solid #EFEFEF;
+    padding: 16px;
+    display: flex;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.chat:hover {
+    background-color: #e2e2e2;
+    box-shadow: inset 4px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+div.profile {
+    background-color: #fafafa;
+    border: 1px solid #E8EAED;
+    font-size: 14px;
+    box-sizing: border-box;
+
+    box-shadow: inset 4px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
 div.posts {
     display: flex;
     flex-direction: column;
     margin-left: auto;
     padding-left: 3%;
     padding-right: 3%;
-    padding-top: 8%;
+    padding-top: 5%;
     border-left: 1px solid #d3d3d3;
     border-right: 1px solid #d3d3d3;
 }
