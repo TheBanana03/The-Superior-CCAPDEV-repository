@@ -206,7 +206,7 @@ img.communitypic {
     text-align: justify;
     padding-right: 3.5%;
     -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
 }
 
 .userprofilename {
@@ -232,14 +232,22 @@ img.ppp {
 }
 
 
+.chatcontainer {
+    height: 275px;
+    top: 47%;
+    width: 100%;
+    position: sticky;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+}
+
 .scroll2 {
     overflow-y:hidden;
     overflow-x: hidden;
-    height: 275px;
     width: 100%;
     margin-right: 2%;
+    height: 275px;
     margin-left: auto;
-    top: 47%;
     position: sticky;
     background-color: #dadada;
 }
