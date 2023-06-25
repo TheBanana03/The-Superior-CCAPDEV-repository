@@ -17,9 +17,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
+        <!--FontAwesome-->
+        <script src="https://kit.fontawesome.com/46a59b4762.js" crossorigin="anonymous"></script>
+
     </head>
     <body id="body">
-        <div class="nav">
+        <!--NAVBAR-->
+        <nav id="navbar" class="navbar sticky-top">
             <div class="animo">
                 <a href="hmmm.html">Animo</a>
             </div>
@@ -30,37 +34,104 @@
             <div>
                 <button id="btn-login" type="button" class="btn btn-light">Log In</button>
             </div>
-        </div>
+        </nav>
 
+        <!--HEADER-->
         <div class="header-communitypage">
-            <div class="container d-flex flex-column">
-                <img src="assets/cards/1.jpg" class="card-img-top" alt="...">
-                <div class="title-communitypage">
-                    <span>DLSU CCS Community</span>
+            <div class="container">
+                <div class="img-container">
+                    <img src="assets/cards/1.avif" alt="...">
                 </div>
-                <div class="subtitle-communitypage">
-                    <span>A Hub for DLSU Computer Science Students!</span>
+                <div class="header-communitypage-text">
+                    <div class="title-communitypage">
+                        <span>DLSU CCS Community</span>
+                    </div>
+                    <div class="subtitle-communitypage">
+                        <span>A Hub for all DLSU College of Computer Studies Students!</span>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!--MAIN BODY-->
         <div class="container mainbody-communitypage">
             <div class="row">
+
+                <!--DASHBOARD-->
                 <div class="col-md-3">
                     <div class="dashboard-container">
                         <div class="dashboard-title">
                             <span>Dashboard</span>
                         </div>
                         <div class="dashboard-content">
-                            <span>Stuffs</span>
+                            <a href="hmmm.html" class="home-button"><i class="fa-solid fa-house"></i></a>
                         </div>
                     </div>
                 </div>
+
+                <!--POSTS-->
                 <div class="col-md-6">
                     <div class="posts-container">
-    
+                        <div class = "post">
+                            <div class = "header">
+                                <img class = "pp" src = "assets/Hoshino.jpg">
+                                <div>
+                                    <div class = "user">
+                                        <a class="username" href="#">friendly_neighborhood_ojisan</a>
+                                    </div>
+                                    <div class = "location">
+                                        <div>
+                                            location
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <img class = "imgpost" src = "assets/Hoshino.jpg">
+                            </div>
+                            <div class = "footer">
+                                <div>
+                                    Liked by 
+                                    <a class = "user-handle">
+                                    --
+                                    </a>
+                                </div>
+                                <hr>
+                                <span class = "actions">
+                                    <span class = "like"></span>
+                                    <span class="actiontext">
+                                        Like
+                                    </span>
+                                    <span class = "comment_share">
+                                        <span class = "comment"></span>
+                                        <span class="commentsharetext">
+                                            Comment
+                                        </span>
+                                        <span class = "share"></span>
+                                        <span class="commentsharetext">
+                                            Share
+                                        </span>
+                                    </span>
+        
+                                </span>
+                                <hr>
+                                <div class = "desc">
+                                    <span class = "username">
+                                        friendly_neighborhood_ojisan
+                                    </span>
+                                    <span>
+                                        desc
+                                    </span>
+                                </div>
+                                <div class = "date">
+                                    date
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!--RELEVANT COMMUNITIES-->
                 <div class="col-md-3">
                     <div class="relevantcommunities-container">
                         <div class="relevantcommunities-title">
