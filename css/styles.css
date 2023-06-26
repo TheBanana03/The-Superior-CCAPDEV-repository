@@ -20,6 +20,10 @@
     box-sizing: border-box;
 }
 
+#body {
+    background-color: #eeeeee;
+}
+
 @keyframes slideInBottom {
     from {
         transform: translateY(1rem);
@@ -53,20 +57,24 @@
     background-color: #1e90ff;
 }
 
+object.fa-icon {
+    width: 0.8rem;
+    height: 0.8rem;
+    display: inline-block;
+
+    margin: 0 0.25rem 0 0.25rem;
+}
+
 /******************************************************************
 
     NAVBAR
     
 ******************************************************************/
 
-.nav {
+#navbar {
     color: white;
-
     background-color: var(--primary-color);
-
-    z-index: 10;
-    position: sticky;
-    top: 0;
+    padding: 0.25rem 0.5rem;
 
     display: flex;
     justify-content: space-between;
@@ -78,12 +86,18 @@
     animation-fill-mode: forwards;
 }
 
-.animo span {
+.animo a {
     font-family: var(--main-font);
     font-weight: 700;
     font-size: 2rem;
+    color: white;
 
     margin: 0 0 0 0.5rem;
+}
+
+.animo a:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .search-bar-small {
@@ -107,6 +121,7 @@
     background-color: transparent;
 
     min-width: 30vw;
+    max-width: 60vw;
 }
 
 .search-bar-small img.search-icon {
@@ -133,12 +148,12 @@
 
 /******************************************************************
 
-    HEADER
+    HEADER - HOMEPAGE
     
 ******************************************************************/
 
-.header {
-    min-height: 40vh;
+.header-homepage {
+    height: 16rem;
     background-color: var(--primary-color);
     display: flex;
     flex-direction: column;
@@ -148,7 +163,7 @@
     padding: 2rem;
 }
 
-.title {
+.title-homepage {
     font-family: var(--main-font);
     font-weight: 700;
     font-size: 5rem;
@@ -257,7 +272,7 @@ a.community-card:hover {
 }
 
 .card-body {
-    background-color: rgb(241, 241, 241);
+    background-color: #f8f8f8;
     display: flex;
     flex-direction: column;
 }
@@ -268,4 +283,412 @@ a.community-card:hover {
 
 .communities div div.col-md-4 {
     margin: 0 0 2rem 0;
+}
+
+/******************************************************************
+
+    HEADER - COMMUNITYPAGE
+    
+******************************************************************/
+
+.header-communitypage {
+    height: 16rem;
+    background-color: #d9d9d9;
+
+    opacity: 0;
+    animation: slideInBottom 1s ease-out 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.header-communitypage .container {
+    position: relative;
+    width: 100%;
+}
+
+.header-communitypage .container .img-container {
+    background-color: black;
+
+    height: 100%;
+    max-height: 16rem;
+    width: 100%;
+    display: block;
+}
+
+.header-communitypage .container .img-container img {
+    opacity: 0.25;
+    object-fit: cover;
+    object-position: center;
+
+    height: 100%;
+    max-height: 16rem;
+    width: 100%;
+    display: block;
+}
+
+.header-communitypage-text {
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    border: 1px solid #d9d9d9;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.title-communitypage, .subtitle-communitypage {
+    font-family: var(--main-font);
+    color: white;
+    text-align: center;
+}
+
+.title-communitypage {
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 3rem;
+}
+
+.subtitle-communitypage {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+/******************************************************************
+
+    MAIN BODY - COMMUNITYPAGE
+    
+******************************************************************/
+
+.mainbody-communitypage {
+    opacity: 0;
+    animation: slideInBottom 1s ease-out 0.6s;
+    animation-fill-mode: forwards;
+}
+
+.dashboard-container, .relevantcommunities-container {
+    background-color: #f8f8f8;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+
+    margin: 1rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboard-title, .relevantcommunities-title {
+    background-color: var(--primary-color);
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+
+    padding: 0.8rem;
+}
+
+.dashboard-content {
+    font-size: 0.8rem;
+    color: black;
+    
+    padding: 0 0.8rem;
+}
+
+.dashboard-content hr {
+    margin: 0.75rem 0;
+    color: #d8d8d8;
+}
+
+.dashboard-communitytitle {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    padding: 0;
+    margin: 0 0 0.25rem 0;
+}
+
+.dashboard-communitytags, .dashboard-communityfollowers {
+    margin: 0 0 0.25rem 0;
+}
+
+.dashboard-content-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home-button, .feed-button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: center;
+    opacity: 0.7;
+
+    width: 1.25rem;
+    height: 1.25rem;
+
+    margin: 0 0.5rem 0 0;
+}
+
+.home-button object, .feed-button object {
+    pointer-events: none;
+}
+
+a.home-button:hover, a.feed-button:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.joincommunity-btn {
+    background-color: #e8e8e8;
+    border: 1px solid #d8d8d8;
+    border-radius: 0.6rem;
+
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.joincommunity-btn:hover {
+    filter: brightness(90%);
+}
+
+.usernum-icon {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0 0 0 0;
+}
+
+.relevantcommunities-content {
+    font-size: 0.8rem;
+    color: black;
+    
+    padding: 0.8rem;
+}
+
+.relevantcommunities-content ul {
+    list-style-type: square;
+    margin: 0 0 0 1rem;
+}
+
+.relevantcommunities-content ul li {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.relevantcommunities-content ul li:nth-child(1) {
+    border-top: 1px solid #d8d8d8;
+}
+
+.relevantcommunities-content ul li a {
+    color: black;
+}
+
+.relevantcommunities-content ul li a:hover {
+    color: var(--primary-color);
+}
+
+/******************************************************************
+
+    MAIN BODY - COMMUNITYPAGE - POSTS
+
+******************************************************************/
+
+/* CREATE POST */
+
+.create-post-innercontainer {
+    background-color: #fafafa;
+    border: 1px solid #E8EAED;
+    font-size: 0.875rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.create-post-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-post-form label {
+    margin-bottom: 0.4rem;
+}
+
+.create-post-form textarea {
+    padding: 0.1rem;
+    margin-bottom: 0.7rem;
+}
+
+.create-post-form input {
+    margin-bottom: 0.4rem;
+}
+
+.create-post-form-end {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.create-post-submit-btn {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid #c8c8c8;
+}
+
+.create-post-submit-btn:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+/* DANE'S POST CSS */
+
+div.post {
+    background-color: #fafafa;
+    border: 1px solid #E8EAED;
+    font-size: 0.875rem;
+    margin: 1rem;
+}
+
+div.header {
+    border-bottom: 0.5px solid #EFEFEF;
+    padding: 0.75rem;
+    display: flex;
+}
+
+div.header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+img.pp {
+    width: 2rem;
+    height: 2rem;
+    margin: 0.3125rem;
+    border-radius: 50%;
+    background-color: #FAFAFA;
+    vertical-align: baseline;
+    border: 1px solid #EFEFEF;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+div.user {
+    display: flex;
+    flex-direction: row;
+    max-width: 240px;        
+}
+
+.username {
+    color: black;
+    font-size: inherit;
+    font-weight: 700;
+    vertical-align: baseline;
+
+    margin: 0;
+    padding: 0;
+}
+
+.username:hover {
+    color: black;
+}
+
+div.location {
+    color: #262626;
+    line-height: 15px;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+img.imgpost {
+    width: 100%;
+    height: auto;
+}
+
+div.footer {
+    padding: 0 16px;
+    padding-top: 2.5%;
+}
+
+span.actions {
+    margin-top: 4px;
+    margin-right: 0%;
+    display: flex;
+}
+
+span.actiontext {
+    margin-right: 10px;
+    margin-top: 12px;
+    margin-left: 5px;
+}
+
+span.commentsharetext {
+    margin-right: 20px;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+span.like {
+    display: inline-block;
+    background-image: url("../assets/sprites2.png");
+    background-size: 411px 393px;
+    background-position: 0px -319px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    margin: 8px 4px 8px 8px;
+}
+
+.comment_share {
+    margin-top: 8px;
+    margin-left: auto;
+    display: flex;
+}
+
+.comment {
+    display: inline-block;
+    background-image: url("../assets/sprites2.png");
+    background-size: 411px 393px;
+    background-position: -125px -294px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+.share {
+    display: inline-block;
+    background-image: url("../assets/sprites2.png");
+    background-size: 411px 393px;
+    background-position: -275px -344px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+div.desc {
+    text-align: justify;
+}
+
+a.user-handle {
+    color: #262626;
+    font-weight: 600;
+    padding-left: 5px;
+    margin-left: -5px;
+}
+
+div.date {
+    color: #999;
+    margin-bottom: 5px;
+    text-transform: uppercase; 
+    font-size: 10px;
+    letter-spacing: .2px;
+}
+
+a.link {
+    color: #003469;
 }
