@@ -519,10 +519,15 @@ a.home-button:hover, a.feed-button:hover {
 .create-post-form textarea {
     padding: 0.1rem;
     margin-bottom: 0.7rem;
+    border: 1px solid #d8d8d8;
 }
 
 .create-post-form input {
     margin-bottom: 0.4rem;
+}
+
+.create-post-form-title {
+    border: 1px solid #d8d8d8;
 }
 
 .create-post-form-end {
