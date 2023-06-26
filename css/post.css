@@ -40,7 +40,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.2s;
   animation-name: animatetop;
-  animation-duration: 0.2s
+  animation-duration: 0.2s;
 }
 
 /* Add Animation */
@@ -160,4 +160,22 @@ div.postheader {
     font-size: 14px;
     padding-top:1.5%;
     text-align: justify;
+}
+
+.commentbox {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    margin: 0.5rem 1rem;
+    padding: 1rem 0.75rem;
+}
+  
+.commentbox textarea {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    resize:none;
 }

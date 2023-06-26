@@ -38,8 +38,12 @@ body {
     font-family: var(--main-font);
     font-weight: 700;
     font-size: 2rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
     margin: 0 0 0 0.5rem;
     margin-top: 1%;
+    border: 0;
+    text-decoration: none;
 
     cursor: pointer;
 }
@@ -312,7 +316,7 @@ div.header {
     display: flex;
 }
 
-img.pp {
+.pp {
     width: 32px;
     height: 32px;
     margin-right: 5px;
@@ -334,24 +338,9 @@ div.user {
     vertical-align: baseline;
     margin: 0;
     padding: 0;
-}
-
-span.verified {
-    background-image: url("https://files.catbox.moe/0b83ph.png");
-    background-size: 410px 396px;
-    background-position: -164px -366px;
-    background-repeat: no-repeat;
-    height: 12px;
-    width: 12px;
-    margin-top: 3px;
-    margin-left: 5px;
-}
-
-a.follow {
-    border: 0;
-    color: #3897f0;
-    font-weight: 700;
-    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000000;
 }
 
 div.location {
@@ -365,6 +354,7 @@ div.location {
 
 img.imgpost {
     width: 450px;
+    cursor: pointer;
 }
 
 div.footer {
@@ -390,7 +380,24 @@ span.commentsharetext {
     margin-left: 10px;
 }
 
-span.like {
+.likecontainer {
+    height: 24px;
+    width: 24px;
+}
+
+.like {
+    display: inline-block;
+    background-image: url("../assets/sprites2.png");
+    background-size: 411px 393px;
+    background-position: -25px -319px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    margin: 8px 4px 8px 8px;
+    cursor: pointer;
+}
+
+.like .liked {
     display: inline-block;
     background-image: url("../assets/sprites2.png");
     background-size: 411px 393px;
@@ -398,7 +405,7 @@ span.like {
     background-repeat: no-repeat;
     height: 24px;
     width: 24px;
-    margin: 8px 4px 8px 8px;
+    cursor: pointer;
 }
 
 .comment_share {
@@ -415,6 +422,7 @@ span.like {
     background-repeat: no-repeat;
     height: 24px;
     width: 24px;
+    cursor: pointer;
 }
 
 .share {
@@ -425,6 +433,24 @@ span.like {
     background-repeat: no-repeat;
     height: 24px;
     width: 24px;
+    cursor: pointer;
+}
+
+.send {
+    display: inline-block;
+    background-image: url("../assets/sprites2.png");
+    background-size: 411px 393px;
+    background-position: -200px -294px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    margin-right: 12px;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.send:hover {
+    opacity: 0.5;
 }
 
 div.desc {
