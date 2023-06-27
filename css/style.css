@@ -350,6 +350,8 @@ div.location {
     margin: 0;
     padding: 0;
     border: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 img.imgpost {
