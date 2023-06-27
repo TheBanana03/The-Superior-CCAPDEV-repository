@@ -1,5 +1,908 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/post.css">
     </head>
+    <body>
+        <div class="nav">
+                <a class="animo" href="hmmm.html">
+                    Animo
+                </a>
+            <form class="search-bar-small">
+                <img class="search-icon" src="assets/icons8-search-100.png" alt="Search Icon">
+                <input type="text" placeholder="I am looking for...">
+            </form>
+            <div>
+                <button id="btn-login" type="button" class="btn btn-light" onclick="logIn()">Log In</button>
+            </div>
+        </div>
+
+
+        <div class = "page">
+
+            <div class = "lhs">
+                <div class = "lhscontainer">
+
+                    <div class="userinfo">
+                        <div class="communities">
+                          <div class="communitytext">
+                            User Profile
+                          </div>
+                        </div>
+                        <div class="profile">
+                          <div class="userdesc">
+                            <div class="userprofile">
+                              <div class="img-container">
+                                <img class="pppbig" src="assets/Inquirer.jpg">
+                              </div>
+                              <div class="new-styles">
+                                <div class="smalltext">Username</div>
+                                <div class="bigtext">Inquirer</div>
+                                <div class="smalltext">College</div>
+                                <div class="bigtext">-</div>
+                                <div class="smalltext">Course</div>
+                                <div class="bigtext">-</div>
+                                <div class="smalltext">ID</div>
+                                <div class="bigtext">-</div>                               </div>
+                            </div>
+                            <div class="userdescription">
+                              <div>
+                                Philippine Daily Inquirer
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="userdescriptioncontainer">
+                        <div class="userdescriptiontwo">
+                            The Philippine Daily Inquirer is an English-language newspaper in the Philippines. Founded in 1985, it is often regarded as the Philippines' newspaper of record.
+                        </div>
+                    </div>
+                    <div class = "communities">
+                        <span class = "communitytext">User Communities</span>
+                    </div>
+                    <div class = "scroll">
+                        <div class = "profile">
+                            <a href = "software-technology-community-page.html" class = "communitybtn">
+                                <img class = "communitypic"; src = "assets/p=np.png">
+                                <div>
+                                    <div class = "user">
+                                        <div class="userprofilename">Software Technology</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class = "profile">
+                            <a href = "community-page.html" class = "communitybtn">
+                                <img class = "communitypic"; src = "assets/overflow.png">
+                                <div>
+                                    <div class = "user">
+                                        <div class="userprofilename">College of Computer Science</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class = "profile">
+                            <a href = "music-connoisseurs-community-page.html" class = "communitybtn">
+                                <img class = "communitypic"; src = "assets/rick.png">
+                                <div>
+                                    <div class = "user">
+                                        <div class="userprofilename">Music Connoisseurs</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class = "profile">
+                            <a href ="Kana-community-page.html" class = "communitybtn">
+                                <img class = "communitypic"; src = "assets/kana.jpg">
+                                <div>
+                                    <div class = "user">
+                                        <div class="userprofilename">STALGCM S14</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class = "profile">
+                            <a href="hda.html" class = "communitybtn">
+                                <img class = "communitypic"; src = "assets/hda.png">
+                                <div>
+                                    <div class = "user">
+                                        <div class="userprofilename">Help Desk Announcements</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="posts">
+                <div class = "post">
+                    <div class = "header">
+                        <img class = "pp"; src = "assets/Inquirer.jpg">
+                        <div>
+                            <div class = "user">
+                                <a href="userpage.html" class="username">Inquirer</a>
+                                </span>
+                            </div>
+                            <div class = "location">
+                                <div>
+                                    1d
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img id ="myBtn9" class = "imgpost"; src = "assets/walangpasok.png">
+                    </div>
+                    <div class = "footer">
+                        <div>
+                            Liked by 
+                            <a class = "user-handle">
+                                Juan, Dominic Sia, and others
+                            </a>
+                        </div>
+                        <hr>
+                        <span class = "actions">
+                            <span class="like" onclick="likeThis9()">
+                                <span class="likecontainer" id="like9"></span>
+                            </span>
+                            <span class="actiontext">
+                                Like
+                            </span>
+                            <span class = "comment_share">
+                                <span id ="myBtn10" class = "comment"></span>
+                                <span  class="commentsharetext">
+                                    Comment
+                                </span>
+                                <span class = "share"></span>
+                                <span class="commentsharetext">
+                                    Share
+                                </span>
+                            </span>
+                        </span>
+                        <hr>
+                        <div class = "desc">
+                            <span>
+                                #WALANGPASOK: The following cities and province suspend classes on Tuesday, Sept. 20, due to heavy rains brought by the southwest monsoon.
+                            </span>
+                        </div>
+                        <div class = "date">
+                            6/25/2023
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="rhs">
+                <div class="userinfo">
+                    <div class = "communities">
+                        <div class ="communitytext">
+                            About You
+                        </div>
+                    </div>
+                    <div class = "profile">
+                        <div class="userdesc">
+                            <div class = "userprofile">
+                                <img class = "ppp"; src = "assets/friendly_neighborhood_ojisan.png">
+                                <div>
+                                    <div class = "user">
+                                        <div class="userprofilename">friendly_neighborhood_ojisan</div>
+                                    </div>
+                                    <div class = "location">
+                                        <div>
+                                            BS CS-ST | CCS | ID121
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "userdescription">
+                                <div>
+                                    President of the Countermeasure Council.
+                                    <br><br>
+                                    Speaking like an old man, she enjoys playing around more than work.<br>
+                                    Because of this, she's often the subject of anger from the rest of the council, but once the mission starts she protects the other members by fighting valiantly on the front lines.
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "chatcontainer">
+                    <div class = "communities">
+                        <div class ="communitytext">
+                            Your Messages
+                        </div>
+                    </div>
+                    <div class = "scroll2">
+                        <div class = "profile">
+                            <div class = "chat">
+                                <img class = "pp"; src = "assets/5mm_handcannon.png">
+                                <div>
+                                    <div class = "user">
+                                        <h2 class="username">5mm_handcannon</h2>
+                                        </span>
+                                        &nbsp;•&nbsp;&nbsp;3:03pm
+                                    </div>
+                                    <div class = "location">
+                                        <div>
+                                            Scrambled eggs, 500ml of milk, 3 tomato slices <-Breakfast
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "profile">
+                            <div class = "chat">
+                                <img class = "pp"; src = "assets/juan.jpg">
+                                <div>
+                                    <div class = "user">
+                                        <h2 class="username">Juan</h2>
+                                        </span>
+                                        &nbsp;•&nbsp;&nbsp;2:53pm
+                                    </div>
+                                    <div class = "location">
+                                        <div>
+                                            konnichiwassup lmao
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "profile">
+                            <div class = "chat">
+                                <img class = "pp"; src = "assets/sensei.png">
+                                <div>
+                                    <div class = "user">
+                                        <h2 class="username">Sensei</h2>
+                                        </span>
+                                        &nbsp;•&nbsp;&nbsp;2:34pm
+                                    </div>
+                                    <div class = "location">
+                                        <div>
+                                            This is the advantage of being an adult!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "profile">
+                            <div class = "chat">
+                                <img class = "pp"; src = "assets/vaporeon.png">
+                                <div>
+                                    <div class = "user">
+                                        <h2 class="username">:3</h2>
+                                        </span>
+                                        &nbsp;•&nbsp;&nbsp;1:07pm
+                                    </div>
+                                    <div class = "location">
+                                        <div>
+                                            :3
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "profile">
+                            <div class = "chat">
+                                <img class = "pp"; src = "assets/dom.jpg">
+                                <div>
+                                    <div class = "user">
+                                        <h2 class="username">Dominic Sia</h2>
+                                        </span>
+                                        &nbsp;•&nbsp;&nbsp;4:20am
+                                    </div>
+                                    <div class = "location">
+                                        <div>
+                                            This user has been banned.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="myModal1" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
+                <h2>friendly_neighborhood_ojisan's Post</h2>
+                <span class="closePost" id="close1">&times;</span>
+              </div>
+              <div class="modal-post-body">
+                <div class = "postmodal">
+                    <div class = "postheader">
+                        <img class = "pp"; src = "assets/friendly_neighborhood_ojisan.png">
+                        <div>
+                            <div class = "user">
+                                <a href="userpage.html" class="username">friendly_neighborhood_ojisan</a>
+                            </div>
+                                <div class = "date">
+                                    6h &nbsp;•&nbsp;&nbsp;6/26/2023
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "postdesc">
+                        <span>
+                            // FILE.004 [Abydos High School]<br><br>A formerly thriving and incredible school before desertification. Nowadays, most of its buildings have been covered in sand and ruins, leaving behind only an annex which seems to be the very last remains of the school.<br><br>Despite all the hard work and attempts on saving the school, everything seems to be on the verge of bankruptcy after spending a lot of money to stop the desertification.
+                        </span>
+                    </div>
+                    <div>
+                        <img class = "postimg"; src = "assets/Hoshino.jpg">
+                    </div>
+                    <div class = "postfooter">
+                        <div>
+                            Liked by 
+                            <a class = "user-handle">
+                            Juan, 5mm_handcannon, and others
+                            </a>
+                        </div>
+                        <hr>
+                        <span class = "actions">
+                            <span class="like" onclick="likeThis2()">
+                                <span class="likecontainer" id="like2"></span>
+                            </span>
+                            <span class="actiontext">
+                                Like
+                            </span>
+                            <span class = "comment_share">
+                                <span class = "comment"></span>
+                                <span class="commentsharetext">
+                                    Comment
+                                </span>
+                                <span class = "share"></span>
+                                <span class="commentsharetext">
+                                    Share
+                                </span>
+                            </span>
+                        </span>
+                        <hr>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-post-footer">
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        Hi hello whats up
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/vaporeon.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">:3</a>
+                        </div>
+                        Hey guys, did you know that in terms of male human and female Pokémon friendships, Vaporeon is the most compatible Pokémon for humans? Not only do they have soft pettable skin, Vaporeon are an average of 3”03’ tall and 63.9 pounds, this means they’re large enough to be hugged nicely, and with their impressive Base Stats for HP and access to Acid Armor, you can be tight and squeezy with one. Due to their mostly water based biology, there’s no doubt in my mind that a happy Vaporeon would be incredibly good at hugging, so good at hugging that you could easily have hug one for hours without getting sore. They can also learn the moves Attract, Baby-Doll Eyes, Captivate, and charm, so it’d be incredibly easy for one to get you to hug it. With their abilities Water Absorb and Hydration, they can easily recover from fatigue. No other Pokémon comes close to this level of huggability. Also, fun fact, if you hug it enough, you can make your Vaporeon turn white. Vaporeon is literally built for hugging. Ungodly defense stat+high HP pool+Acid Armor means it can take hugs all day, all shapes and sizes and still come for more
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/sprites2.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html.html" class="commentuser">afgsdtewfd</a>
+                        </div>
+                        kjasdjkaskjdbkbanswJHGDSSKJDKJQIHSKAjjasjd
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/abydos.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">Abydos High</a>
+                        </div>
+                        Please do not spam the comments section
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        Hi hello whats up
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/friendly_neighborhood_ojisan.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-friendly_neighborhood_ojisan.html" class="commentuser">friendly_neighborhood_ojisan</a>
+                        </div>
+                        :<
+                    </div>
+                </div>
+              </div>
+              <form class="commentbox">
+                <span class = "send"></span>
+                <textarea placeholder="Write a comment..."></textarea>
+            </form>
+            </div>
+          </div>
+
+          <div id="myModal2" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
+                <h2>Juan's Post</h2>
+                <span class="closePost" id="close2">&times;</span>
+              </div>
+              <div class="modal-post-body">
+                <div class = "postmodal">
+                    <div class = "postheader">
+                        <img class = "pp"; src = "assets/juan.jpg">
+                        <div>
+                            <div class = "user">
+                                <a href="userpage.html" class="username">Juan</a>
+                            </div>
+                                <div class = "date">
+                                    8h &nbsp;•&nbsp;&nbsp;6/26/2023
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "postdesc">
+                        <span>
+                            Throughout my academic journey, I have developed a solid foundation in computer science principles, programming languages, and software development methodologies. With a passion for problem-solving and a keen eye for detail, I enjoy exploring innovative solutions to complex challenges.
+                            As a dedicated learner, I am always eager to stay up-to-date with the latest industry trends and emerging technologies. I believe that continuous learning is crucial in this field, and I actively seek opportunities to expand my knowledge and enhance my skill set.                            </span>
+                    </span>
+                    </div>
+                    <div>
+                        <img class = "postimg"; src = "assets/yayjuan.jpg">
+                    </div>
+                    <div class = "postfooter">
+                        <div>
+                            Liked by 
+                            <a class = "user-handle">
+                            Juan and Dominic Sia
+                            </a>
+                        </div>
+                        <hr>
+                        <span class = "actions">
+                            <span class="like" onclick="likeThis4()">
+                                <span class="likecontainer" id="like4"></span>
+                            </span>
+                            <span class="actiontext">
+                                Like
+                            </span>
+                            <span class = "comment_share">
+                                <span class = "comment"></span>
+                                <span class="commentsharetext">
+                                    Comment
+                                </span>
+                                <span class = "share"></span>
+                                <span class="commentsharetext">
+                                    Share
+                                </span>
+                            </span>
+                        </span>
+                        <hr>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-post-footer">
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/dom.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        Congratulations aaaaaaaaaa
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/vaporeon.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">:3</a>
+                        </div>
+                        Congrats!!
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/sensei.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">afgsdtewfd</a>
+                        </div>
+                        I am so proud of you, Juan!
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        Thank you!!
+                    </div>
+                </div>
+              </div>
+              <form class="commentbox">
+                <span class = "send"></span>
+                <textarea placeholder="Write a comment..."></textarea>
+            </form>
+            </div>
+          </div>
+
+
+          <div id="myModal3" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
+                <h2>HikariSuga's Post</h2>
+                <span class="closePost" id="close3">&times;</span>
+              </div>
+              <div class="modal-post-body">
+                <div class = "postmodal">
+                    <div class = "postheader">
+                        <img class = "pp"; src = "assets/hikari-newOutfit.png">
+                        <div>
+                            <div class = "user">
+                                <a href="userpage.html" class="username">HikariSuga</a>
+                            </div>
+                                <div class = "date">
+                                    10h &nbsp;•&nbsp;&nbsp;6/25/2023
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "postdesc">
+                        <span>
+                            Revive me Jett !! Surely your cloudbursts can heal me- xD<br><br>
+
+                            Last Valorant stream of the term, will I be able to get back the rank I deserve? Find out and stay tuned~
+                            <br><br>
+                            Stream Link: https://tinyurl.com/ProjectHikari2023<br>
+                            Date: July 1, 2023 at 7:00PM - 9:00PM                            </span>
+                    </div>
+                    <div>
+                        <img class = "postimg"; src = "assets/Hikari Valorant.PNG">
+                    </div>
+                    <div class = "postfooter">
+                        <div>
+                            Liked by 
+                            <a class = "user-handle">
+                            Juan, AkaruSuga, and others
+                            </a>
+                        </div>
+                        <hr>
+                        <span class = "actions">
+                            <span class="like" onclick="likeThis6()">
+                                <span class="likecontainer" id="like6"></span>
+                            </span>
+                            <span class="actiontext">
+                                Like
+                            </span>
+                            <span class = "comment_share">
+                                <span class = "comment"></span>
+                                <span class="commentsharetext">
+                                    Comment
+                                </span>
+                                <span class = "share"></span>
+                                <span class="commentsharetext">
+                                    Share
+                                </span>
+                            </span>
+                        </span>
+                        <hr>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-post-footer">
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/akaru_chibi.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">AkaruSuga</a>
+                        </div>
+                        lol skill issue
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/vaporeon.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">:3</a>
+                        </div>
+                    good luck :3
+                </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        Juan was here
+                    </div>
+                </div>
+              </div>
+              <form class="commentbox">
+                <span class = "send"></span>
+                <textarea placeholder="Write a comment..."></textarea>
+            </form>
+            </div>
+          </div>
+
+
+
+          <div id="myModal4" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
+                Dominic Sia's Post
+                <span class="closePost" id="close4">&times;</span>
+              </div>
+              <div class="modal-post-body">
+                <div class = "postmodal">
+                    <div class = "postheader">
+                        <img class = "pp"; src = "assets/dom.jpg">
+                        <div>
+                            <div class = "user">
+                                <a href="userpage.html" class="username">Dominic Sia</a>
+                            </div>
+                                <div class = "date">
+                                    17h &nbsp;•&nbsp;&nbsp;6/25/2023
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "postdesc">
+                        <span>
+                            Hey guys how do I make my website look better <br><br>
+                            Any suggestions are appreciated! Thank you!!
+                        </span>
+                    </div>
+                    <div>
+                        <img class = "postimg"; src = "assets/tutorial.png">
+                    </div>
+                    <div class = "postfooter">
+                        <div>
+                            Liked by 
+                            <a class = "user-handle">
+                            Juan, Sensei, and others
+                            </a>
+                        </div>
+                        <hr>
+                        <span class = "actions">
+                            <span class="like" onclick="likeThis8()">
+                                <span class="likecontainer" id="like8"></span>
+                            </span>
+                            <span class="actiontext">
+                                Like
+                            </span>
+                            <span class = "comment_share">
+                                <span class = "comment"></span>
+                                <span class="commentsharetext">
+                                    Comment
+                                </span>
+                                <span class = "share"></span>
+                                <span class="commentsharetext">
+                                    Share
+                                </span>
+                            </span>
+                        </span>
+                        <hr>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-post-footer">
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        Ayo?? isnt that me??
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/vaporeon.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">:3</a>
+                        </div>
+                        you're imagining things
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/dom.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">Dominic Sia</a>
+                        </div>
+                        yup yup mhm
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        ur cringe
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/friendly_neighborhood_ojisan.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile_friendly_neighborhood_ojisan.html" class="commentuser">friendly_neighborhood_ojisan</a>
+                        </div>
+                        what is happening here
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        I will sue all of you D:<
+                    </div>
+                </div>
+              </div>
+              <form class="commentbox">
+                <span class = "send"></span>
+                <textarea placeholder="Write a comment..."></textarea>
+            </form>
+            </div>
+          </div>
+
+
+
+          <div id="myModal5" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
+                <h2>Inquirer's Post</h2>
+                <span class="closePost" id="close5">&times;</span>
+              </div>
+              <div class="modal-post-body">
+                <div class = "postmodal">
+                    <div class = "postheader">
+                        <img class = "pp"; src = "assets/Inquirer.jpg">
+                        <div>
+                            <div class = "user">
+                                <a href="user-profile-inquirer.html" class="username">Inquirer</a>
+                            </div>
+                                <div class = "date">
+                                    24h &nbsp;•&nbsp;&nbsp;6/25/2023
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "postdesc">
+                        <span>
+                            #WALANGPASOK: The following cities and province suspend classes on Tuesday, Sept. 20, due to heavy rains brought by the southwest monsoon.
+                        </span>
+                    </div>
+                    <div>
+                        <img class = "postimg"; src = "assets/walangpasok.png">
+                    </div>
+                    <div class = "postfooter">
+                        <div>
+                            Liked by 
+                            <a class = "user-handle">
+                            Juan, Dominic Sia, and others
+                            </a>
+                        </div>
+                        <hr>
+                        <span class = "actions">
+                            <span class="like" onclick="likeThis10()">
+                                <span class="likecontainer" id="like10"></span>
+                            </span>
+                            <span class="actiontext">
+                                Like
+                            </span>
+                            <span class = "comment_share">
+                                <span class = "comment"></span>
+                                <span class="commentsharetext">
+                                    Comment
+                                </span>
+                                <span class = "share"></span>
+                                <span class="commentsharetext">
+                                    Share
+                                </span>
+                            </span>
+                        </span>
+                        <hr>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-post-footer">
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-juan.html" class="commentuser">Juan</a>
+                        </div>
+                        Woah no pasok
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/vaporeon.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">:3</a>
+                        </div>
+                        :0
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/5mm_handcannon.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">5mm_handcannon</a>
+                        </div>
+                        heh
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/dom.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">Dominic Sia</a>
+                        </div>
+                        aaaaaaaaa THANK YOU THANK YOU HJSJSJHSDJS
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/sensei.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">Sensei</a>
+                        </div>
+                        Don't forget to pass your MCO, though
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/friendly_neighborhood_ojisan.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile_friendly_neighborhood_ojisan.html" class="commentuser">friendly_neighborhood_ojisan</a>
+                        </div>
+                        :<
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/hikari-newOutfit.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="user-profile-hikari.html" class="commentuser">HikariSuga</a>
+                        </div>
+                        yoooo lets gooo
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/akaru_chibi.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="dombanned D=.html" class="commentuser">AkaruSuga</a>
+                        </div>
+                        :eyes:
+                    </div>
+                </div>
+              </div>
+              <form class="commentbox">
+                <span class = "send"></span>
+                <textarea placeholder="Write a comment..."></textarea>
+            </form>
+            </div>
+          </div>
+
+    </body>
+
+    <script src="js/modal.js"></script>
+    <script src="js/modal2.js"></script>
+    <script src="js/modal3.js"></script>
+    <script src="js/modal4.js"></script>
+    <script src ="js/modal5.js"></script>
+    <script src ="js/modal6.js"></script>
+    <script src="js/modal7.js"></script>
+    <script src ="js/modal8.js"></script>
+    <script src ="js/modal9.js"></script>
+    <script src ="js/modal10.js"></script>
+    <script src="js/like.js"></script>
 </html>
