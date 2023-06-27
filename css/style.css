@@ -489,11 +489,17 @@ a.link {
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   
   .smalltext {
     font-size: 12px;
     color: #808080;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .bigtext {
@@ -504,6 +510,9 @@ a.link {
     color: #000000;
     text-align: left;
     margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   img.pppbig {
