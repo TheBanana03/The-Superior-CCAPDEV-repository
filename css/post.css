@@ -12,8 +12,8 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
+.modal-post {
+  display: none;/* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
@@ -28,7 +28,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* Modal Content */
-.modal-content {
+.modal-post-content {
   position: relative;
   background-color: #fafafa;
   margin: auto;
@@ -55,7 +55,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* The Close Button */
-.close {
+.closePost {
   color: #ffffff;
   margin-left: auto;
   margin-top: auto;
@@ -65,21 +65,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
   align-items: center;
 }
 
-.close:hover,
-.close:focus {
+.closePost:hover,
+.closePost:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
-.modal-header {
+.modal-post-header {
   padding: 2px 16px;
   background-color: var(--primary-color);
   color: #ffffff;
   display: flex;
+  font-size: 12px;
 }
 
-.modal-body {
+.modal-post-body {
     display: flex;
     align-items: center;
 }
@@ -112,7 +113,7 @@ div.postheader {
     background-color: #fafafa;
 }
 
-.modal-footer {
+.modal-post-footer {
   padding: 16px;
   padding-top: 0;
   height: 300px;

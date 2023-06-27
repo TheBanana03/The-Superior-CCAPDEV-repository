@@ -14,7 +14,7 @@
                 <input type="text" placeholder="I am looking for...">
             </form>
             <div>
-                <button id="btn-login" type="button" class="btn btn-light">Log In</button>
+                <button id="btn-login" type="button" class="btn btn-light" onclick="logIn()">Log In</button>
             </div>
         </div>
 
@@ -38,14 +38,14 @@
                             </div>
                         </div>
                         <div class = "profile">
-                            <div class = "communitybtn">
+                            <a href = "community-page.html" class = "communitybtn">
                                 <img class = "communitypic"; src = "assets/overflow.png">
                                 <div>
                                     <div class = "user">
                                         <div class="userprofilename">College of Computer Science</div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class = "profile">
                             <div class = "communitybtn">
@@ -501,13 +501,13 @@
         </div>
 
 
-        <div id="myModal1" class="modal">
-            <div class="modal-content">
-              <div class="modal-header">
+        <div id="myModal1" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
                 <h2>friendly_neighborhood_ojisan's Post</h2>
-                <span class="close" id="close1">&times;</span>
+                <span class="closePost" id="close1">&times;</span>
               </div>
-              <div class="modal-body">
+              <div class="modal-post-body">
                 <div class = "postmodal">
                     <div class = "postheader">
                         <img class = "pp"; src = "assets/friendly_neighborhood_ojisan.png">
@@ -558,7 +558,7 @@
                     </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div class="modal-post-footer">
                 <div class = "commentcontainer">
                     <img class = "pp" src="assets/juan.jpg">
                     <div class = "modalcomment">
@@ -621,13 +621,13 @@
             </div>
           </div>
 
-          <div id="myModal2" class="modal">
-            <div class="modal-content">
-              <div class="modal-header">
+          <div id="myModal2" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
                 <h2>Juan's Post</h2>
-                <span class="close" id="close2">&times;</span>
+                <span class="closePost" id="close2">&times;</span>
               </div>
-              <div class="modal-body">
+              <div class="modal-post-body">
                 <div class = "postmodal">
                     <div class = "postheader">
                         <img class = "pp"; src = "assets/juan.jpg">
@@ -679,7 +679,7 @@
                     </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div class="modal-post-footer">
                 <div class = "commentcontainer">
                     <img class = "pp" src="assets/dom.jpg">
                     <div class = "modalcomment">
@@ -725,13 +725,13 @@
           </div>
 
 
-          <div id="myModal3" class="modal">
-            <div class="modal-content">
-              <div class="modal-header">
+          <div id="myModal3" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
                 <h2>HikariSuga's Post</h2>
-                <span class="close" id="close3">&times;</span>
+                <span class="closePost" id="close3">&times;</span>
               </div>
-              <div class="modal-body">
+              <div class="modal-post-body">
                 <div class = "postmodal">
                     <div class = "postheader">
                         <img class = "pp"; src = "assets/hikari-newOutfit.png">
@@ -786,7 +786,7 @@
                     </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div class="modal-post-footer">
                 <div class = "commentcontainer">
                     <img class = "pp" src="assets/akaru_chibi.png">
                     <div class = "modalcomment">
@@ -824,13 +824,13 @@
 
 
 
-          <div id="myModal4" class="modal">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2>Dominic Sia's Post</h2>
-                <span class="close" id="close4">&times;</span>
+          <div id="myModal4" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
+                Dominic Sia's Post
+                <span class="closePost" id="close4">&times;</span>
               </div>
-              <div class="modal-body">
+              <div class="modal-post-body">
                 <div class = "postmodal">
                     <div class = "postheader">
                         <img class = "pp"; src = "assets/dom.jpg">
@@ -882,7 +882,7 @@
                     </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div class="modal-post-footer">
                 <div class = "commentcontainer">
                     <img class = "pp" src="assets/juan.jpg">
                     <div class = "modalcomment">
@@ -907,7 +907,7 @@
                         <div class = "user">
                             <a href="userpage.html" class="commentuser">Dominic Sia</a>
                         </div>
-                        yeah yeah totally, nothing to see here, Juan
+                        yup yup mhm
                     </div>
                 </div>
                 <div class = "commentcontainer">
@@ -947,13 +947,13 @@
 
 
 
-          <div id="myModal5" class="modal">
-            <div class="modal-content">
-              <div class="modal-header">
+          <div id="myModal5" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
                 <h2>Inquirer's Post</h2>
-                <span class="close" id="close5">&times;</span>
+                <span class="closePost" id="close5">&times;</span>
               </div>
-              <div class="modal-body">
+              <div class="modal-post-body">
                 <div class = "postmodal">
                     <div class = "postheader">
                         <img class = "pp"; src = "assets/Inquirer.jpg">
@@ -1004,7 +1004,7 @@
                     </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div class="modal-post-footer">
                 <div class = "commentcontainer">
                     <img class = "pp" src="assets/juan.jpg">
                     <div class = "modalcomment">

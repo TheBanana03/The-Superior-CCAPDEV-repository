@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!---->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -9,9 +10,7 @@
     
         <!--CSS-->
         <link rel="stylesheet" href="css/styles.css">
-        
-        <!--JS-->
-        <script src="js/scripts.js"></script>
+        <link rel="stylesheet" href="css/post.css">
 
         <!--Bootstrap-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -29,7 +28,7 @@
                 <input type="text" placeholder="I am looking for...">
             </form>
             <div>
-                <button id="btn-login" type="button" class="btn btn-light">Log In</button>
+                <button id="btn-login" type="button" class="btn btn-light" onclick="logIn()">Log In</button>
             </div>
         </nav>
 
@@ -116,66 +115,118 @@
                         </div>
                     </div>
 
-                    <div class="posts-container">
-                        <div class = "post">
-                            <div class = "header">
-                                <img class = "pp" src = "assets/Hoshino.jpg">
-                                <div>
-                                    <div class = "user">
-                                        <a class="username" href="#">friendly_neighborhood_ojisan</a>
-                                    </div>
-                                    <div class = "location">
-                                        <div>
-                                            location
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class = "post">
+                        <div class = "header">
+                            <img class = "pp"; src = "assets/friendly_neighborhood_ojisan.png">
                             <div>
-                                <img class = "imgpost" src = "assets/Hoshino.jpg">
+                                <div class = "user">
+                                    <a href="userpage.html" class="username">friendly_neighborhood_ojisan</a>
+                                    </span>
+                                </div>
+                                <div class = "location">
+                                    <div>
+                                        6h
+                                    </div>
+                                </div>
                             </div>
-                            <div class = "footer">
-                                <div>
-                                    Liked by 
-                                    <a class = "user-handle">
-                                    --
-                                    </a>
-                                </div>
-                                <hr>
-                                <span class = "actions">
-                                    <span class = "like"></span>
-                                    <span class="actiontext">
-                                        Like
-                                    </span>
-                                    <span class = "comment_share">
-                                        <span class = "comment"></span>
-                                        <span class="commentsharetext">
-                                            Comment
-                                        </span>
-                                        <span class = "share"></span>
-                                        <span class="commentsharetext">
-                                            Share
-                                        </span>
-                                    </span>
-        
+                        </div>
+                        <div>
+                            <img id ="myButton" class = "imgpost"; src = "assets/Hoshino.jpg">
+                        </div>
+                        <div class = "footer">
+                            <div>
+                                Liked by 
+                                <a class = "user-handle">
+                                    Juan, 5mm_handcannon, and others
+                                </a>
+                            </div>
+                            <hr>
+                            <span class = "actions">
+                                <span class="like" onclick="likeThis()">
+                                    <span class="likecontainer" id="like"></span>
                                 </span>
-                                <hr>
-                                <div class = "desc">
-                                    <span class = "username">
-                                        friendly_neighborhood_ojisan
+                                <span class="actiontext">
+                                    Like
+                                </span>
+                                <span class = "comment_share">
+                                    <span id ="myBtn2" class = "comment"></span>
+                                    <span  class="commentsharetext">
+                                        Comment
                                     </span>
-                                    <span>
-                                        desc
+                                    <span class = "share"></span>
+                                    <span class="commentsharetext">
+                                        Share
+                                    </span>
+                                </span>
+                            </span>
+                            <hr>
+                            <div class = "desc">
+                                <span>
+                                    // FILE.004 [Abydos High School]<br><br>A formerly thriving and incredible school before desertification. Nowadays, most of its buildings have been covered in sand and ruins, leaving behind only an annex which seems to be the very last remains of the school.<br><br>Despite all the hard work and attempts on saving the school, everything seems to be on the verge of bankruptcy after spending a lot of money to stop the desertification.
+                                </span>
+                            </div>
+                            <div class = "date">
+                                6/26/2023
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "post">
+                        <div class = "header">
+                            <img class = "pp"; src = "assets/dom.jpg">
+                            <div>
+                                <div class = "user">
+                                    <a href="userpage.html" class="username">Dominic Sia</a>
                                     </span>
                                 </div>
-                                <div class = "date">
-                                    date
+                                <div class = "location">
+                                    <div>
+                                        17h
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img id ="myBtn7" class = "imgpost"; src = "assets/tutorial.png">
+                        </div>
+                        <div class = "footer">
+                            <div>
+                                Liked by 
+                                <a class = "user-handle">
+                                    Juan, Sensei, and others
+                                </a>
+                            </div>
+                            <hr>
+                            <span class = "actions">
+                                <span class="like" onclick="likeThis7()">
+                                    <span class="likecontainer" id="like7"></span>
+                                </span>
+                                <span class="actiontext">
+                                    Like
+                                </span>
+                                <span class = "comment_share">
+                                    <span id ="myBtn8" class = "comment"></span>
+                                    <span  class="commentsharetext">
+                                        Comment
+                                    </span>
+                                    <span class = "share"></span>
+                                    <span class="commentsharetext">
+                                        Share
+                                    </span>
+                                </span>
+                            </span>
+                            <hr>
+                            <div class = "desc">
+                                <span>
+                                    Hey guys how do I make my website look better <br><br>
+                                    Any suggestions are appreciated! Thank you!!
+                                </span>
+                            </div>
+                            <div class = "date">
+                                6/25/2023
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!--RELEVANT COMMUNITIES-->
                 <div class="col-md-3">
                     <div class="relevantcommunities-container">
@@ -212,5 +263,252 @@
             </div>
         </div>
 
+        <!--MODALS-->
+        <div id="myModal1" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
+                <h2>friendly_neighborhood_ojisan's Post</h2>
+                <span class="closePost" id="close1">&times;</span>
+              </div>
+              <div class="modal-post-body">
+                <div class = "postmodal">
+                    <div class = "postheader">
+                        <img class = "pp"; src = "assets/friendly_neighborhood_ojisan.png">
+                        <div>
+                            <div class = "user">
+                                <a href="userpage.html" class="username">friendly_neighborhood_ojisan</a>
+                            </div>
+                                <div class = "date">
+                                    6h &nbsp;•&nbsp;&nbsp;6/26/2023
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "postdesc">
+                        <span>
+                            // FILE.004 [Abydos High School]<br><br>A formerly thriving and incredible school before desertification. Nowadays, most of its buildings have been covered in sand and ruins, leaving behind only an annex which seems to be the very last remains of the school.<br><br>Despite all the hard work and attempts on saving the school, everything seems to be on the verge of bankruptcy after spending a lot of money to stop the desertification.
+                        </span>
+                    </div>
+                    <div>
+                        <img class = "postimg"; src = "assets/Hoshino.jpg">
+                    </div>
+                    <div class = "postfooter">
+                        <div>
+                            Liked by 
+                            <a class = "user-handle">
+                            Juan, 5mm_handcannon, and others
+                            </a>
+                        </div>
+                        <hr>
+                        <span class = "actions">
+                            <span class="like" onclick="likeThis2()">
+                                <span class="likecontainer" id="like2"></span>
+                            </span>
+                            <span class="actiontext">
+                                Like
+                            </span>
+                            <span class = "comment_share">
+                                <span class = "comment"></span>
+                                <span class="commentsharetext">
+                                    Comment
+                                </span>
+                                <span class = "share"></span>
+                                <span class="commentsharetext">
+                                    Share
+                                </span>
+                            </span>
+                        </span>
+                        <hr>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-post-footer">
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">Juan</a>
+                        </div>
+                        Hi hello whats up
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/vaporeon.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">:3</a>
+                        </div>
+                        Hey guys, did you know that in terms of male human and female Pokémon friendships, Vaporeon is the most compatible Pokémon for humans? Not only do they have soft pettable skin, Vaporeon are an average of 3”03’ tall and 63.9 pounds, this means they’re large enough to be hugged nicely, and with their impressive Base Stats for HP and access to Acid Armor, you can be tight and squeezy with one. Due to their mostly water based biology, there’s no doubt in my mind that a happy Vaporeon would be incredibly good at hugging, so good at hugging that you could easily have hug one for hours without getting sore. They can also learn the moves Attract, Baby-Doll Eyes, Captivate, and charm, so it’d be incredibly easy for one to get you to hug it. With their abilities Water Absorb and Hydration, they can easily recover from fatigue. No other Pokémon comes close to this level of huggability. Also, fun fact, if you hug it enough, you can make your Vaporeon turn white. Vaporeon is literally built for hugging. Ungodly defense stat+high HP pool+Acid Armor means it can take hugs all day, all shapes and sizes and still come for more
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/sprites2.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">afgsdtewfd</a>
+                        </div>
+                        kjasdjkaskjdbkbanswJHGDSSKJDKJQIHSKAjjasjd
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/abydos.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">Abydos High</a>
+                        </div>
+                        Please do not spam the comments section
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">Juan</a>
+                        </div>
+                        Hi hello whats up
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/friendly_neighborhood_ojisan.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">friendly_neighborhood_ojisan</a>
+                        </div>
+                        :<
+                    </div>
+                </div>
+              </div>
+              <form class="commentbox">
+                <span class = "send"></span>
+                <textarea placeholder="Write a comment..."></textarea>
+            </form>
+            </div>
+          </div>
+
+          <div id="myModal4" class="modal-post">
+            <div class="modal-post-content">
+              <div class="modal-post-header">
+                <h2>Dominic Sia's Post</h2>
+                <span class="closePost" id="close4">&times;</span>
+              </div>
+              <div class="modal-post-body">
+                <div class = "postmodal">
+                    <div class = "postheader">
+                        <img class = "pp"; src = "assets/dom.jpg">
+                        <div>
+                            <div class = "user">
+                                <a href="userpage.html" class="username">Dominic Sia</a>
+                            </div>
+                                <div class = "date">
+                                    17h &nbsp;•&nbsp;&nbsp;6/25/2023
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "postdesc">
+                        <span>
+                            Hey guys how do I make my website look better <br><br>
+                            Any suggestions are appreciated! Thank you!!
+                        </span>
+                    </div>
+                    <div>
+                        <img class = "postimg"; src = "assets/tutorial.png">
+                    </div>
+                    <div class = "postfooter">
+                        <div>
+                            Liked by 
+                            <a class = "user-handle">
+                            Juan, Sensei, and others
+                            </a>
+                        </div>
+                        <hr>
+                        <span class = "actions">
+                            <span class="like" onclick="likeThis8()">
+                                <span class="likecontainer" id="like8"></span>
+                            </span>
+                            <span class="actiontext">
+                                Like
+                            </span>
+                            <span class = "comment_share">
+                                <span class = "comment"></span>
+                                <span class="commentsharetext">
+                                    Comment
+                                </span>
+                                <span class = "share"></span>
+                                <span class="commentsharetext">
+                                    Share
+                                </span>
+                            </span>
+                        </span>
+                        <hr>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-post-footer">
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">Juan</a>
+                        </div>
+                        Ayo?? isnt that me??
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/vaporeon.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">:3</a>
+                        </div>
+                        you're imagining things
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/dom.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">Dominic Sia</a>
+                        </div>
+                        yup yup mhm
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">Juan</a>
+                        </div>
+                        ur cringe
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/friendly_neighborhood_ojisan.png">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">friendly_neighborhood_ojisan</a>
+                        </div>
+                        what is happening here
+                    </div>
+                </div>
+                <div class = "commentcontainer">
+                    <img class = "pp" src="assets/juan.jpg">
+                    <div class = "modalcomment">
+                        <div class = "user">
+                            <a href="userpage.html" class="commentuser">Juan</a>
+                        </div>
+                        I will sue all of you D:<
+                    </div>
+                </div>
+              </div>
+              <form class="commentbox">
+                <span class = "send"></span>
+                <textarea placeholder="Write a comment..."></textarea>
+            </form>
+            </div>
+          </div>
     </body>
+
+    <script src="js/like.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/modal2.js"></script>
+    <script src="js/modal7.js"></script>
+    <script src="js/modal8.js"></script>
 </html>

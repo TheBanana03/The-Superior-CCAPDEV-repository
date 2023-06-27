@@ -58,3 +58,15 @@ function likeThis10() {
     var like10 = document.getElementById("like10");
     like10.classList.toggle("liked");
 }
+
+function goToHome() {
+    var input = document.getElementById("username");
+    var input2 = document.getElementById("password");
+    if(input.value != "" && input2.value != "") {
+            window.location.href="home.html";
+      }
+  }
+
+  function logIn() {
+    window.location.href="login.html";
+  }
