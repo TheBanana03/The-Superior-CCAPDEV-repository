@@ -420,7 +420,7 @@ a.community-card:hover {
     align-items: center;
 }
 
-.home-button, .feed-button {
+.dashboard-button {
     display: inline-block;
     text-align: center;
     vertical-align: center;
@@ -432,11 +432,11 @@ a.community-card:hover {
     margin: 0 0.5rem 0 0;
 }
 
-.home-button object, .feed-button object {
+.dashboard-button object {
     pointer-events: none;
 }
 
-a.home-button:hover, a.feed-button:hover {
+a.dashboard-button:hover {
     cursor: pointer;
     opacity: 1;
 }
