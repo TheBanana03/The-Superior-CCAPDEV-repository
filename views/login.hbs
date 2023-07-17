@@ -1,0 +1,43 @@
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="static/css/login-style.css">
+
+<!--HTML-->
+<div class="container">
+  <a href="/" id="close-button"><</a>
+
+  <h2>Animo</h2>
+  <hr>
+  <div class="card">
+    <h3>Log In</h3>
+
+    <!--LOGIN FORM-->
+    <form id="login" method="POST" action="/login">
+
+      <!--USERNAME-->
+      <div class="input-group">
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+
+      <!--PASSWORD-->
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <!--REMEMBER ME-->
+      <input type="checkbox" id="remember" name="remember">
+      <label for="remember">Remember Me</label>
+
+      <!--LOGIN BUTTON-->
+      <input type="submit" class="btn" value="Login">
+
+      <!--ERROR MESSAGE-->
+      <p id="error-message">{{ error }}</p>
+      
+    </form>
+  </div>
+  <hr>
+
+  <!--SIGN UP REDIRECT-->
+  <p class="p-signup">Don't have an account?</p>
+  <a href="signup" class="btn-signup">Sign Up </a>
+</div>

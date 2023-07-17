@@ -1,0 +1,50 @@
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="static/css/signup-style.css">
+
+<!--HTML-->
+<div class="container">
+  <a href="/" id="close-button"><</a>
+
+  <h2>Animo</h2>
+  <hr>
+  <div class="card">
+    <h3>Sign Up</h3>
+
+    <!--SIGN UP FORM-->
+    <form id="signup" method="POST" action="/signup">
+
+      <!--USERNAME-->
+      <div class="input-group">
+        <input type="text" id="username" name="username" placeholder="Enter your username" value="" required>
+      </div>
+      <br>
+
+      <!--EMAIL-->
+      <div class="input-group">
+        <input type="email" id="email" name="email" placeholder="Enter your email" value="" required>
+      </div>
+      <div class="input-group">
+        <input type="email" id="confirm-email" name="confirm-email" placeholder="Confirm your email" required>
+      </div>
+      <br>
+
+      <!--PASSWORD-->
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+      </div>
+
+      <!--SIGN UP BUTTON-->
+      <input type="submit" class="btn" value="Sign Up"/>
+
+      <!--ERROR MESSAGE-->
+      <p id="error-message">{{ error }}</p>
+      
+    </form>
+  </div>
+  <hr>
+  <p class="p-login">Already have an account?</p>
+  <a href="login" class="btn-login">Log In</a>
+</div>
