@@ -27,11 +27,11 @@ router
             //console.log("NEW USER: ", newUser);
             res.redirect('/');
 
-        } catch {
+        } catch (err) {
             res.render('signup', {
                 title: 'Animo Signup',
                 user: user,
-                error: 'Error Creating User'
+                error: err
             });
         }
     });

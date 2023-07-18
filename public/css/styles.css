@@ -105,6 +105,8 @@ object.fa-icon {
 
     margin: 0.5rem 1rem;
     padding: 0.25rem 0.75rem;
+    min-width: 30vw;
+    max-width: 60vw;
 
     opacity: 0;
     animation: slideInBottom 1s ease-out 0.45s;
@@ -118,6 +120,7 @@ object.fa-icon {
 
     min-width: 30vw;
     max-width: 60vw;
+    padding: 0rem 0rem 0rem 1rem;
 }
 
 .search-bar-small img.search-icon {

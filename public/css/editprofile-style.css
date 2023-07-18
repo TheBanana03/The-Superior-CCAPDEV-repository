@@ -1,21 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
-body {
+.edit-profile-main-div {
   font-family: 'Inter', sans-serif;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .container {
+  font-family: 'Inter', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 40%;
+  min-width: 40%;
 }
 
 .profile-container {
@@ -27,7 +29,6 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .buttons-container {
@@ -89,7 +90,8 @@ label {
 input {
   padding: 8px;
   border-radius: 100px;
-  border: 3px solid lightgray;
+  /* border: 3px solid lightgray; */
+  border: 3px solid white;
   margin-bottom: 15px;
 }
 
@@ -101,7 +103,7 @@ select {
   width: 100%;
   padding: 8px;
   border-radius: 100px;
-  border: 3px solid lightgray;
+  border: 3px solid white;
   margin-bottom: 15px;
   box-sizing: border-box;
 }
@@ -122,7 +124,7 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-input[type="reset"] {
+a.ep-reset-button {
   display: block;
   width: 50%;
   padding: 8px;
@@ -135,10 +137,19 @@ input[type="reset"] {
   margin-right: 30px;
 }
 
-input[type="reset"]:hover {
+a.ep-reset-button:hover {
   background-color: rgb(98, 98, 98);
+  text-decoration: none;
+  color: white;
 }
 
 .search-bar-small input[type="text"]{
   margin-bottom: 0px;
+}
+
+#error-message {
+  text-align: center;
+  color: red;
+  font-family: sans-serif;
+  font-size: 14px;
 }

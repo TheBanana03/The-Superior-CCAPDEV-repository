@@ -22,10 +22,33 @@ app.use(session({
 }));
 
 /* HANDLEBARS */
-app.engine("hbs", exphbs.engine({
-    extname: 'hbs'
-}));
-app.set("view engine", "hbs");
+const hbs = exphbs.create({
+    extname: 'hbs',
+    helpers: {
+        when: function (operand_1, operator, operand_2, options) {
+            let operators = {
+            'eq': (l, r) => l == r,
+            'noteq': (l, r) => l != r,
+            'gt': (l, r) => (+l) > (+r),
+            'gteq': (l, r) => ((+l) > (+r)) || (l == r),
+            'lt': (l, r) => (+l) < (+r),
+            'lteq': (l, r) => ((+l) < (+r)) || (l == r),
+            'or': (l, r) => l || r,
+            'and': (l, r) => l && r,
+            '%': (l, r) => (l % r) === 0
+            };
+
+            let result = operators[operator](operand_1, operand_2);
+            if (result) {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
+            }
+        }
+    }
+});
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
 
 /* MONGOOSE/MONGODB */
 mongoose.connect(process.env.DATABASE_URL)
@@ -58,6 +81,10 @@ app.use('/signup', signupRouter);
 /* LOGOUT ROUTE */
 const logoutRouter = require('./routes/logout');
 app.use('/logout', logoutRouter);
+
+/* EDIT PROFILE ROUTE */
+const editprofileRouter = require('./routes/editprofile');
+app.use('/editprofile', editprofileRouter);
 
 /* RUN SERVER */
 app.listen(process.env.PORT || 3000, () => console.log("Server running on port http://localhost:3000"));

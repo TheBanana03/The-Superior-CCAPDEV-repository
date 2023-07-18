@@ -11,46 +11,30 @@
 <!--HTML-->
 <!--NAVBAR-->
 <nav id="navbar" class="navbar sticky-top">
+
     <div class="animo">
         <a href="/">A</a>
     </div>
 
-    <!--This should change when user is logged in-->
     <div class="nav-user">
-
         {{#if user}}
             <div class="dropdown">
                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/static/assets/{{user.username}}.jpg" id="nav-user-icon">
+                    {{#if user.username}}
+                        <img src="/static/assets/default.jpg" id="nav-user-icon">
+                    {{else}}
+                        <img src="{{user.image}}" id="nav-user-icon">
+                    {{/if}}
                 </button>
                 <ul class="dropdown-menu">
                     <li><button id="nav-dashboard" class="dropdown-item" type="button">Dashboard</button></li>
-                    <li><button id="nav-editprofile" class="dropdown-item" type="button">Edit Profile</button></li>
+                    <li><a href="/editprofile"><button id="nav-editprofile" class="dropdown-item" type="button">Edit Profile</button></a></li>
                     <li><a href="/logout"><button id="nav-logout" class="dropdown-item" type="button">Log Out</button></a></li>
                 </ul>
             </div>
         {{else}}
             <a href="login"><button id="btn-login" type="button" class="btn btn-light">Log In</button></a>
         {{/if}}
-
-        <!--
-        
-            USER NOT LOGGED IN:
-                <a href="login.html"><button id="btn-login" type="button" class="btn btn-light">Log In</button></a>
-            
-            USER LOGGED IN:
-                <div class="dropdown">
-                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="assets/cringe.jpg" id="nav-user-icon">
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><button id="nav-dashboard" class="dropdown-item" type="button">Dashboard</button></li>
-                        <li><button id="nav-editprofile" class="dropdown-item" type="button">Edit Profile</button></li>
-                        <li><button id="nav-logout" class="dropdown-item" type="button">Log Out</button></li>
-                    </ul>
-                </div>
-
-        -->
     </div>
 </nav>
 

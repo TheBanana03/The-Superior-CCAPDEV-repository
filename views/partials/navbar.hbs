@@ -1,0 +1,35 @@
+<link rel="stylesheet" type="text/css" href="static/css/styles.css">
+
+<!--HTML-->
+<nav id="navbar" class="navbar sticky-top">
+
+    <div class="animo">
+        <a href="/">Animo</a>
+    </div>
+
+    <form class="search-bar-small">
+        <img class="search-icon" src="static/assets/icons8-search-100.png" alt="Search Icon">
+        <input type="text" placeholder="I am looking for...">
+    </form>
+
+    <div class="nav-user">
+        {{#if user}}
+            <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{#if user.username}}
+                        <img src="/static/assets/default.jpg" id="nav-user-icon">
+                    {{else}}
+                        <img src="{{user.image}}" id="nav-user-icon">
+                    {{/if}}
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button id="nav-dashboard" class="dropdown-item" type="button">Dashboard</button></li>
+                    <li><a href="/editprofile"><button id="nav-editprofile" class="dropdown-item" type="button">Edit Profile</button></a></li>
+                    <li><a href="/logout"><button id="nav-logout" class="dropdown-item" type="button">Log Out</button></a></li>
+                </ul>
+            </div>
+        {{else}}
+            <a href="login"><button id="btn-login" type="button" class="btn btn-light">Log In</button></a>
+        {{/if}}
+    </div>
+</nav>
