@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
@@ -14,7 +15,8 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 app.use("/static",express.static(__dirname + "/public"));
 app.use(express.urlencoded({extended: true}));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
+app.use(methodOverride('_method'));
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
@@ -60,7 +62,7 @@ db.once('open', () => console.log('Connected to Mongoose'));
 
 /* HOME PAGE */
 app.get("/", (req,res) => {
-    console.log(req.session);
+    //console.log(req.session);
 
     const user = req.session.user;
     res.setHeader("Content-Type", "text/html");

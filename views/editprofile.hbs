@@ -24,7 +24,7 @@
 
     <!--Edit Profile Form-->
     <div class="details-container">
-      <form action="/editprofile" method="POST">
+      <form action="/editprofile?_method=PUT" method="POST">
 
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter your new username" value="{{user.username}}">
@@ -33,7 +33,7 @@
         <input type="email" id="email" name="email" placeholder="Enter your new email" value="{{user.email}}">
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your new password" value="">
+        <input type="password" id="password" name="password" placeholder="Enter your new password" value="{{user.password}}">
 
         <label for="idnum">ID Number:</label>
         <input type="number" id="idnum" name="id_num" placeholder="Enter your new ID Number" value="{{user.id_num}}">
@@ -41,14 +41,14 @@
         <label for="College">College:</label>
         <select name="college" id="dropdown">
           <option value="">-</option>
-          <option value="bagced" {{#when user.course 'eq' 'bagced'}}selected{{/when}}>BAGCED</option>
-          <option value="ccs" {{#when user.course 'eq' 'ccs'}}selected{{/when}}>CCS</option>
-          <option value="tdsol" {{#when user.course 'eq' 'tdsol'}}selected{{/when}}>TDSOL</option>
-          <option value="cla" {{#when user.course 'eq' 'cla'}}selected{{/when}}>CLA</option>
-          <option value="cos" {{#when user.course 'eq' 'cos'}}selected{{/when}}>COS</option>
-          <option value="gcoe" {{#when user.course 'eq' 'gcoe'}}selected{{/when}}>GCOE</option>
-          <option value="cob" {{#when user.course 'eq' 'cob'}}selected{{/when}}>COB</option>
-          <option value="soe" {{#when user.course 'eq' 'soe'}}selected{{/when}}>SOE</option>
+          <option value="bagced" {{#when user.college 'eq' 'bagced'}}selected{{/when}}>BAGCED</option>
+          <option value="ccs" {{#when user.college 'eq' 'ccs'}}selected{{/when}}>CCS</option>
+          <option value="tdsol" {{#when user.college 'eq' 'tdsol'}}selected{{/when}}>TDSOL</option>
+          <option value="cla" {{#when user.college 'eq' 'cla'}}selected{{/when}}>CLA</option>
+          <option value="cos" {{#when user.college 'eq' 'cos'}}selected{{/when}}>COS</option>
+          <option value="gcoe" {{#when user.college 'eq' 'gcoe'}}selected{{/when}}>GCOE</option>
+          <option value="cob" {{#when user.college 'eq' 'cob'}}selected{{/when}}>COB</option>
+          <option value="soe" {{#when user.college 'eq' 'soe'}}selected{{/when}}>SOE</option>
         </select>
 
         <label for="Course">Course:</label>
@@ -59,7 +59,7 @@
         <!--Buttons-->
         <div class="buttons-container">
 
-          <a href="/editprofile" class="ep-reset-button">Reset</a>
+          <a href="/editprofile" class="ep-reset-button">Delete</a>
 
           <input type="submit" value="Save">
 

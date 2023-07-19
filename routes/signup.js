@@ -25,7 +25,7 @@ router
         try {
             const newUser = await user.save();
             //console.log("NEW USER: ", newUser);
-            res.redirect('/');
+            res.redirect('/login');
 
         } catch (err) {
             res.render('signup', {

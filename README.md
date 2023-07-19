@@ -9,6 +9,9 @@ INSTALL DEPENDENCIES:
 *Install dependencies using npm
 > npm i
 
+*Run server
+> node index.js
+
 --------------------------------------------------------------------------------------
 DOMS DUMP:
 

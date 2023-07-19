@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 3,
-        max: 20,
+        max: 16,
         unique: true
     },
     email: {
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        min: 8
+        min: 6
     },
     id_num: {
         type: Number,
@@ -36,11 +36,13 @@ const userSchema = new mongoose.Schema({
     },
     college: {
         type: String,
+        required: false,
         enum: ['bagced', 'ccs', 'tdsol', 'cla', 'cos', 'gcoe', 'cob', 'soe']
     },
     course: {
         type: String,
-        max: 50
+        required: false,
+        max: 16
     }
 });
 
