@@ -43,7 +43,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: false,
         max: 16
-    }
+    },
+    followed_communities: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Community'
+    }]
 });
 
 module.exports = mongoose.model('User', userSchema);

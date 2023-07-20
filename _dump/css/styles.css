@@ -145,7 +145,10 @@ object.fa-icon {
 
 #nav-user-icon {
     height: 3rem;
+    width: 3rem;
     border-radius: 100%;
+    background-color: #ffffff;
+    object-fit: cover;
     
     margin-left: 2rem;
 }

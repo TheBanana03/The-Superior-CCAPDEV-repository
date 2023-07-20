@@ -83,9 +83,12 @@ app.use('/logout', logoutRouter);
 const editprofileRouter = require('./routes/editprofile');
 app.use('/editprofile', editprofileRouter);
 
+/* USER PROFILE ROUTE */
+const userRouter = require('./routes/user');
+app.use('/user', userRouter);
+
 /* 404 MIDDLEWARE */
 app.use((req,res,err) => {
-    console.log(err);
     res.status(404);
     res.render('404', {
         title: "404"

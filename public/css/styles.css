@@ -147,7 +147,10 @@ object.fa-icon {
 
 #nav-user-icon {
     height: 3rem;
+    width: 3rem;
     border-radius: 100%;
+    object-fit: cover;
+    background-color: white;
     
     margin-left: 2rem;
 }
@@ -531,6 +534,20 @@ a.dashboard-button:hover {
 
 .relevantcommunities-content ul li a:hover {
     color: var(--primary-color);
+}
+
+/*
+    User Profile Page Dashboard Extra
+*/
+
+.dashboard-profpic {
+    display: block;
+    border-radius: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-color: white;
+
+    margin: 1rem;
 }
 
 /******************************************************************
