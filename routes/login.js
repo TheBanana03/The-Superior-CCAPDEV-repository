@@ -5,11 +5,13 @@ const router = express.Router();
 
 router
     .route('/')
+    // Goto login page
     .get((req, res) => {
         res.render('login', {
             title: 'Animo Login'
         });
     })
+    // Login
     .post(async (req, res) => {
         const user = await User.findOne({ username: req.body.username });
         if (user == null) {

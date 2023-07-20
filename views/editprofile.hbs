@@ -58,12 +58,13 @@
 
         <!--Buttons-->
         <div class="buttons-container">
-
-          <a href="/editprofile" class="ep-reset-button">Delete</a>
-
-          <input type="submit" value="Save">
+          {{!-- <a href="/editprofile/" class="ep-reset-button">Delete</a> --}}
+          <input class="edit-profile-submit" type="submit" value="Save">
 
         </div>
+      </form>
+      <form action="/editprofile?_method=DELETE" method="POST" class="ep-reset-button">
+        <input class="delete-profile-submit" type="submit" value="Delete User">
       </form>
     </div>
   </div>

@@ -5,6 +5,17 @@ const router = express.Router();
 
 router
     .route('/')
+    // Goto edit profile page
+    .get((req, res) => {
+        const user = req.session.user;
+        //console.log(req);
+
+        res.render('editprofile', {
+            title: 'Animo Edit Profile',
+            user: user
+        });
+    })
+    // Update current user
     .put(async (req, res) => {
 
         const { username, email, password, id_num, college, course } = req.body;
@@ -42,13 +53,27 @@ router
             });
         }
     })
-    .get((req, res) => {
-        const user = req.session.user;
-        console.log(req);
+    // Delete current user
+    .delete((req, res) => {
+        console.log("Delete user request received");
+        const userId = req.session.user._id;
+        req.session.destroy(async err => {
+            if (err) {
+                return res.redirect('/');
+            }
+            
+            const result = await User.deleteOne({ _id: userId });
 
-        res.render('editprofile', {
-            title: 'Animo Edit Profile',
-            user: user
+            if (result.deletedCount == 0) {
+                return res.render('editprofile', {
+                    title: 'Animo Edit Profile',
+                    user: req.session.user,
+                    error: 'Error deleting user'
+                });
+            }
+
+            res.clearCookie('sid');
+            res.redirect('/login');
         });
     });
 

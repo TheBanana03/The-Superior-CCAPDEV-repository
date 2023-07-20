@@ -6,12 +6,14 @@ const router = express.Router();
 
 router
     .route('/')
+    // Goto signup page
     .get((req, res) => {
         res.render('signup', {
             title: 'Animo Signup',
             user: new User()
         });
     })
+    // Signup
     .post(async (req, res) => {
         const user = new User({
             username: req.body.username,
