@@ -13,6 +13,11 @@ const communitySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    follower_count: {
+        type: Number,
+        default: 0,
+        required: true
+    },
     tags: [{
         color: String,
         name: String,

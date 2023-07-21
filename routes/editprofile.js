@@ -42,7 +42,7 @@ router
             await user.save();
 
             req.session.user = user;
-            res.redirect('/');
+            res.redirect('/user');
 
         } catch (err) {
             console.error(err);

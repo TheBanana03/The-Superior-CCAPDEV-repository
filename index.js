@@ -46,6 +46,9 @@ const hbs = exphbs.create({
             } else {
                 return options.inverse(this);
             }
+        },
+        uppercase: function (text) {
+            return text.toUpperCase();
         }
     }
 });

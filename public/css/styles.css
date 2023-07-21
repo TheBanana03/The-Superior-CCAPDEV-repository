@@ -442,6 +442,10 @@ a.community-card:hover {
     padding: 0 0.8rem;
 }
 
+.dashboard-content-info span:first-child {
+    font-size: 1.2rem;
+}
+
 .dashboard-content hr {
     margin: 0.75rem 0;
     color: #d8d8d8;

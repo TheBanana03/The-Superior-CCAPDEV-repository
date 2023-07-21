@@ -23,12 +23,34 @@
                         <img src="static/assets/default.jpg" alt="Profile Picture" class="dashboard-profpic">
                     </div>
                     <hr>
+
+                    <!--User Profile Information-->
+                    <div class="dashboard-content-info">
+                        <span><b>{{ uppercase user.username }}</b></span>
+                        <br>
+                        <span>ID Num: {{ user.id_num }}</span>
+                        <br>
+                        <span>College: {{ uppercase user.college }}</span>
+                        <br>
+                        <span>Course: {{ user.course }}</span>
+                        <br>
+                    </div>
+                    <hr>
+
+                    <!--Links-->
                     <div class="dashboard-content-links">
+
                         <!--Home Button-->
-                        <a href="index.html" class="dashboard-button"><object data="static/assets/house-solid.svg" type="image/svg+xml"></object></a>
-                
-                        <!--Feed Button-->
-                        <a href="home.html" class="dashboard-button"><object data="static/assets/newspaper-solid.svg" type="image/svg+xml"></object></a>
+                        <a href="/" class="dashboard-button" style="padding-top: 0.1rem;"><object data="static/assets/house-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Profile Button-->
+                        <a href="/user" class="dashboard-button" style="padding: 0.15rem;"><object data="static/assets/user-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Edit Profile Button-->
+                        <a href="/editprofile" class="dashboard-button" style="padding-top: 0.15rem;"><object data="static/assets/user-pen-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Logout Button-->
+                        <a href="/logout" class="dashboard-button"><object data="static/assets/arrow-right-from-bracket-solid.svg" type="image/svg+xml"></object></a>
                     </div>
                     <hr>
                 </div>
@@ -47,7 +69,10 @@
                     <span>Followed Communities</span>
                 </div>
                 <div class="relevantcommunities-content">
-                    <ul>
+
+                    {{!-- TODO: Display followed communities --}}
+
+                    {{!-- <ul>
                         <li>
                             <a href="software-technology-community-page.html">Software Technology</a>
                             <br>
@@ -55,7 +80,7 @@
                             <span class="usernum-icon"><object data="static/assets/user-solid.svg" type="image/svg+xml"></object></span>
                             <span>followers)</span>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </div>
