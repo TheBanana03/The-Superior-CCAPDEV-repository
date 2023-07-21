@@ -7,8 +7,10 @@ const userSchema = new mongoose.Schema({
         min: 3,
         max: 16,
         unique: true,
-        lowercase: true
+        lowercase: true,
+        caseSensitive: false
     },
+    //Image
     email: {
         type: String,
         required: true,

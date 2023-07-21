@@ -35,9 +35,9 @@ router
             user.username = username;
             user.email = email;
             user.password = password;
-            user.id_num = id_num;
-            user.college = college;
-            user.course = course;
+            if (college === "") { user.college = undefined } else { user.college = college; }
+            if (course === "") { user.course = undefined } else { user.course = course; }
+            if (id_num === "") { user.id_num = undefined } else { user.id_num = id_num; }
       
             await user.save();
 
@@ -49,7 +49,7 @@ router
             res.render('editprofile', {
                 title: 'Animo Edit Profile',
                 user: req.session.user,
-                error: 'Error updating user'
+                error: 'Error updating user\n' + err
             });
         }
     })

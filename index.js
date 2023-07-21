@@ -27,6 +27,7 @@ app.use(session({
 const hbs = exphbs.create({
     extname: 'hbs',
     helpers: {
+        /* Equating Helper Function */
         when: function (operand_1, operator, operand_2, options) {
             let operators = {
             'eq': (l, r) => l == r,
@@ -47,8 +48,13 @@ const hbs = exphbs.create({
                 return options.inverse(this);
             }
         },
+        /* Capitalize Helper Function */
         uppercase: function (text) {
-            return text.toUpperCase();
+            if(text) {
+                return text.toUpperCase();
+            } else {
+                return "";
+            }
         }
     }
 });
@@ -89,6 +95,10 @@ app.use('/editprofile', editprofileRouter);
 /* USER PROFILE ROUTE */
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
+
+/* COMMUNITY ROUTE */
+const communityRouter = require('./routes/community');
+app.use('/community', communityRouter);
 
 /* 404 MIDDLEWARE */
 app.use((req,res,err) => {

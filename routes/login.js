@@ -13,7 +13,7 @@ router
     })
     // Login
     .post(async (req, res) => {
-        const user = await User.findOne({ username: req.body.username });
+        const user = await User.findOne({ username: req.body.username.toLowerCase() });
         if (user == null) {
             return res.render('login', {
                 title: 'Animo Login',

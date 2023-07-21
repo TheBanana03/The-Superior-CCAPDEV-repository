@@ -4,8 +4,11 @@ const communitySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        unique: true,
+        caseSensitive: false
     },
-    image: {
+    //Image
+    tagline: {
         type: String,
         required: true,
     },
@@ -18,10 +21,15 @@ const communitySchema = new mongoose.Schema({
         default: 0,
         required: true
     },
-    tags: [{
-        color: String,
-        name: String,
-    }]
+    posts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post'
+    }],
+    creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Community', communitySchema);
