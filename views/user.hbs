@@ -1,5 +1,6 @@
 <!--CSS-->
-<link rel="stylesheet" href="static/css/styles.css">
+<link rel="stylesheet" type="text/css" href="static/css/user-style.css">
+{{!-- <link rel="stylesheet" type="text/css" href="css/style.css"> --}}
 
 <!--Bootstrap-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -20,7 +21,7 @@
                 <div class="dashboard-content">
                     <!--User Profile Picture-->
                     <div class="d-flex justify-content-center align-items-center">
-                        <img src="static/assets/profpics/{{ user.profilePicturePath }}" alt="Profile Picture" class="dashboard-profpic">
+                        <img src="static/assets/profpics/{{ user.profilePicturePath }}" alt="Profile Picture" class="dashboard-profpic" style="width: 150px; height: 150px; border-radius: 50%;">
                     </div>
                     <hr>
 
@@ -69,7 +70,7 @@
                     <span>Followed Communities</span>
                 </div>
                 <div>
-                    <a href="/community/create">Create Your Own Community!</a>
+                    <a class="btn btn-secondary btn" href="/community/create">Create Your Own Community!</a>
                 </div>
                 <div class="relevantcommunities-content">
 
