@@ -16,15 +16,14 @@
 
     <!--Display Profile Picture-->
     <div class="profile-container">
-      <label for="upload-image" class="profile-picture">
-        <input type="file" id="upload-image" accept="image/*">
-        Edit Profile Picture
-      </label>
-    </div>
+      <form action="/editprofile?_method=POST" method="POST" enctype="multipart/form-data">
+        <!-- ...form fields... -->
+        <label for="uploadimage" class="profile-picture">
+          <input type="file" id="uploadimage" name="profilePicture" accept="image/*"> <!-- Add the name attribute for file upload -->
+          Edit Profile Picture
+        </label>
 
-    <!--Edit Profile Form-->
-    <div class="details-container">
-      <form action="/editprofile?_method=PUT" method="POST">
+        </br>
 
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter your new username" value="{{user.username}}">
@@ -58,15 +57,13 @@
 
         <!--Buttons-->
         <div class="buttons-container">
-          {{!-- <a href="/editprofile/" class="ep-reset-button">Delete</a> --}}
           <input class="edit-profile-submit" type="submit" value="Save">
-
         </div>
       </form>
+      <!--Delete User Form-->
       <form action="/editprofile?_method=DELETE" method="POST" class="ep-reset-button">
         <input class="delete-profile-submit" type="submit" value="Delete User">
       </form>
     </div>
   </div>
-
 </div>
