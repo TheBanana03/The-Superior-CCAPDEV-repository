@@ -17,11 +17,12 @@
     <!--Display Profile Picture-->
     <div class="profile-container">
       <form action="/editprofile?_method=POST" method="POST" enctype="multipart/form-data">
-        <label for="uploadimage" class="profile-picture">
+        <label for="uploadimage" class="profile-picture" id="imagePreview" style="background-image: url('');">
           <input type="file" id="uploadimage" name="profilePicture" accept="image/*">
-          Edit Profile Picture
+          <span>Edit Profile Picture</span>
         </label>
         </br>
+        
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter your new username" value="{{user.username}}">
 
@@ -64,3 +65,5 @@
     </div>
   </div>
 </div>
+
+<script src="/static/js/imagepreview.js"></script>
