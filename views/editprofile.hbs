@@ -17,14 +17,11 @@
     <!--Display Profile Picture-->
     <div class="profile-container">
       <form action="/editprofile?_method=POST" method="POST" enctype="multipart/form-data">
-        <!-- ...form fields... -->
         <label for="uploadimage" class="profile-picture">
-          <input type="file" id="uploadimage" name="profilePicture" accept="image/*"> <!-- Add the name attribute for file upload -->
+          <input type="file" id="uploadimage" name="profilePicture" accept="image/*">
           Edit Profile Picture
         </label>
-
         </br>
-
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter your new username" value="{{user.username}}">
 
