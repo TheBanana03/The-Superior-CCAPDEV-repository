@@ -50,7 +50,11 @@ const userSchema = new mongoose.Schema({
     followed_communities: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Community'
-    }]
+    }],
+    profilePicturePath: {
+        type: String,
+        required: false,
+    },
 });
 
 module.exports = mongoose.model('User', userSchema);
