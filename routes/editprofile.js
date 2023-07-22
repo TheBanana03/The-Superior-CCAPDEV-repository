@@ -1,7 +1,20 @@
 const express = require('express');
 const User = require('../models/user');
+const multer = require('multer');
+const path = require('path');
 
 const router = express.Router();
+
+const multerConfig = {
+    storage: multer.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, path.join(__dirname, '../public/assets/profpics'));
+        },
+        filename: (req, file, cb) => {
+            cb(null, Date.now() + "_" + file.originalname);
+        }
+    }),
+};
 
 router
     .route('/')
@@ -16,43 +29,60 @@ router
         });
     })
     // Update current user
-    .put(async (req, res) => {
+    .post(
+        multer(multerConfig).single('profilePicture'),
+        function (req, res, next) {
+            console.log('hi');
+            if (!req.file) {
+                return res.send('Error uploading the file.');
+            }
 
-        const { username, email, password, id_num, college, course } = req.body;
-        const userId = req.session.user._id;
-      
-        try {
-            const user = await User.findById(userId);
-      
-            if (!user) {
-                return res.render('editprofile', {
+            const filePath = req.file.path;
+
+            const filename = path.basename(filePath);
+
+            req.session.filename = filename;
+
+            next();
+        },
+        async (req, res) => {
+            const { username, email, password, id_num, college, course } = req.body;
+            const userId = req.session.user._id;
+        
+            try {
+                const user = await User.findById(userId);
+        
+                if (!user) {
+                    return res.render('editprofile', {
+                        title: 'Animo Edit Profile',
+                        user: req.session.user,
+                        error: 'User not found'
+                    });
+                }
+        
+                user.username = username;
+                user.email = email;
+                user.password = password;
+                if (college === "") { user.college = undefined } else { user.college = college; }
+                if (course === "") { user.course = undefined } else { user.course = course; }
+                if (id_num === "") { user.id_num = undefined } else { user.id_num = id_num; }
+                user.profilePicturePath = req.session.filename;
+        
+                await user.save();
+
+                req.session.user = user;
+                res.redirect('/user');
+
+            } catch (err) {
+                console.error(err);
+                res.render('editprofile', {
                     title: 'Animo Edit Profile',
                     user: req.session.user,
-                    error: 'User not found'
+                    error: 'Error updating user\n' + err
                 });
             }
-      
-            user.username = username;
-            user.email = email;
-            user.password = password;
-            if (college === "") { user.college = undefined } else { user.college = college; }
-            if (course === "") { user.course = undefined } else { user.course = course; }
-            if (id_num === "") { user.id_num = undefined } else { user.id_num = id_num; }
-      
-            await user.save();
-
-            req.session.user = user;
-            res.redirect('/user');
-
-        } catch (err) {
-            console.error(err);
-            res.render('editprofile', {
-                title: 'Animo Edit Profile',
-                user: req.session.user,
-                error: 'Error updating user\n' + err
-            });
         }
-    })
+    )
     // Delete current user
     .delete((req, res) => {
         console.log("Delete user request received");
