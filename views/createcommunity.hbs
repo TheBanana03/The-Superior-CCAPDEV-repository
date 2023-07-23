@@ -14,14 +14,15 @@
 
     <div class="container">
 
-        {{#if user}}
-            <!--Display Profile Picture-->
-            <div class="profile-container">
-            <label for="upload-image" class="profile-picture">
-                <input type="file" id="upload-image" accept="image/*">
-                Edit Cover Photo
+        {{#if user}}       
+        <!--Display Cover Photo-->
+        <div class="profile-container">
+        <form action="/community?_method=POST" method="POST" enctype="multipart/form-data">
+            <label for="uploadimage" class="profile-picture" id="imagePreview" style="background-image: url('');">
+            <input type="file" id="uploadimage" name="profilePicture" accept="image/*">
+            <span>Edit Cover Photo</span>
             </label>
-            </div>
+            </br>
 
             <!--Edit Profile Form-->
             <div class="details-container">

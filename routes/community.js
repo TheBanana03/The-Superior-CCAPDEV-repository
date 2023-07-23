@@ -1,20 +1,51 @@
 const express = require('express');
 const Community = require('../models/community');
 const User = require('../models/user');
+const multer = require('multer');
+const path = require('path');
 
 const router = express.Router();
+
+const multerConfig = {
+    storage: multer.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, path.join(__dirname, '../public/assets/community'));
+        },
+        filename: (req, file, cb) => {
+            cb(null, Date.now() + "_" + file.originalname);
+        }
+    }),
+};
 
 router.get('/', (req, res) => {
     res.redirect('/');
 });
 
-router.post('/', async (req, res) => {
+router.post(        
+    multer(multerConfig).single('coverPhoto'),
+    function (req, res, next) {
+        console.log('hi');
+        if (!req.file) {
+            return res.send('Error uploading the file.');
+        }
+
+        const filePath = req.file.path;
+
+        const filename = path.basename(filePath);
+
+        req.session.filename = filename;
+
+        next();
+}, 
+
+async (req, res) => {
     const user = req.session.user;
     
     const community = new Community({
         name: req.body.name,
         tagline: req.body.tagline,
         description: req.body.description,
+        coverphoto: req.session.filename,
         creator: user._id
     });
 
