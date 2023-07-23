@@ -58,16 +58,17 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('deleteOne', async function (next) {
-    const Community = require('./community'); // Import the Community model
+    const Community = require('./community');
   
     try {
-      const communities = await Community.find({ creator: this._id });
+        const userId = this.getFilter()["_id"];
+        const communities = await Community.find({ creator: userId });
   
-      for (const community of communities) {
-        await community.deleteOne();
-      }
-  
-      next();
+        for (const community of communities) {
+            await community.deleteOne();
+        }
+
+        next();
     } catch (err) {
       next(err); 
     }

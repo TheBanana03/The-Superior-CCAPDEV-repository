@@ -75,7 +75,7 @@ router.delete('/:name', async (req, res) => {
 
     try {
         const community = await Community.findOne({ name: community_name });
-        const result = await Community.deleteOne({ _id: community._id });
+        community.remove();
 
         if (result.deletedCount == 0) {
             return res.render('editcommunity', {
