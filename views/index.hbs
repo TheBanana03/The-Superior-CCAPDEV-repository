@@ -21,9 +21,10 @@
     <div>
 
         <!--SEARCH BAR-->
-        <form class="search-bar">
+        <form class="search-bar" action="/search" method="POST">
             <img class="search-icon" src="/static/assets/icons8-search-100.png" alt="Search Icon">
-            <input type="text" placeholder="I am looking for...">
+            <input type="text" name="searchText" placeholder="I am looking for...">
+            <button type="submit">Search</button>
         </form>
     </div>
 </div>

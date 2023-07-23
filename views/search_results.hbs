@@ -1,0 +1,14 @@
+<!-- search_results.hbs -->
+<h1>{{ title }}</h1>
+<div>
+  {{#if results.length}}
+    <h2>Search Results:</h2>
+    <ul>
+      {{#each results}}
+        <li>{{ name }}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>No results found.</p>
+  {{/if}}
+</div>
