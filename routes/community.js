@@ -68,6 +68,32 @@ router.get('/:name', async (req, res) => {
     }
 });
 
+//Delete Community
+router.delete('/:name', async (req, res) => {
+    const community_name = req.params.name;
+    const user = req.session.user;
+
+    try {
+        const community = await Community.findOne({ name: community_name });
+        community.remove();
+
+        if (result.deletedCount == 0) {
+            return res.render('editcommunity', {
+                title: 'Animo Edit Community',
+                user: req.session.user,
+                error: 'Error deleting Community'
+            });
+        }
+
+        res.redirect('/');
+
+    } catch(err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+//Edit Community
 router.post('/:name', async (req, res) => {
     const community_name = req.params.name;
     const user = req.session.user;
@@ -81,7 +107,6 @@ router.post('/:name', async (req, res) => {
             return res.render('editcommunity', {
                 title: 'Animo Edit Community',
                 user: req.session.user,
-                community: community,
                 error: 'Community not found'
             });
         }
@@ -95,9 +120,17 @@ router.post('/:name', async (req, res) => {
 
     } catch (err) {
         console.error(err);
+
+        const editCommunity = new Community({
+            name: name,
+            tagline: tagline,
+            description: description
+        });
+
         res.render('editcommunity', {
             title: 'Animo Edit Community',
             user: req.session.user,
+            community: editCommunity,
             error: 'Error updating community\n' + err
         });
     }
@@ -117,9 +150,7 @@ router.post('/', async (req, res) => {
 
     try {
         const newCommunity = await community.save();
-
-        //make get route for /:id
-        res.redirect('/');
+        res.redirect('/community/' + newCommunity.name);
 
     } catch (err) {
         console.error(err);

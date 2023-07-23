@@ -44,6 +44,10 @@
                         <input class="edit-profile-submit" type="submit" value="Save">
                     </div>
                 </form>
+
+                <form method="POST" class="ep-reset-button" action="/community/{{ community.name }}?_method=DELETE">
+                    <input class="delete-profile-submit" type="submit" value="Delete Community">
+                </form>
             </div>
         {{else}}
             <span>You cannot edit this community.</span>

@@ -57,4 +57,21 @@ const userSchema = new mongoose.Schema({
     },
 });
 
+userSchema.pre('deleteOne', async function (next) {
+    const Community = require('./community');
+  
+    try {
+        const userId = this.getFilter()["_id"];
+        const communities = await Community.find({ creator: userId });
+  
+        for (const community of communities) {
+            await community.deleteOne();
+        }
+
+        next();
+    } catch (err) {
+      next(err); 
+    }
+});
+
 module.exports = mongoose.model('User', userSchema);
