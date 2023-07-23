@@ -68,6 +68,41 @@ router.get('/:name', async (req, res) => {
     }
 });
 
+router.post('/:name', async (req, res) => {
+    const community_name = req.params.name;
+    const user = req.session.user;
+    
+    const { name, tagline, description } = req.body;
+
+    try {
+        const community = await Community.findOne({ name: community_name });
+
+        if (!community) {
+            return res.render('editcommunity', {
+                title: 'Animo Edit Community',
+                user: req.session.user,
+                community: community,
+                error: 'Community not found'
+            });
+        }
+
+        community.name = name;
+        community.tagline = tagline;
+        community.description = description;
+
+        await community.save();
+        res.redirect('/community/' + name);
+
+    } catch (err) {
+        console.error(err);
+        res.render('editcommunity', {
+            title: 'Animo Edit Community',
+            user: req.session.user,
+            error: 'Error updating community\n' + err
+        });
+    }
+});
+
 //Create Community
 router.post('/', async (req, res) => {
     const user = req.session.user;
@@ -93,41 +128,6 @@ router.post('/', async (req, res) => {
             user: user,
             community: community,
             error: 'Error creating community\n' + err
-        });
-    }
-});
-
-router.put('/:name', async (req, res) => {
-    const community_name = req.params.name;
-    const user = req.session.user;
-    
-    const { name, tagline, description } = req.body;
-
-    try {
-        const community = await Community.findOne({ name: community_name });
-
-        if (!community) {
-            return res.render('editcommunity', {
-                title: 'Animo Edit Community',
-                user: req.session.user,
-                community: community,
-                error: 'Community not found'
-            });
-        }
-
-        community.name = name;
-        community.tagline = tagline;
-        community.description = description;
-
-        await community.save();
-        res.redirect('/community/' + community_name);
-
-    } catch (err) {
-        console.error(err);
-        res.render('editcommunity', {
-            title: 'Animo Edit Community',
-            user: req.session.user,
-            error: 'Error updating community\n' + err
         });
     }
 });
