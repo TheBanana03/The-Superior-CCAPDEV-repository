@@ -5,7 +5,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const methodOverride = require('method-override');
-const connect = require('./models/db');
+// const mongoose = require('mongoose');
+const { connect, mongooseToObj, multipleMongooseToObj } = require('./models/db');
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
@@ -63,16 +64,21 @@ app.set('view engine', 'hbs');
 
 /* MONGOOSE/MONGODB */
 connect();
+const User = require('./models/user');
+const Community = require('./models/community');
 
 /* HOME PAGE */
-app.get("/", (req,res) => {
+app.get("/", async (req,res) => {
     //console.log(req.session);
 
     const user = req.session.user;
+    const communities = multipleMongooseToObj(await Community.find({}));
+
     res.setHeader("Content-Type", "text/html");
     res.render("index", {
         title: "Animo",
-        user: user
+        user: user,
+        communities: communities
     });
 });
 
