@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const imageUrl = reader.result;
         profileContainer.style.backgroundImage = `url(${imageUrl})`;
       };
-    } else {
-      profileContainer.style.backgroundImage = 'none';
     }
   });
 });
