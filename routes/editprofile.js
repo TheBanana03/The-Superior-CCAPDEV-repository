@@ -11,7 +11,7 @@ const multerConfig = {
             cb(null, path.join(__dirname, '../public/assets/profpics'));
         },
         filename: (req, file, cb) => {
-            cb(null, Date.now() + "_" + file.originalname);
+            cb(null, req.session.user._id);
         }
     }),
 };
