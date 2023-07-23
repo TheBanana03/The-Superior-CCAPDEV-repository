@@ -106,12 +106,39 @@ app.use('/user', userRouter);
 const communityRouter = require('./routes/community');
 app.use('/community', communityRouter);
 
+/* SEARCH ROUTE */
+const searchRouter = require('./routes/search');
+app.use('/search', searchRouter);
+
 /* 404 MIDDLEWARE */
 app.use((req,res,err) => {
     res.status(404);
     res.render('404', {
         title: "404"
     });
+});
+
+/* SEARCH POSTS */
+app.post('/search', async (req, res) => {
+    const searchText = req.body.searchText;
+
+    // Perform the search query on the "posts" collection in the "test" database
+    try {
+        const searchResults = await Post.find({
+            $or: [
+                { name: { $regex: searchText, $options: 'i' } }, // Case-insensitive search on "name" field
+                { description: { $regex: searchText, $options: 'i' } }, // Case-insensitive search on "description" field
+            ],
+        });
+
+        res.render('search_results', {
+            title: 'Search Results',
+            results: searchResults,
+        });
+    } catch (err) {
+        console.error('Error while searching for posts:', err);
+        res.status(500).render('500', { title: 'Internal Server Error' });
+    }
 });
 
 /* RUN SERVER */
