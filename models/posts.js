@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const postSchema = new mongoose.Schema({
-    title: {
+const userSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true,
         min: 1,
-        max: 25,
+        max: 16,
         unique: false,
         caseSensitive: false
     },
@@ -13,12 +13,6 @@ const postSchema = new mongoose.Schema({
         type: String,
         min: 1,
         max: 255,
-        required: true
-    },
-    //Image
-    attachment: {
-        type: String,
-        required: false,
     },
     likes: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -28,18 +22,10 @@ const postSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment',
     }],
-    creator: {
+    poster: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
-    community: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Community',
-    },
-    postDate: {
-        type: Date,
-        default: Date.now,
-    }
 });
 
 module.exports = mongoose.model('Post', postSchema);

@@ -8,6 +8,10 @@ const communitySchema = new mongoose.Schema({
         caseSensitive: false
     },
     //Image
+    image: {
+        type: String,
+        required: false,
+    },
     tagline: {
         type: String,
         required: true,
