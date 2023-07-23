@@ -10,11 +10,11 @@
 {{> navbar user=user }}
 
 <div class="edit-profile-main-div">
-    <h1>Create Community</h1>
+    <h1>Edit Community</h1>
 
     <div class="container">
 
-        {{#if user}}
+        {{when user._id 'eq' community.creator}}
             <!--Display Profile Picture-->
             <div class="profile-container">
             <label for="upload-image" class="profile-picture">
@@ -45,7 +45,7 @@
                 </form>
             </div>
         {{else}}
-            <span><a href="/login">Log In</a> to create a community.</span>
-        {{/if}}
+            <span><a href="/login">You cannot edit this community.</span>
+        {{/when}}
     </div>
 </div>
