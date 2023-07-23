@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../models/posts');
+const Post = require('../models/post');
 
 // Define the route for the search form (GET request)
 router.get('/', (req, res) => {
