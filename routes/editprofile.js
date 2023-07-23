@@ -66,7 +66,7 @@ router
                 if (college === "") { user.college = undefined } else { user.college = college; }
                 if (course === "") { user.course = undefined } else { user.course = course; }
                 if (id_num === "") { user.id_num = undefined } else { user.id_num = id_num; }
-                user.profilePicturePath = req.session.filename;
+                if (!req.session.filename) { user.profilePicturePath = undefined } else { user.profilePicturePath = req.session.filename; }
         
                 await user.save();
 

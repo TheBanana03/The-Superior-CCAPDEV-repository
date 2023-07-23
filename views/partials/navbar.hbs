@@ -4,22 +4,28 @@
 <nav id="navbar" class="navbar sticky-top">
 
     <div class="animo">
-        <a href="/">Animo</a>
+        {{#if heading }}
+            <a href="/">{{ heading }}</a>
+        {{else}}
+            <a href="/">Animo</a>
+        {{/if}}
     </div>
 
-    <form class="search-bar-small">
-        <img class="search-icon" src="/static/assets/icons8-search-100.png" alt="Search Icon">
-        <input type="text" placeholder="I am looking for...">
-    </form>
+    {{#if showSearchBar}}
+        <form class="search-bar-small">
+            <img class="search-icon" src="/static/assets/icons8-search-100.png" alt="Search Icon">
+            <input type="text" placeholder="I am looking for...">
+        </form>
+    {{/if}}
 
     <div class="nav-user">
         {{#if user}}
             <div class="dropdown">
                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{#if user.username}}
-                        <img src="/static/assets/default.jpg" id="nav-user-icon">
+                    {{#if user.profilePicturePath }}
+                        <img src="static/assets/profpics/{{ user.profilePicturePath }}" alt="Profile Picture" id="nav-user-icon">
                     {{else}}
-                        <img src="{{user.image}}" id="nav-user-icon">
+                        <img src="/static/assets/profpics/default.jpg" id="nav-user-icon">
                     {{/if}}
                 </button>
                 <ul class="dropdown-menu">

@@ -10,33 +10,8 @@
 
 <!--HTML-->
 <!--NAVBAR-->
-<nav id="navbar" class="navbar sticky-top">
 
-    <div class="animo">
-        <a href="/">A</a>
-    </div>
-
-    <div class="nav-user">
-        {{#if user}}
-            <div class="dropdown">
-                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{#if user.username}}
-                        <img src="/static/assets/default.jpg" id="nav-user-icon">
-                    {{else}}
-                        <img src="{{user.image}}" id="nav-user-icon">
-                    {{/if}}
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="/user"><button id="nav-dashboard" class="dropdown-item" type="button">Profile</button></a></li>
-                    <li><a href="/editprofile"><button id="nav-editprofile" class="dropdown-item" type="button">Edit Profile</button></a></li>
-                    <li><a href="/logout"><button id="nav-logout" class="dropdown-item" type="button">Log Out</button></a></li>
-                </ul>
-            </div>
-        {{else}}
-            <a href="login"><button id="btn-login" type="button" class="btn btn-light">Log In</button></a>
-        {{/if}}
-    </div>
-</nav>
+{{>navbar heading="A" nosearchbar=true}}
 
 <!--HEADER-->
 <div class="header-homepage">
@@ -47,7 +22,7 @@
 
         <!--SEARCH BAR-->
         <form class="search-bar">
-            <img class="search-icon" src="static/assets/icons8-search-100.png" alt="Search Icon">
+            <img class="search-icon" src="/static/assets/icons8-search-100.png" alt="Search Icon">
             <input type="text" placeholder="I am looking for...">
         </form>
     </div>
@@ -62,36 +37,20 @@
 
     <!--COMMUNITY CARDS-->
     <div class="community-card-list row row-cols-3 row-cols-md-3 g-4">
-
         {{#each communities}}
-        <div class="col-md-4">
-            <a id="" class="community-card card h-100" href="community-page.html">
-            <img src="{{image}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{name}}</h5>
-                <p class="card-text">{{description}}</p>
-            </div>
-            </a>
-        </div>
-        {{/each}}
-
-        <!-- SAMPLE CARD:
-
             <div class="col-md-4">
                 <a id="" class="community-card card h-100" href="community-page.html">
-                    <img src="static/assets/cards/1.avif" class="card-img-top" alt="...">
+                    {{#if image}}
+                        <img src="{{ image }}" class="card-img-top" alt="...">
+                    {{else}}
+                        <img src="/static/assets/coverpics/default.jpg" class="card-img-top" alt="...">
+                    {{/if}}
                     <div class="card-body">
-                        <h5 class="card-title">DLSU CCS Community</h5>
-                        <p class="card-text">A Hub for all DLSU College of Computer Studies Students!</p>
-                        <div class="community-badge-container mt-auto">
-                            <span class="badge bg-orange">🔥 Hot</span>
-                            <span class="badge bg-yellow">☀ New</span>
-                        </div>
+                        <h5 class="card-title">{{ name }}</h5>
+                        <p class="card-text">{{ tagline }}</p>
                     </div>
                 </a>
             </div>
-
-        -->
-
+        {{/each}}
     </div>
 </div>
