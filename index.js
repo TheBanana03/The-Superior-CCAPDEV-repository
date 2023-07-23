@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 /* USING DEPENDENCIES */
 const app = express();
 app.use("/static",express.static(__dirname + "/public"));
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use(methodOverride('_method'));
 app.use(session({

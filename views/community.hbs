@@ -21,7 +21,7 @@
             <div class="title-communitypage">
                 <span>{{ community.name }}</span>
                 {{#when user._id 'eq' community.creator}}
-                    <a href="/editcommunity/{{ community.name }}" class="btn-edit-community"><object data="/static/assets/pen-to-square-solid.svg" type="image/svg+xml"></object></a>
+                    <a href="/community/edit/{{ community.name }}" class="btn-edit-community"><object data="/static/assets/pen-to-square-solid.svg" type="image/svg+xml"></object></a>
                 {{/when}}
             </div>
             <div class="subtitle-communitypage">
@@ -44,6 +44,7 @@
                 <div class="dashboard-content">
                     <hr>
                     <h5 class="dashboard-communitytitle">{{ community.name }}</h5>
+                    <span>{{ community.description }}</span>
                     <div class="dashboard-communityfollowers">
                         <span>({{ community_follower_count }}</span>
                         <span class="usernum-icon"><object data="/static/assets/user-solid.svg" type="image/svg+xml"></object></span>
