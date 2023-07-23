@@ -65,6 +65,7 @@ h1 {
   line-height: 200px;
   cursor: pointer;
   border: 5px solid #083704;
+  background-position: center;
 }
   
 .profile-picture input[type="file"] {

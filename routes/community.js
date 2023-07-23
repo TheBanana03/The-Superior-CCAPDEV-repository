@@ -5,6 +5,17 @@ const { mongooseToObj, multipleMongooseToObj } = require('../models/db');
 
 const router = express.Router();
 
+const multerConfig = {
+    storage: multer.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, path.join(__dirname, '../public/assets/community'));
+        },
+        filename: (req, file, cb) => {
+            cb(null, Date.now() + "_" + file.originalname);
+        }
+    }),
+};
+
 //Go to Home Page 
 router.get('/', (req, res) => {
     res.redirect('/');
@@ -45,6 +56,7 @@ router.post('/', async (req, res) => {
         name: req.body.name,
         tagline: req.body.tagline,
         description: req.body.description,
+        coverphoto: req.session.filename,
         creator: user._id
     });
 
