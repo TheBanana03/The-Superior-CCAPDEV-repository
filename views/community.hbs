@@ -12,7 +12,7 @@
     <div class="container">
         <div class="img-container">
             {{#if community.image }}
-                <img src="{{ community.image }}" alt="...">
+                <img src="/static/assets/coverpics/{{ community.image }}" alt="...">
             {{else}}
                 <img src="/static/assets/coverpics/default.jpg" alt="...">
             {{/if}}
@@ -81,21 +81,23 @@
         <div class="col-md-6">
             <div>
                 <!--CREATE POST-->
+                <!--CREATE POST-->
                 {{#if user}}
                     <div class="create-post-innercontainer">
                         <h5>Create Post</h5>
                         <hr>
-                        <form class="create-post-form" action="/post/{{community.name}}" method="POST">
+                        <form class="create-post-form" action="/post/{{community.name}}" method="POST" enctype="multipart/form-data">
                             <label for="title">Title</label>
                             <input class="create-post-form-title" type="text" name="title" placeholder="Enter the title" value="{{post.title}}">
 
                             <label for="description">Description</label>
                             <textarea name="description" placeholder="I want to write about...">{{post.description}}</textarea>
 
+                            <!-- Photo Upload Input -->
                             <div class="create-post-form-end">
-                                {{!-- <div>
+                                <div>
                                     <input class="create-post-attach-file" type="file" name="attachment" accept="image/*">
-                                </div> --}}
+                                </div>
                                 <div>
                                     <input class="create-post-submit-btn" type="submit" value="Post">
                                 </div>
@@ -111,6 +113,7 @@
                         <span><a href="/login">Log In</a> to create a post!</span>
                     </div>
                 {{/if}}
+
 
                 <!--POSTS-->
                 {{#each posts}}
@@ -129,7 +132,7 @@
                         </div>
                         {{#if attachment}}
                             <div>
-                                <img class = "imgpost"; src = "/static/assets/postpics/{{attachment}}">
+                                <img class = "imgpost"; src = "/static/assets/postpics/{{ attachment }}">
                             </div>
                         {{/if}}
                         <div class = "footer">

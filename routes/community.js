@@ -3,8 +3,21 @@ const Community = require('../models/community');
 const User = require('../models/user');
 const Post = require('../models/post');
 const { mongooseToObj, multipleMongooseToObj } = require('../models/db');
+const multer = require('multer');
+const path = require('path');
 
 const router = express.Router();
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname, '../public/assets/coverpics/')); // Specify the directory where the uploaded files will be saved.
+    },
+      filename: (req, file, cb) => {
+          cb(null, Date.now() + req.session.user._id);
+      }
+  });
+
+const upload = multer({ storage: storage });
 
 //Go to Home Page 
 router.get('/', (req, res) => {
@@ -97,7 +110,7 @@ router.delete('/:name', async (req, res) => {
 });
 
 //Edit Community
-router.post('/:name', async (req, res) => {
+router.post('/:name', upload.single('cover'), async (req, res) => {
     const community_name = req.params.name;
     const user = req.session.user;
     
@@ -117,6 +130,8 @@ router.post('/:name', async (req, res) => {
         community.name = name;
         community.tagline = tagline;
         community.description = description;
+        
+        if (!req.file) { community.image = community.image; } else { community.image = req.file ? req.file.filename : null; }
 
         await community.save();
         res.redirect('/community/' + name);
