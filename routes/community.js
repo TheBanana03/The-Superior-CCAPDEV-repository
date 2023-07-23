@@ -1,13 +1,14 @@
 const express = require('express');
 const Community = require('../models/community');
 const User = require('../models/user');
+const Post = require('../models/post');
 const { mongooseToObj, multipleMongooseToObj } = require('../models/db');
 
 const router = express.Router();
 
 //Go to Home Page 
 router.get('/', (req, res) => {
-    res.redirect('/');
+    res.render('404');
 });
 
 //Go to Create Community Page
@@ -54,11 +55,13 @@ router.get('/:name', async (req, res) => {
         }
 
         const community_follower_count = await User.countDocuments({ followed_communities: community._id });
-  
+        const posts = multipleMongooseToObj(await Post.find({ community: community._id }).populate('creator').populate('community'));
+
         res.render('community', {
             title: `${community.name}`,
             user: req.session.user,
             community: community,
+            posts: posts,
             community_follower_count: community_follower_count
         });
 

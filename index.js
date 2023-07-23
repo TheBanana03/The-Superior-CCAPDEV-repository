@@ -106,6 +106,10 @@ app.use('/user', userRouter);
 const communityRouter = require('./routes/community');
 app.use('/community', communityRouter);
 
+/* POSTS ROUTE */
+const postRouter = require('./routes/post');
+app.use('/post', postRouter);
+
 /* 404 MIDDLEWARE */
 app.use((req,res,err) => {
     res.status(404);

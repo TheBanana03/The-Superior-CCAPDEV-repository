@@ -1,0 +1,126 @@
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+<!--Bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+<!--JS-->
+<script src="/static/js/scripts.js"></script>
+
+{{> navbar user=user }}
+
+<!--MAIN BODY-->
+<div class="container mainbody-communitypage">
+    <div class="row">
+
+        <!--DASHBOARD-->
+        <div class="col-md-3">
+            <div class="dashboard-container">
+                <div class="dashboard-title">
+                    <span>Dashboard</span>
+                </div>
+                <div class="dashboard-content">
+                    <hr>
+                    <h5 class="dashboard-communitytitle">{{ post.community.name }}</h5>
+                    <span>{{ post.community.description }}</span>
+                    <br>
+                    <a href="/community/{{ post.community.name }}" class="dashboard-communitylink">View Community</a>
+                    <hr>
+                    <!--Links-->
+                    <div class="dashboard-content-links">
+
+                        <!--Home Button-->
+                        <a href="/" class="dashboard-button" style="padding-top: 0.1rem;"><object data="/static/assets/house-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Profile Button-->
+                        <a href="/user" class="dashboard-button" style="padding: 0.15rem;"><object data="/static/assets/user-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Edit Profile Button-->
+                        <a href="/editprofile" class="dashboard-button" style="padding-top: 0.15rem;"><object data="/static/assets/user-pen-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Logout Button-->
+                        <a href="/logout" class="dashboard-button"><object data="/static/assets/arrow-right-from-bracket-solid.svg" type="image/svg+xml"></object></a>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <!--POSTS-->
+        <div class="col-md-6">
+            <div style="margin-top: 1rem;">
+                <p class="postpage-text">User post in...</p>
+                <h1 class="postpage-title">{{post.community.name}}</h1>
+            </div>
+            <hr>
+            <div class = "post">
+                <div class = "header">
+                    {{#if post.creator.profilePicturePath }}
+                        <img class = "pp"; src = "/static/assets/profpics/{{post.creator.profilePicturePath}}">
+                    {{else}}
+                        <img class = "pp"; src = "/static/assets/profpics/default.jpg">
+                    {{/if}}
+                    <div>
+                        <div class = "user">
+                            <span>
+                                <a href="/user/{{post.creator.username}}" class="username">{{uppercase post.creator.username}}</a>
+                                {{#when post.creator._id 'eq' user._id}}
+                                    <a class="dashboard-button edit-button" style="width: 0.9rem; height: 0.9rem;"><object data="/static/assets/pen-to-square-solid-black.svg" type="image/svg+xml"></object></a>
+                                {{/when}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {{#if attachment}}
+                    <div>
+                        <img class = "imgpost"; src = "/static/assets/postpics/{{attachment}}">
+                    </div>
+                {{/if}}
+                <div class = "footer">
+                    <a href="/post/{{_id}}" class="post-title">{{title}}</a>
+                    <div class = "desc">
+                        <span>{{post.description}}</span>
+                    </div>
+                    <div class = "date">
+                        {{post.postDate}}
+                    </div>
+
+                    <hr>
+                    <span class = "actions">
+                        <span class="like">
+                            <span class="likecontainer" id="like"></span>
+                        </span>
+                        <span class="actiontext">
+                            {{0}} Like/s
+                        </span>
+
+                        <span class = "comment_share">
+                            <span class = "comment"></span>
+                            <span class="commentsharetext">
+                                Comment
+                            </span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!--EDIT FORM-->
+        <div class="edit-form" style="display: none;">
+            <form action="/post/edit/{{post._id}}" method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="{{post.title}}">
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description">{{post.description}}</textarea>
+
+                <!-- Add any other fields you want to edit -->
+
+                <input type="submit" value="Save">
+                <button class="cancel-button">Cancel</button>
+                <button class="delete-button">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>

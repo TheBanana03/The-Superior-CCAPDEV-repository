@@ -643,7 +643,7 @@ div.post {
 
 div.header {
     border-bottom: 0.5px solid #EFEFEF;
-    padding: 0.75rem;
+    padding: 1rem;
     display: flex;
 }
 
@@ -656,7 +656,6 @@ div.header div {
 img.pp {
     width: 2rem;
     height: 2rem;
-    margin: 0.3125rem;
     border-radius: 50%;
     background-color: #FAFAFA;
     vertical-align: baseline;
@@ -678,7 +677,7 @@ div.user {
     font-weight: 700;
     vertical-align: baseline;
 
-    margin: 0;
+    margin-left: 0.5rem;
     padding: 0;
 }
 
@@ -702,26 +701,32 @@ img.imgpost {
 }
 
 div.footer {
-    padding: 0 16px;
-    padding-top: 2.5%;
+    padding: 1rem;
+}
+
+.post-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: black;
+}
+
+.post-title:hover {
+    color: black
 }
 
 span.actions {
-    margin-top: 4px;
-    margin-right: 0%;
     display: flex;
 }
 
 span.actiontext {
-    margin-right: 10px;
-    margin-top: 12px;
-    margin-left: 5px;
+    margin-left: 0.5rem;
 }
 
 span.commentsharetext {
-    margin-right: 20px;
-    margin-top: 4px;
-    margin-left: 10px;
+    margin-left: 0.5rem;
 }
 
 .likecontainer {
@@ -737,7 +742,7 @@ span.commentsharetext {
     background-repeat: no-repeat;
     height: 24px;
     width: 24px;
-    margin: 8px 4px 8px 8px;
+    /* margin: 8px 4px 8px 8px; */
     cursor: pointer;
 }
 
@@ -753,7 +758,7 @@ span.commentsharetext {
 }
 
 .comment_share {
-    margin-top: 8px;
+    /* margin-top: 8px; */
     margin-left: auto;
     display: flex;
 }
@@ -810,7 +815,7 @@ a.user-handle {
 
 div.date {
     color: #999;
-    margin-bottom: 5px;
+    margin-top: 5px;
     text-transform: uppercase; 
     font-size: 10px;
     letter-spacing: .2px;
@@ -818,4 +823,22 @@ div.date {
 
 a.link {
     color: #003469;
+}
+
+/* POSTS */
+
+.postpage-text {
+    font-size: 1rem;
+    color: grey;
+
+    padding: 0;
+    margin: 0;
+}
+
+.postpage-title {
+    font-weight: 700;
+    font-size: 2rem;
+
+    padding: 0;
+    margin: 0;
 }

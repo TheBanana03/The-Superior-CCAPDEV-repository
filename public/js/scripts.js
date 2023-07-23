@@ -1,29 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
-    /* NAVBAR BUTTONS */
+    const editButton = document.querySelector('.edit-button');
+    const editForm = document.querySelector('.edit-form');
+    const cancelButton = document.querySelector('.cancel-button');
 
-    /*
-    // Dashboard
+    editButton.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    document.querySelector('#nav-dashboard').addEventListener('click', () => {
-
-        // Add go to dashboard
-
+        editButton.style.display = 'none';
+        editForm.style.display = 'block';
     });
 
-    // Edit Profile
-    document.querySelector('#nav-edit-profile').addEventListener('click', () => {
+    cancelButton.addEventListener('click', (e) => {
+        e.preventDefault();
 
-        // Add go to edit profile
-    
+        editButton.style.display = 'inline-block';
+        editForm.style.display = 'none';
     });
-
-    // Logout
-    document.querySelector('#nav-logout').addEventListener('click', () => {
-
-        // Add logout functionality next time
-        window.location.href = 'login.html';
-
-    });
-    */
 });
