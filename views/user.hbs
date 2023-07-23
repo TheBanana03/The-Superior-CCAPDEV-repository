@@ -1,5 +1,5 @@
 <!--CSS-->
-<link rel="stylesheet" type="text/css" href="static/css/user-style.css">
+<link rel="stylesheet" type="text/css" href="/static/css/user-style.css">
 {{!-- <link rel="stylesheet" type="text/css" href="css/style.css"> --}}
 
 <!--Bootstrap-->
@@ -19,10 +19,11 @@
                     <span>User Profile</span>
                 </div>
                 <div class="dashboard-content">
+                    <hr>
                     <!--User Profile Picture-->
                     <div class="d-flex justify-content-center align-items-center">
-                        {{#if user.profilePicturePath }}
-                            <img src="static/assets/profpics/{{ user.profilePicturePath }}" alt="Profile Picture" class="dashboard-profpic" style="width: 150px; height: 150px; border-radius: 50%;">
+                        {{#if viewUser.profilePicturePath }}
+                            <img src="/static/assets/profpics/{{ viewUser.profilePicturePath }}" alt="Profile Picture" class="dashboard-profpic" style="width: 150px; height: 150px; border-radius: 50%;">
                         {{else}}
                             <img src="/static/assets/profpics/default.jpg" class="dashboard-profpic" style="width: 150px; height: 150px; border-radius: 50%;">
                         {{/if}}
@@ -31,13 +32,13 @@
 
                     <!--User Profile Information-->
                     <div class="dashboard-content-info">
-                        <span><b>{{ uppercase user.username }}</b></span>
+                        <span><b>{{ uppercase viewUser.username }}</b></span>
                         <br>
-                        <span>ID Num: {{ user.id_num }}</span>
+                        <span>ID Num: {{ viewUser.id_num }}</span>
                         <br>
-                        <span>College: {{ uppercase user.college }}</span>
+                        <span>College: {{ uppercase viewUser.college }}</span>
                         <br>
-                        <span>Course: {{ user.course }}</span>
+                        <span>Course: {{ viewUser.course }}</span>
                         <br>
                     </div>
                     <hr>
@@ -46,16 +47,16 @@
                     <div class="dashboard-content-links">
 
                         <!--Home Button-->
-                        <a href="/" class="dashboard-button" style="padding-top: 0.1rem;"><object data="static/assets/house-solid.svg" type="image/svg+xml"></object></a>
+                        <a href="/" class="dashboard-button" style="padding-top: 0.1rem;"><object data="/static/assets/house-solid.svg" type="image/svg+xml"></object></a>
 
                         <!--Profile Button-->
-                        <a href="/user" class="dashboard-button" style="padding: 0.15rem;"><object data="static/assets/user-solid.svg" type="image/svg+xml"></object></a>
+                        <a href="/user" class="dashboard-button" style="padding: 0.15rem;"><object data="/static/assets/user-solid.svg" type="image/svg+xml"></object></a>
 
                         <!--Edit Profile Button-->
-                        <a href="/editprofile" class="dashboard-button" style="padding-top: 0.15rem;"><object data="static/assets/user-pen-solid.svg" type="image/svg+xml"></object></a>
+                        <a href="/editprofile" class="dashboard-button" style="padding-top: 0.15rem;"><object data="/static/assets/user-pen-solid.svg" type="image/svg+xml"></object></a>
 
                         <!--Logout Button-->
-                        <a href="/logout" class="dashboard-button"><object data="static/assets/arrow-right-from-bracket-solid.svg" type="image/svg+xml"></object></a>
+                        <a href="/logout" class="dashboard-button"><object data="/static/assets/arrow-right-from-bracket-solid.svg" type="image/svg+xml"></object></a>
                     </div>
                     <hr>
                 </div>

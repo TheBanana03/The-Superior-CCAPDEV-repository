@@ -22,28 +22,33 @@ router
     .get((req, res) => {
         const user = req.session.user;
         //console.log(req);
+        
+        if(user) {
+            res.render('editprofile', {
+                title: 'Animo Edit Profile',
+                user: user
+            });
+        }
+        else {
+            res.redirect('/login');
+        }
 
-        res.render('editprofile', {
-            title: 'Animo Edit Profile',
-            user: user
-        });
     })
     // Update current user
     .post(
         multer(multerConfig).single('profilePicture'),
         function (req, res, next) {
-            console.log('hi');
+            // console.log('hi');
             if (!req.file) {
-                return res.send('Error uploading the file.');
+                // return res.send('Error uploading the file.');
             }
-
-            const filePath = req.file.path;
-
-            const filename = path.basename(filePath);
-
-            req.session.filename = filename;
-
+            else {
+                const filePath = req.file.path;
+                const filename = path.basename(filePath);
+                req.session.filename = filename;
+            }
             next();
+
         },
         async (req, res) => {
             const { username, email, password, id_num, college, course } = req.body;
@@ -66,7 +71,7 @@ router
                 if (college === "") { user.college = undefined } else { user.college = college; }
                 if (course === "") { user.course = undefined } else { user.course = course; }
                 if (id_num === "") { user.id_num = undefined } else { user.id_num = id_num; }
-                if (!req.session.filename) { user.profilePicturePath = undefined } else { user.profilePicturePath = req.session.filename; }
+                if (!req.session.filename) {  user.profilePicturePath = user.profilePicturePath; } else { user.profilePicturePath = req.session.filename; }
         
                 await user.save();
 

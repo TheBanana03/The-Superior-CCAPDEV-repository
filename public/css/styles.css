@@ -490,6 +490,27 @@ a.dashboard-button:hover {
     opacity: 1;
 }
 
+.btn-edit-community {
+    display: inline-block;
+    text-align: center;
+    vertical-align: center;
+
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+
+    /* margin: 0 0.5rem 0 0; */
+}
+
+.btn-edit-community object {
+    pointer-events: none;
+}
+
+a.btn-edit-community:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
 .joincommunity-btn {
     background-color: #e8e8e8;
     border: 1px solid #d8d8d8;
@@ -568,6 +589,7 @@ a.dashboard-button:hover {
     font-size: 0.875rem;
     margin: 1rem;
     padding: 1rem;
+    overflow: hidden;
 }
 
 .create-post-form {

@@ -11,15 +11,11 @@ const communitySchema = new mongoose.Schema({
     tagline: {
         type: String,
         required: true,
+        max: 30
     },
     description: {
         type: String,
         required: true,
-    },
-    follower_count: {
-        type: Number,
-        default: 0,
-        required: true
     },
     posts: [{
         type: mongoose.Schema.Types.ObjectId,
