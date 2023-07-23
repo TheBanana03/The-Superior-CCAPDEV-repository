@@ -17,7 +17,7 @@
     <!--Display Profile Picture-->
     <div class="profile-container">
       <form action="/editprofile?_method=POST" method="POST" enctype="multipart/form-data">
-        <label for="uploadimage" class="profile-picture" id="imagePreview" style="background-image: url('');">
+        <label for="uploadimage" class="profile-picture" id="imagePreview" style="background-image: url('/static/assets/profpics/{{ user.profilePicturePath }}');">
           <input type="file" id="uploadimage" name="profilePicture" accept="image/*">
           <span>Edit Profile Picture</span>
         </label>
