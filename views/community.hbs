@@ -109,6 +109,11 @@
                 <div class="relevantcommunities-title">
                     <span>Relevant Communities</span>
                 </div>
+                {{#if user}}
+                    <div class="d-flex justify-content-center align-items-center mb-3" style="margin: 1rem 1rem;">
+                        <a class="btn btn-secondary btn-sm" href="/community/create">Create Your Own Community!</a>
+                    </div>
+                {{/if}}
                 {{!-- <div class="relevantcommunities-content">
                     <ul>
                         <li>
