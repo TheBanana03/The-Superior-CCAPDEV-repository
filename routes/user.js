@@ -34,6 +34,7 @@ router.get('/', async (req, res) => {
     else {
 
         const posts = await findAllPostsForUser(req.session.user._id);
+        console.log(posts);
 
         try {
             res.render('user', {
@@ -62,6 +63,7 @@ router.get('/:username', async (req, res) => {
         }
 
         const posts = await findAllPostsForUser(viewUser._id);
+        console.log(posts);
     
         res.render('user', {
             title: `${username}'s Profile`,
