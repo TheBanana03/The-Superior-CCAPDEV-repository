@@ -12,6 +12,9 @@ INSTALL DEPENDENCIES:
 *Run server
 > node index.js
 
+*Wait for it to connect to mongoose
+*Open localhost:3000
+
 --------------------------------------------------------------------------------------
 DOMS DUMP:
 

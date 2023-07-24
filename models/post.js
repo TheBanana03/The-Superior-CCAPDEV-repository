@@ -39,6 +39,10 @@ const postSchema = new mongoose.Schema({
     postDate: {
         type: Date,
         default: Date.now,
+    },
+    lastEdited: {
+        type: Date,
+        required: false
     }
 });
 

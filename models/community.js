@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Post = require('./post');
 
 const communitySchema = new mongoose.Schema({
     name: {
@@ -25,6 +26,17 @@ const communitySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
+    }
+});
+
+communitySchema.pre('deleteOne', async function (next) {
+    try {
+        const communityId = this.getFilter()["_id"];
+        await Post.deleteMany({ community: communityId });
+
+        next();
+    } catch (err) {
+        next(err);
     }
 });
 
