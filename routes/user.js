@@ -9,12 +9,12 @@ const router = express.Router();
 
 async function findAllPostsForUser(userId) {
     try {
-        const userPostedPosts = await Post.find({ creator: userId }).exec();
+        const userPostedPosts = await Post.find({ creator: userId }).populate('creator').exec();
 
         const userComments = await Comment.find({ creator: userId }).exec();
         const commentPostIds = userComments.map(comment => comment.post);
 
-        const userCommentedPosts = await Post.find({ _id: { $in: commentPostIds } }).exec();
+        const userCommentedPosts = await Post.find({ _id: { $in: commentPostIds } }).populate('creator').exec();
 
         const allPosts = [...userPostedPosts, ...userCommentedPosts].filter((post, index, self) =>
             index === self.findIndex(p => p._id.equals(post._id))
@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
         const posts = multipleMongooseToObj(await findAllPostsForUser(req.session.user._id));
 
         // const posts = await Post.find({ poster: req.session.user._id }).exec();
-        // console.log(posts);
+        console.log(posts);
 
         try {
             res.render('user', {
