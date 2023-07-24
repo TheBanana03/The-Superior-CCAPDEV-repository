@@ -45,17 +45,6 @@
                     <hr>
                     <h5 class="dashboard-communitytitle">{{ community.name }}</h5>
                     <span>{{ community.description }}</span>
-                    <div class="dashboard-communityfollowers">
-                        <span>({{ community_follower_count }}</span>
-                        <span class="usernum-icon"><object data="/static/assets/user-solid.svg" type="image/svg+xml"></object></span>
-                        <span>followers)</span>
-                    </div>
-                    {{#if user }}
-                        <button class="btn joincommunity-btn"><object class="fa-icon" data="/static/assets/right-to-bracket-solid.svg" type="image/svg+xml"></object>Join the Community!</button>
-                    {{ else }}
-                        <span><a href="/login">Log In</a> to join the community!</span>
-                    {{/if}}
-                    <br>
                     <hr>
                     <!--Links-->
                     <div class="dashboard-content-links">
@@ -148,7 +137,7 @@
                                 <!-- Actions for logged-in users -->
                                 <span class="actions">
                                     <form action="/post/like/{{_id}}" method="POST">
-                                            <input class="like" type="submit" value="">
+                                        <input class="like" type="submit" value="">
                                     </form>
 
                                     <span class="actiontext">
