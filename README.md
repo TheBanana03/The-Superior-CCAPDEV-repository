@@ -1,34 +1,14 @@
 --------------------------------------------------------------------------------------
-INSTALL DEPENDENCIES:
+Kindly follow these steps to run the website:
 
-*Download NodeJS
+1. Download the zip file
+2. Extract the zip file
+3. Download NodeJS
+4. Open your command terminal
+5. Type "cd *insert path here*" to access the folder
+6. Type "npm i" to install dependencies to the folder
+7. Type "node index.js" to run the server
+8. Wait for it to connect to mongoose
+9. Open localhost:3000
 
-*Make sure you are in the root directory
-> cd "insert path here"
-
-*Install dependencies using npm
-> npm i
-
-*Run server
-> node index.js
-
-*Wait for it to connect to mongoose
-*Open localhost:3000
-
---------------------------------------------------------------------------------------
-DOMS DUMP:
-
-cd C:\Users\USER\Desktop\Github\The-Superior-CCAPDEV-repository
-nodemon index.js
-
---------------------------------------------------------------------------------------
-DANES DUMP:
-
-cd D:\Dane\[DLSU-STUFF]\AY_2022-2023\Term_3\CCAPDEV\The-Superior-CCAPDEV-repository-main\The-Superior-CCAPDEV-repository-main
-$ npm install --save multer
-
---------------------------------------------------------------------------------------
-MONGODB DATABASE CONNECTION:
-
-mongodb+srv://admin:1234@cluster0.dkg7ajx.mongodb.net/?retryWrites=true&w=majority
 --------------------------------------------------------------------------------------
