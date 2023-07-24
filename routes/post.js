@@ -144,7 +144,7 @@ router.post('/like/:id', async (req, res) => {
   } catch (err) {
     console.error(err);
 
-    res.render('editcommunity', {
+    res.render('likepost', {
       title: 'Animo Like Post',
       user: req.session.user,
       error: 'Error liking post\n' + err
