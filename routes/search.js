@@ -24,8 +24,6 @@ router.post('/', async (req, res) => {
       .populate('likes', 'username') // Populate the "likes" field with the specified properties
       .lean(); // Convert the Mongoose documents to plain JavaScript objects
   
-      console.log('Search Results:', searchResults); // Add this line for debugging
-  
       res.render('search_results', {
         title: 'Search Results',
         results: searchResults,
