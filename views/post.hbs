@@ -115,12 +115,17 @@
                 {{/if}}
                 <div class="post-actions">
                     <div class = "actions">
+                        {{#if user}}
                         <div>
-                            <span class="like">
-                                <span class="likecontainer" id="like"></span>
-                            </span>
-                            <span class="actiontext">
-                                {{0}} Like/s
+                            <!-- Actions for logged-in users -->
+                            <span class="actions">
+                                <form action="/post/like/{{post._id}}" method="POST">
+                                   <input class="like" type="submit" value="">
+                                </form>
+
+                                <span class="actiontext">
+                                    {{post.likes.length}} - Liked by {{post.likes.[0]}}, {{post.likes.[1]}}, {{post.likes.[2]}}
+                                </span>
                             </span>
                         </div>
 
@@ -130,6 +135,9 @@
                                 Comment
                             </span>
                         </a>
+                        {{else}}
+                        <span><a href="/login">Log In to like and comment!</a></span>
+                        {{/if}}
                     </div>
                 </div>
                 <div class="collapse {{#if openComment}}show{{/if}}" id="comment-collapse-{{post._id}}">
