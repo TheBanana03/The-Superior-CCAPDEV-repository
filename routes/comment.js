@@ -6,6 +6,43 @@ const { mongooseToObj, multipleMongooseToObj } = require('../models/db');
 
 const router = express.Router({ mergeParams: true });
 
+router.get('/getchildren/:commentid', async (req, res) => {
+    const comment_id = req.params.commentid;
+
+    try {
+        const comment = await Comment.findOne({ _id: comment_id })
+            .populate('creator')
+            .populate('post')
+            .populate({
+                path: 'children',
+                populate: {
+                    path: 'creator',
+                    model: 'User'
+                }
+            })
+            .populate({
+                path: 'children',
+                populate: {
+                    path: 'post',
+                    model: 'Post'
+                }
+            })
+            .exec();
+
+        if (!comment) {
+            console.log("Failed to find comment for children")
+            console.log("Comment not found!: " + comment_id + "\n");
+            return res.render('404');
+        }
+
+        res.json(comment.children);
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 // Update Comment 
 router.put('/:commentid', async (req, res) => {
     const user = req.session.user;
@@ -68,7 +105,7 @@ router.delete('/:commentid', async (req, res) => {
         res.render('post', {
             title: post.title,
             user: user,
-            post: post,
+            post: mongooseToObj(post),
             openComment: true
         });
 
@@ -76,6 +113,50 @@ router.delete('/:commentid', async (req, res) => {
         console.error(err);
         res.status(500).send('Internal Server Error');
     }
+});
+
+// Nest Comment
+router.post('/nest/:commentid', async (req, res) => {
+    const user = req.session.user;
+    const post_id = req.params.id;
+    const comment_id = req.params.commentid;
+    const { comment } = req.body;
+
+    try {
+        const post = await Post.findOne({ _id: post_id });
+
+        if (!post) {
+            console.log("Failed to find post for comment")
+            console.log("Post not found!: " + post_id + "\n");
+            return res.render('404');
+        }
+
+        const parentComent = await Comment.findOne({ _id: comment_id });
+
+        if (!parentComent) {
+            console.log("Failed to find parent comment for comment")
+            return res.render('404');
+        }
+        
+        const newComment = new Comment({
+            content: comment,
+            creator: user._id,
+            post: post._id,
+            children: []
+        });
+
+        const savedComment = await newComment.save();
+
+        parentComent.children.push(savedComment._id);
+        await parentComent.save();
+
+        res.redirect('/post/' + post_id + '?openComment=true');
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+
 });
 
 // Post Comment

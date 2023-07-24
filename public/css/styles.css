@@ -892,14 +892,14 @@ a.link {
     text-decoration: none;
 }
 
-.comment-collapse-button {
+.comment-collapse-button, .comment-collapse-button-main {
     background-color: transparent;
     border: none;
     outline: none;
     color: black;
 }
 
-.comment-collapse-button:hover {
+.comment-collapse-button:hover, .comment-collapse-button-main:hover {
     color: black;
     filter: brightness(90%);
     text-decoration: none;
@@ -960,5 +960,12 @@ a.link {
 
 .date span a:hover {
     color: #999;
-    
+
+}
+
+.post-comment {
+    margin-left: 0.3rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.3rem;
+    border-left: 1px solid #d8d8d8;
 }
