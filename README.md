@@ -12,3 +12,15 @@ Kindly follow these steps to run the website:
 9. Open localhost:3000
 
 --------------------------------------------------------------------------------------
+
+The usernames populated in the DB are as follows:
+1. juan
+2. dom
+3. nicole
+4. ojisan
+5. asdf143
+6. dlsu
+
+All of their passwords are "1234"
+
+--------------------------------------------------------------------------------------
