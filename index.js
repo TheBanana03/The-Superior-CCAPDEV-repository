@@ -144,25 +144,29 @@ app.use((req,res,err) => {
 /* SEARCH POSTS */
 app.post('/search', async (req, res) => {
     const searchText = req.body.searchText;
-  
+
     try {
-      // Perform the search query on the "posts" collection in the "test" database
-      const searchResults = await Post.find({
-        $or: [
-          { title: { $regex: searchText, $options: 'i' } }, // Case-insensitive search on "title" field
-          { description: { $regex: searchText, $options: 'i' } }, // Case-insensitive search on "description" field
-        ],
-      }).lean(); // Convert the Mongoose documents to plain JavaScript objects
-  
-      res.render('search_results', {
-        title: 'Search Results',
-        results: searchResults,
-      });
+        // Perform the search query on the "posts" collection in the "test" database
+        const searchResults = await Post.find({
+            $or: [
+                { title: { $regex: searchText, $options: 'i' } }, // Case-insensitive search on "title" field
+                { description: { $regex: searchText, $options: 'i' } }, // Case-insensitive search on "description" field
+            ],
+        })
+            .populate('creator', 'username profilePicturePath')
+            .populate('likes', 'username')
+            .populate('community', 'name') // Populate the "community" field with the "name" property
+            .lean();
+
+        res.render('search_results', {
+            title: 'Search Results',
+            results: searchResults,
+        });
     } catch (err) {
-      console.error('Error while searching for posts:', err);
-      res.status(500).render('500', { title: 'Internal Server Error' });
+        console.error('Error while searching for posts:', err);
+        res.status(500).render('500', { title: 'Internal Server Error' });
     }
-  });
+});
 
 /* RUN SERVER */
 app.listen(process.env.PORT || 3000, () => console.log("Server running on port http://localhost:3000"));

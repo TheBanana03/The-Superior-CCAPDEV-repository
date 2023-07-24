@@ -322,6 +322,18 @@ div.header {
     display: flex;
 }
 
+div.header2 {
+    height: 70px;
+    border-bottom: 0.5px solid #EFEFEF;
+    padding: 16px;
+    display: flex;
+}
+
+div.header2 .user {
+    display: flex;
+    flex-direction: column; /* Set flex-direction to column */
+}
+
 .pp {
     width: 32px;
     height: 32px;
