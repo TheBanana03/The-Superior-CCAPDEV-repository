@@ -744,7 +744,10 @@ span.commentsharetext {
     background-repeat: no-repeat;
     height: 24px;
     width: 24px;
-    /* margin: 8px 4px 8px 8px; */
+    margin: 8px 4px 8px 8px;
+    outline: 0px;
+    border: 0px;
+    border-color: white;
     cursor: pointer;
 }
 
