@@ -155,12 +155,14 @@
                                         {{likes.length}} - Liked by {{likes.[0]}}, {{likes.[1]}}, {{likes.[2]}}
                                     </span>
 
-                                    <span class="comment_share">
+                                    <a href="/post/{{_id}}">
+                                        <span class="comment_share">
                                         <span class="comment"></span>
                                         <span class="commentsharetext">
                                             Comment
                                         </span>
                                     </span>
+                                    </a>
                                 </span>
                             {{else}}
                                 <!-- Message for non-logged-in users -->

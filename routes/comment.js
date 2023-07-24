@@ -186,7 +186,12 @@ router.post('/', async (req, res) => {
         post.children.push(savedComment._id);
         await post.save();
 
-        res.redirect('/post/' + post_id + '?openComment=true');
+        res.render('post', {
+            title: post.title,
+            user: user,
+            post: mongooseToObj(post),
+            openComment: true
+        });
 
     } catch (err) {
         console.error(err);

@@ -144,7 +144,7 @@
                     <div class="create-comment-card card card-body">
                         <div>
                             {{#if user}}
-                                <form action="/post/{{post._id}}/comment" method="POST">
+                                <form action="/post/{{post._id}}/comment/" method="POST">
                                     <textarea type="text" name="comment" class="submit-comment-input" placeholder="Enter your comment"></textarea>
                                     <button type="submit" class="submit-comment-button">Submit</button>
                                     <span id="error-message">{{ commentError }}</span>
