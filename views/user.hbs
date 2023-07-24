@@ -68,14 +68,14 @@
             {{#each posts}}
                 <div class = "post">
                     <div class = "header">
-                        {{#if creator.profilePicturePath }}
-                            <img class = "pp"; src = "/static/assets/profpics/{{creator.profilePicturePath}}">
+                        {{#if ../viewUser.profilePicturePath }}
+                            <img class = "pp"; src = "/static/assets/profpics/{{../viewUser.profilePicturePath}}">
                         {{else}}
                             <img class = "pp"; src = "/static/assets/profpics/default.jpg">
                         {{/if}}
                         <div>
                             <div class = "user">
-                                <a href="/user/{{creator.username}}" class="username">{{uppercase creator.username}}</a>
+                                <a href="/user/{{../viewUser.username}}" class="username">{{uppercase ../viewUser.username}}</a>
                             </div>
                         </div>
                     </div>

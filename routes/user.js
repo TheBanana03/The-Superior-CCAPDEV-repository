@@ -9,7 +9,7 @@ const router = express.Router();
 
 async function findAllPostsForUser(userId) {
     try {
-        const userPostedPosts = await Post.find({ poster: userId }).exec();
+        const userPostedPosts = await Post.find({ creator: userId }).exec();
 
         const userComments = await Comment.find({ creator: userId }).exec();
         const commentPostIds = userComments.map(comment => comment.post);
@@ -33,8 +33,10 @@ router.get('/', async (req, res) => {
     }
     else {
 
-        const posts = await findAllPostsForUser(req.session.user._id);
-        console.log(posts);
+        const posts = multipleMongooseToObj(await findAllPostsForUser(req.session.user._id));
+
+        // const posts = await Post.find({ poster: req.session.user._id }).exec();
+        // console.log(posts);
 
         try {
             res.render('user', {
@@ -62,9 +64,12 @@ router.get('/:username', async (req, res) => {
             });
         }
 
-        const posts = await findAllPostsForUser(viewUser._id);
-        console.log(posts);
-    
+        const posts = multipleMongooseToObj(await findAllPostsForUser(viewUser._id));
+        
+
+        // const posts = await Post.find({ poster: viewUser._id }).exec();
+        // console.log(posts);
+
         res.render('user', {
             title: `${username}'s Profile`,
             user: req.session.user,

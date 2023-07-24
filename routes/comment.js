@@ -186,10 +186,23 @@ router.post('/', async (req, res) => {
         post.children.push(savedComment._id);
         await post.save();
 
+        const viewPost = mongooseToObj(
+            await Post.findOne({ _id: post_id })
+              .populate('creator')
+              .populate({
+                path: 'children',
+                populate: {
+                  path: 'creator', 
+                  model: 'User' 
+                }
+              })
+              .populate('community')
+          );
+
         res.render('post', {
             title: post.title,
             user: user,
-            post: mongooseToObj(post),
+            post: viewPost,
             openComment: true
         });
 
