@@ -114,7 +114,6 @@
                     </div>
                 {{/if}}
 
-
                 <!--POSTS-->
                 {{#each posts}}
                     <div class = "post">
@@ -124,57 +123,51 @@
                             {{else}}
                                 <img class = "pp"; src = "/static/assets/profpics/default.jpg">
                             {{/if}}
-                            <div style="width: 100%;" class="d-flex flex-row justify-content-between">
+                            <div>
                                 <div class = "user">
                                     <a href="/user/{{creator.username}}" class="username">{{uppercase creator.username}}</a>
                                 </div>
-                                <div>
-                                    <a href="/post/{{_id}}" class="user" style="color: gray;">
-                                        >
-                                    </a> 
-                                </div>
                             </div>
-                        </div>
-                        <div class = "footer">
-                            <div>
-                                <a href="/post/{{_id}}" class="post-title">{{title}}</a>
-                            </div>
-                            <div class = "desc">
-                                <span>{{description}}</span>
-                            </div>
-                            {{#if lastEdited}}
-                            <div class = "date">
-                                LAST EDITED: {{lastEdited}}
-                            </div>
-                            {{else}}
-                                <div class = "date">
-                                    {{postDate}}
-                                </div>
-                            {{/if}}
                         </div>
                         {{#if attachment}}
                             <div>
-                                <a href="/post/{{_id}}"><img class = "imgpost"; src = "/static/assets/postpics/{{ attachment }}"></a>
+                                <img class = "imgpost"; src = "/static/assets/postpics/{{ attachment }}">
                             </div>
                         {{/if}}
-                        <div class="post-actions">
-                            <span class = "actions">
-                                <div>
-                                    <span class="like">
-                                        <span class="likecontainer" id="like"></span>
-                                    </span>
-                                    <span class="actiontext">
-                                        {{0}} Like/s
-                                    </span>
-                                </div>
+                        <div class = "footer">
+                            <a href="/post/{{_id}}" class="post-title">{{title}}</a>
+                            <div style="display: none;">{{ _id }}</div>
+                            <div class = "desc">
+                                <span>{{description}}</span>
+                            </div>
+                            <div class = "date">
+                                {{postDate}}
+                            </div>
+                            <hr>
+                            {{#if ../user}}
+                                <!-- Actions for logged-in users -->
+                                <span class="actions">
+                                    <form action="/post/like/{{_id}}" method="POST">
+                                        <span class="like">
+                                            <input class="like" type="submit" value="">
+                                        </span>
+                                    </form>
 
-                                <a class="comment-collapse-button" href="/post/{{_id}}?openComment=true">
-                                    <span class = "comment"></span>
-                                    <span class="commentsharetext">
-                                        Comment
+                                    <span class="actiontext">
+                                        {{likes.length}} - Liked by {{likes.[0]}}, {{likes.[1]}}, {{likes.[2]}}
                                     </span>
-                                </a>
-                            </span>
+
+                                    <span class="comment_share">
+                                        <span class="comment"></span>
+                                        <span class="commentsharetext">
+                                            Comment
+                                        </span>
+                                    </span>
+                                </span>
+                            {{else}}
+                                <!-- Message for non-logged-in users -->
+                                <span><a href="/login">Log In</a> to like and comment!</span>
+                            {{/if}}
                         </div>
                     </div>
                 {{/each}}
