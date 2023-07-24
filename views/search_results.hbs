@@ -1,14 +1,72 @@
-<!-- search_results.hbs -->
-<h1>{{ title }}</h1>
-<div>
-  {{#if results.length}}
-    <h2>Search Results:</h2>
-    <ul>
-      {{#each results}}
-        <li>{{ name }}</li>
-      {{/each}}
-    </ul>
-  {{else}}
-    <p>No results found.</p>
-  {{/if}}
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+<!--Bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+{{> navbar user=user }}
+
+<h1>Search Results</h1>
+{{!-- Debug: Display the entire results array --}}
+<pre>{{results}}</pre>
+
+<div class="col-md-6">
+
+<!-- POSTS -->
+{{#each results}} <!-- Use the correct variable name "results" here -->
+  <div class="post">
+    <div class="header">
+      <!-- Display the creator's profile picture -->
+      {{#if creator.profilePicturePath}}
+        <img class="pp" src="/static/assets/profpics/{{creator.profilePicturePath}}">
+      {{else}}
+        <img class="pp" src="/static/assets/profpics/default.jpg">
+      {{/if}}
+      <div>
+        <div class="user">
+          <a href="/user/{{creator.username}}" class="username">{{uppercase creator.username}}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Display the post image if available -->
+    {{#if attachment}}
+      <div>
+        <img class="imgpost" src="/static/assets/postpics/{{ attachment }}">
+      </div>
+    {{/if}}
+
+    <div class="footer">
+      <!-- Display the post title and description -->
+      <a href="/post/{{_id}}" class="post-title">{{title}}</a>
+      <div class="desc">
+        <span>{{description}}</span>
+      </div>
+      <div class="date">
+        {{postDate}}
+      </div>
+
+      <hr>
+
+      <!-- Display the like and comment buttons -->
+      <span class="actions">
+        <span class="like">
+          <span class="likecontainer" id="like"></span>
+        </span>
+        <span class="actiontext">
+          {{0}} Like{{#if (gt 0 1)}}s{{/if}}
+        </span>
+
+        <span class="comment_share">
+          <span class="comment"></span>
+          <span class="commentsharetext">
+            Comment
+          </span>
+        </span>
+      </span>
+    </div>
+  </div>
+{{/each}}
+
 </div>
