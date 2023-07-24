@@ -7,14 +7,44 @@
 
 {{> navbar user=user }}
 
-<h1>Search Results</h1>
-{{!-- Debug: Display the entire results array --}}
-<pre>{{results}}</pre>
+<!--MAIN BODY-->
+<div class="container mainbody-communitypage">
+    <div class="row">
+
+        <!--DASHBOARD-->
+        <div class="col-md-3">
+            <div class="dashboard-container">
+                <div class="dashboard-title">
+                    <span>Dashboard</span>
+                </div>
+                <div class="dashboard-content">
+                    <hr>
+                    <!--Links-->
+                    <div class="dashboard-content-links">
+
+                        <!--Home Button-->
+                        <a href="/" class="dashboard-button" style="padding-top: 0.1rem;"><object data="/static/assets/house-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Profile Button-->
+                        <a href="/user" class="dashboard-button" style="padding: 0.15rem;"><object data="/static/assets/user-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Edit Profile Button-->
+                        <a href="/editprofile" class="dashboard-button" style="padding-top: 0.15rem;"><object data="/static/assets/user-pen-solid.svg" type="image/svg+xml"></object></a>
+
+                        <!--Logout Button-->
+                        <a href="/logout" class="dashboard-button"><object data="/static/assets/arrow-right-from-bracket-solid.svg" type="image/svg+xml"></object></a>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
 
 <div class="col-md-6">
 
+<h1>Search Results</h1>
+
 <!-- POSTS -->
-{{#each results}} <!-- Use the correct variable name "results" here -->
+{{#each results}}
   <div class="post">
     <div class="header">
       <!-- Display the creator's profile picture -->
