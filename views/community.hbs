@@ -124,27 +124,40 @@
                             {{else}}
                                 <img class = "pp"; src = "/static/assets/profpics/default.jpg">
                             {{/if}}
-                            <div>
+                            <div style="width: 100%;" class="d-flex flex-row justify-content-between">
                                 <div class = "user">
                                     <a href="/user/{{creator.username}}" class="username">{{uppercase creator.username}}</a>
                                 </div>
+                                <div>
+                                    <a href="/post/{{_id}}" class="user" style="color: gray;">
+                                        >
+                                    </a> 
+                                </div>
                             </div>
                         </div>
-                        {{#if attachment}}
-                            <div>
-                                <img class = "imgpost"; src = "/static/assets/postpics/{{ attachment }}">
-                            </div>
-                        {{/if}}
                         <div class = "footer">
-                            <a href="/post/{{_id}}" class="post-title">{{title}}</a>
+                            <div>
+                                <a href="/post/{{_id}}" class="post-title">{{title}}</a>
+                            </div>
                             <div class = "desc">
                                 <span>{{description}}</span>
                             </div>
+                            {{#if lastEdited}}
                             <div class = "date">
-                                {{postDate}}
+                                LAST EDITED: {{lastEdited}}
                             </div>
-
-                            <hr>
+                            {{else}}
+                                <div class = "date">
+                                    {{postDate}}
+                                </div>
+                            {{/if}}
+                        </div>
+                        {{#if attachment}}
+                            <div>
+                                <a href="/post/{{_id}}"><img class = "imgpost"; src = "/static/assets/postpics/{{ attachment }}"></a>
+                            </div>
+                        {{/if}}
+                        <div class="post-actions">
                             <span class = "actions">
                                 <span class="like">
                                     <span class="likecontainer" id="like"></span>

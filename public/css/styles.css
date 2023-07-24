@@ -151,6 +151,7 @@ object.fa-icon {
     border-radius: 100%;
     object-fit: cover;
     background-color: white;
+    border: 0;
     
     margin-left: 2rem;
 }
@@ -717,6 +718,10 @@ div.footer {
     color: black
 }
 
+.post-actions {
+    padding: 0.75rem;
+}
+
 span.actions {
     display: flex;
 }
@@ -841,4 +846,51 @@ a.link {
 
     padding: 0;
     margin: 0;
+}
+
+.post-title-edit {
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: 1px solid #d8d8d8;
+    border-radius: 0.3rem;
+    color: black;
+
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+.desc-edit {
+    width: 100%;
+    border: 1px solid #d8d8d8;
+    border-radius: 0.3rem;
+
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.save-button,.cancel-button {
+    padding: 0rem 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #e8e8e8;
+    border: 1px solid #c8c8c8;
+}
+
+.save-button:hover,.cancel-button:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+.delete-button {
+    padding: 0rem 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid #c8c8c8;
+    background-color: #e8e8e8;
+    display: inline-block;
+    color: black;
+}
+
+.delete-button:hover {
+    color: black;
+    filter: brightness(90%);
+    text-decoration: none;
 }

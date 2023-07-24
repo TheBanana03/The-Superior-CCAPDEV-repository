@@ -72,21 +72,46 @@
                         </div>
                     </div>
                 </div>
-                {{#if attachment}}
-                    <div>
-                        <img class = "imgpost"; src = "/static/assets/postpics/{{attachment}}">
-                    </div>
-                {{/if}}
+            
                 <div class = "footer">
-                    <a href="/post/{{_id}}" class="post-title">{{title}}</a>
-                    <div class = "desc">
-                        <span>{{post.description}}</span>
-                    </div>
-                    <div class = "date">
-                        {{post.postDate}}
+                    <div class="post-content">
+                        <a href="/post/{{post._id}}" class="post-title">{{title}}</a>
+                        <div class = "desc">
+                            <span>{{post.description}}</span>
+                        </div>
+                        {{#if post.lastEdited}}
+                            <div class = "date">
+                                LAST EDITED: {{post.lastEdited}}
+                            </div>
+                        {{else}}
+                            <div class = "date">
+                                {{post.postDate}}
+                            </div>
+                        {{/if}}
                     </div>
 
-                    <hr>
+                    <!--EDIT FORM-->
+                    <div class="edit-form" style="display: none;">
+                        <form action="/post/{{post._id}}?_method=PUT" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="text" id="title" name="title" class="post-title-edit" value="{{post.title}}">
+                            <br>
+                            <textarea id="description" name="description" class="desc-edit">{{post.description}}</textarea>
+                            <p id="error-message">{{ error }}</p>
+                            <div>
+                                <input type="submit" value="Save" class="save-button">
+                                <a href="#" class="delete-button" data-post-id="{{post._id}}">Delete</a>
+                                <button class="cancel-button">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {{#if post.attachment}}
+                    <div>
+                        <img class = "imgpost"; src = "/static/assets/postpics/{{post.attachment}}">
+                    </div>
+                {{/if}}
+                <div class="post-actions">
                     <span class = "actions">
                         <span class="like">
                             <span class="likecontainer" id="like"></span>
@@ -104,23 +129,6 @@
                     </span>
                 </div>
             </div>
-        </div>
-
-        <!--EDIT FORM-->
-        <div class="edit-form" style="display: none;">
-            <form action="/post/edit/{{post._id}}" method="POST">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" value="{{post.title}}">
-
-                <label for="description">Description:</label>
-                <textarea id="description" name="description">{{post.description}}</textarea>
-
-                <!-- Add any other fields you want to edit -->
-
-                <input type="submit" value="Save">
-                <button class="cancel-button">Cancel</button>
-                <button class="delete-button">Delete</button>
-            </form>
         </div>
     </div>
 </div>

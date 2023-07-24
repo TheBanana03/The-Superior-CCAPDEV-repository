@@ -68,7 +68,7 @@ router.get('/:name', async (req, res) => {
         }
 
         const community_follower_count = await User.countDocuments({ followed_communities: community._id });
-        const posts = multipleMongooseToObj(await Post.find({ community: community._id }).populate('creator').populate('community'));
+        const posts = multipleMongooseToObj(await Post.find({ community: community._id }).populate('creator').populate('community')).reverse();
 
         res.render('community', {
             title: `${community.name}`,
@@ -91,7 +91,12 @@ router.delete('/:name', async (req, res) => {
 
     try {
         const community = await Community.findOne({ name: community_name });
-        community.remove();
+
+        if (!community) {
+            return res.render('404');
+          }
+
+        const result = await Community.deleteOne({ _id: community._id });
 
         if (result.deletedCount == 0) {
             return res.render('editcommunity', {
