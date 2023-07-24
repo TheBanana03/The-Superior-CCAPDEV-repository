@@ -65,7 +65,60 @@
 
         <!--User Posts-->
         <div class="col-md-6">
+            {{#each posts}}
+                <div class = "post">
+                    <div class = "header">
+                        {{#if creator.profilePicturePath }}
+                            <img class = "pp"; src = "/static/assets/profpics/{{creator.profilePicturePath}}">
+                        {{else}}
+                            <img class = "pp"; src = "/static/assets/profpics/default.jpg">
+                        {{/if}}
+                        <div>
+                            <div class = "user">
+                                <a href="/user/{{creator.username}}" class="username">{{uppercase creator.username}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if attachment}}
+                        <div>
+                            <img class = "imgpost"; src = "/static/assets/postpics/{{ attachment }}">
+                        </div>
+                    {{/if}}
+                    <div class = "footer">
+                        <a href="/post/{{_id}}" class="post-title">{{title}}</a>
+                        <div style="display: none;">{{ _id }}</div>
+                        <div class = "desc">
+                            <span>{{description}}</span>
+                        </div>
+                        <div class = "date">
+                            {{postDate}}
+                        </div>
+                        <hr>
+                        {{#if ../user}}
+                            <!-- Actions for logged-in users -->
+                            <span class="actions">
+                                <form action="/post/like/{{_id}}" method="POST">
+                                        <input class="like" type="submit" value="">
+                                </form>
 
+                                <span class="actiontext">
+                                    {{likes.length}} - Liked by {{likes.[0]}}, {{likes.[1]}}, {{likes.[2]}}
+                                </span>
+
+                                <span class="comment_share">
+                                    <span class="comment"></span>
+                                    <span class="commentsharetext">
+                                        Comment
+                                    </span>
+                                </span>
+                            </span>
+                        {{else}}
+                            <!-- Message for non-logged-in users -->
+                            <span><a href="/login">Log In</a> to like and comment!</span>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/each}}
         </div>
 
         <!--User Communities-->

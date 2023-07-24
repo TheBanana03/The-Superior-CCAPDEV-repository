@@ -134,12 +134,12 @@ const postRouter = require('./routes/post');
 app.use('/post', postRouter);
 
 /* 404 MIDDLEWARE */
-app.use((req,res,err) => {
-    res.status(404);
-    res.render('404', {
-        title: "404"
-    });
-});
+// app.use((req,res,err) => {
+//     res.status(404);
+//     res.render('404', {
+//         title: "404"
+//     });
+// });
 
 /* RUN SERVER */
 app.listen(process.env.PORT || 3000, () => console.log("Server running on port http://localhost:3000"));

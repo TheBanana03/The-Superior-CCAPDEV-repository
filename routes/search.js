@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
       res.render('search_results', {
         title: 'Search Results',
         results: searchResults,
+        user: req.session.user,
       });
     } catch (err) {
       console.error('Error while searching for posts:', err);

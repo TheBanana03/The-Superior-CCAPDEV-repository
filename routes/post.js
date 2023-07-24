@@ -6,6 +6,7 @@ const User = require('../models/user');
 const Post = require('../models/post');
 const { mongooseToObj, multipleMongooseToObj } = require('../models/db');
 const community = require('../models/community');
+const comment = require('../models/comment');
 
 const router = express.Router();
 
@@ -26,28 +27,39 @@ router.get('/', (req, res) => {
   res.render('404');
 });
 
-// Go to Post Page
 router.get('/:id', async (req, res) => {
   const user = req.session.user;
-  const post_id = req.params.id;
+  const post_id = req.params.id;;
 
   try {
-    const post = mongooseToObj(
-      await Post.findOne({ _id: post_id }).populate('creator').populate('community')
-    );
+      const post = mongooseToObj(
+          await Post.findOne({ _id: post_id })
+            .populate('creator')
+            .populate({
+              path: 'children',
+              populate: {
+                path: 'creator', 
+                model: 'User' 
+              }
+            })
+            .populate('community')
+        );
 
-    if (!post) {
-      return res.render('404');
-    }
+      if (!post) {
+          console.log("Post not found!: " + post_id + "\n");
+          return res.render('404');
+      }
 
-    res.render('post', {
-      title: post.title,
-      user: user,
-      post: post,
-    });
+      res.render('post', {
+          title: post.title,
+          user: user,
+          post: post,
+          openComment: req.query.openComment === 'true' || false,
+          error: decodeURIComponent(req.query.error) || ''
+      });
   } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
+      console.error(err);
+      res.status(500).send('Internal Server Error');
   }
 });
 
@@ -151,5 +163,8 @@ router.post('/like/:id', async (req, res) => {
     });
   }
 });
+
+const commentRouter = require('./comment');
+router.use('/:id/comment', commentRouter);
 
 module.exports = router;
