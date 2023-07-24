@@ -39,64 +39,70 @@
             </div>
         </div>
 
-<div class="col-md-6">
+        <!--POSTS-->
+        <div class="col-md-6">
+            <div>
 
-<h1>Search Results</h1>
+                <!-- POSTS -->
+                {{#each results}}
+                  <div class="post">
+                    <div class="header">
+                      <!-- Display the creator's profile picture -->
+                      {{#if creator.profilePicturePath}}
+                        <img class="pp" src="/static/assets/profpics/{{creator.profilePicturePath}}">
+                      {{else}}
+                        <img class="pp" src="/static/assets/profpics/default.jpg">
+                      {{/if}}
+                      <div>
+                    <div class="user">
+                        <br>
+                        <a href="/user/{{creator.username}}" class="username">{{uppercase creator.username}}</a>
+                        <span>posted in <a href="/community/{{community.name}}">{{community.name}}</a></span>
+                    </div>
+                </div>
+            </div>
 
-<!-- POSTS -->
-{{#each results}}
-  <div class="post">
-    <div class="header">
-      <!-- Display the creator's profile picture -->
-      {{#if creator.profilePicturePath}}
-        <img class="pp" src="/static/assets/profpics/{{creator.profilePicturePath}}">
-      {{else}}
-        <img class="pp" src="/static/assets/profpics/default.jpg">
-      {{/if}}
-      <div>
-        <div class="user">
-          <a href="/user/{{creator.username}}" class="username">{{uppercase creator.username}}</a>
+                    <!-- Display the post image if available -->
+                    {{#if attachment}}
+                      <div>
+                        <img class="imgpost" src="/static/assets/postpics/{{ attachment }}">
+                      </div>
+                    {{/if}}
+
+                    <div class="footer">
+                      <!-- Display the post title and description -->
+                      <a href="/post/{{_id}}" class="post-title">{{title}}</a>
+                      <div class="desc">
+                        <span>{{description}}</span>
+                      </div>
+                      <div class="date">
+                        {{postDate}}
+                      </div>
+
+                      <hr>
+
+                      <!-- Display the like and comment buttons -->
+                      <span class="actions">
+                        <span class="like">
+                          <span class="likecontainer" id="like"></span>
+                        </span>
+                        <span class="actiontext">
+                          {{0}} Like{{#if (gt 0 1)}}s{{/if}}
+                        </span>
+
+                        <span class="comment_share">
+                          <span class="comment"></span>
+                          <span class="commentsharetext">
+                            Comment
+                          </span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                {{/each}}
+
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-
-    <!-- Display the post image if available -->
-    {{#if attachment}}
-      <div>
-        <img class="imgpost" src="/static/assets/postpics/{{ attachment }}">
-      </div>
-    {{/if}}
-
-    <div class="footer">
-      <!-- Display the post title and description -->
-      <a href="/post/{{_id}}" class="post-title">{{title}}</a>
-      <div class="desc">
-        <span>{{description}}</span>
-      </div>
-      <div class="date">
-        {{postDate}}
-      </div>
-
-      <hr>
-
-      <!-- Display the like and comment buttons -->
-      <span class="actions">
-        <span class="like">
-          <span class="likecontainer" id="like"></span>
-        </span>
-        <span class="actiontext">
-          {{0}} Like{{#if (gt 0 1)}}s{{/if}}
-        </span>
-
-        <span class="comment_share">
-          <span class="comment"></span>
-          <span class="commentsharetext">
-            Comment
-          </span>
-        </span>
-      </span>
-    </div>
-  </div>
-{{/each}}
-
 </div>

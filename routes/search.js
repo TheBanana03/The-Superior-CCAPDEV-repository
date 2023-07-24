@@ -20,6 +20,7 @@ router.post('/', async (req, res) => {
         ],
       })
       .populate('creator', 'username profilePicturePath') // Populate the "creator" field with the specified properties
+      .populate('community', 'name') // Populate the "community" field with the "name" property
       .populate('likes', 'username') // Populate the "likes" field with the specified properties
       .lean(); // Convert the Mongoose documents to plain JavaScript objects
   
