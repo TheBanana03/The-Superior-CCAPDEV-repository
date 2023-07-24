@@ -1,27 +1,32 @@
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
-    post: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Post',
-    },
     content: {
         type: String,
-        min: 1,
         max: 255,
-    },
-    parent: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment',
+        // required: true
     },
     children: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment',
+        delete: 'no cascade'
     }],
-    poster: {
+    creator: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
+    post: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post',
+    },
+    postDate: {
+        type: Date,
+        default: Date.now,
+    },
+    lastEdited: {
+        type: Date,
+        required: false
+    }
 });
 
 module.exports = mongoose.model('Comment', commentSchema);

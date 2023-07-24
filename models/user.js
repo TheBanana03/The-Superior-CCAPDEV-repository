@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Community = require('./community');
 const Post = require('./post');
+const Comment = require('./comment');
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -66,6 +67,7 @@ userSchema.pre('deleteOne', async function (next) {
         const communities = await Community.find({ creator: userId });
   
         await Post.deleteMany({ creator: userId });
+        await Comment.deleteMany({ creator: userId })
 
         for (const community of communities) {
             await community.deleteOne();

@@ -159,19 +159,21 @@
                         {{/if}}
                         <div class="post-actions">
                             <span class = "actions">
-                                <span class="like">
-                                    <span class="likecontainer" id="like"></span>
-                                </span>
-                                <span class="actiontext">
-                                    {{0}} Like/s
-                                </span>
+                                <div>
+                                    <span class="like">
+                                        <span class="likecontainer" id="like"></span>
+                                    </span>
+                                    <span class="actiontext">
+                                        {{0}} Like/s
+                                    </span>
+                                </div>
 
-                                <span class = "comment_share">
+                                <a class="comment-collapse-button" href="/post/{{_id}}?openComment=true">
                                     <span class = "comment"></span>
                                     <span class="commentsharetext">
                                         Comment
                                     </span>
-                                </span>
+                                </a>
                             </span>
                         </div>
                     </div>

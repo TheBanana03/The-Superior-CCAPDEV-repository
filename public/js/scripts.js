@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const editButton = document.querySelector('.edit-button');
     const editForm = document.querySelector('.edit-form');
     const postContent = document.querySelector('.post-content');
-    const cancelButton = document.querySelector('.cancel-button');
+    const cancelButton = document.querySelector('#post-cancel-button-main');
 
     editButton.addEventListener('click', (e) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         editForm.style.display = 'none';
     });
 
-    const deleteButtons = document.querySelectorAll(".delete-button");
+    const deleteButtons = document.querySelector("#post-delete-button-main");
     deleteButtons.forEach((button) => {
         button.addEventListener("click", async function (e) {
         e.preventDefault();

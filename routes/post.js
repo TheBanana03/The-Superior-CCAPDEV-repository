@@ -27,13 +27,22 @@ router.get('/', (req, res) => {
 
 // Go to Post Page
 router.get('/:id', async (req, res) => {
-  const user = req.session.user;
-  const post_id = req.params.id;
+    const user = req.session.user;
+    const post_id = req.params.id;;
 
     try {
         const post = mongooseToObj(
-            await Post.findOne({ _id: post_id }).populate('creator').populate('community')
-        );
+            await Post.findOne({ _id: post_id })
+              .populate('creator')
+              .populate({
+                path: 'children',
+                populate: {
+                  path: 'creator', 
+                  model: 'User' 
+                }
+              })
+              .populate('community')
+          );
 
         if (!post) {
             console.log("Post not found!: " + post_id + "\n");
@@ -44,6 +53,8 @@ router.get('/:id', async (req, res) => {
             title: post.title,
             user: user,
             post: post,
+            openComment: req.query.openComment === 'true' || false,
+            error: decodeURIComponent(req.query.error) || ''
         });
     } catch (err) {
         console.error(err);
@@ -73,16 +84,11 @@ router.put('/:id', async (req, res) => {
         await post.save();
         res.redirect('/post/' + post_id);
     } catch (err) {
-        res.render('post', {
-            title: newPost.title,
-            user: user,
-            post: { _id: post_id, title, description },
-            error: 'Error editing post\n' + err,
-        });
+        res.redirect('/post/' + post_id + '?error=' + encodeURIComponent(err));
     }
 });
 
-//Delete Community
+//Delete Post
 router.delete('/:id', async (req, res) => {
     const post_id = req.params.id;
     const user = req.session.user;
@@ -94,12 +100,7 @@ router.delete('/:id', async (req, res) => {
         const result = await Post.deleteOne({ _id: post_id });
 
         if (result.deletedCount == 0) {
-            return res.render('post', {
-                title: title,
-                user: req.session.user,
-                post: { _id: post_id, title, description },
-                error: 'Error deleting Post'
-            });
+            res.redirect('/post/' + post_id + '?error=' + encodeURIComponent("Error deleting Post"));
         }
 
         return res.render('user', {
@@ -116,41 +117,45 @@ router.delete('/:id', async (req, res) => {
 
 // Create Post
 router.post('/:name', upload.single('attachment'), async (req, res) => {
-  const user = req.session.user;
-  const community_name = req.params.name;
+    const user = req.session.user;
+    const community_name = req.params.name;
 
-  const { title, description } = req.body;
+    const { title, description } = req.body;
 
-  try {
-    const community = mongooseToObj(await Community.findOne({ name: community_name }));
+    try {
+        const community = mongooseToObj(await Community.findOne({ name: community_name }));
 
-    if (!community) {
-        console.log("Community not found when making post!: " + community_name + "\n");
-        return res.render('404');
+        if (!community) {
+            console.log("Community not found when making post!: " + community_name + "\n");
+            return res.render('404');
+        }
+
+        const post = new Post({
+            title: title,
+            description: description,
+            creator: user._id,
+            community: community._id,
+            attachment: req.file ? req.file.filename : null // Save the filename of the uploaded image if present, otherwise null.
+        });
+
+        await post.save();
+        res.redirect('/community/' + community_name);
+    } catch (err) {
+        console.error(err);
+        const community = mongooseToObj(await Community.findOne({ name: community_name }));
+
+        res.render('community' + community_name, {
+            title: community_name,
+            user: user,
+            community: community,
+            post: { _id: post_id, title, description },
+            error: 'Error creating post\n' + err,
+        });
     }
-
-    const post = new Post({
-      title: title,
-      description: description,
-      creator: user._id,
-      community: community._id,
-      attachment: req.file ? req.file.filename : null, // Save the filename of the uploaded image if present, otherwise null.
-    });
-
-    await post.save();
-    res.redirect('/community/' + community_name);
-  } catch (err) {
-    console.error(err);
-    const community = mongooseToObj(await Community.findOne({ name: community_name }));
-
-    res.render('community' + community_name, {
-      title: community_name,
-      user: user,
-      community: community,
-      post: { _id: post_id, title, description },
-      error: 'Error creating post\n' + err,
-    });
-  }
 });
+
+/* Add router extension to comments */
+const commentRouter = require('./comment');
+router.use('/:id/comment', commentRouter);
 
 module.exports = router;

@@ -7,6 +7,7 @@
 
 <!--JS-->
 <script src="/static/js/scripts.js"></script>
+<script src="/static/js/scripts2.js"></script>
 
 {{> navbar user=user }}
 
@@ -81,11 +82,11 @@
                         </div>
                         {{#if post.lastEdited}}
                             <div class = "date">
-                                LAST EDITED: {{post.lastEdited}}
+                                LAST EDITED: {{formatDate post.lastEdited}}
                             </div>
                         {{else}}
                             <div class = "date">
-                                {{post.postDate}}
+                                {{formatDate post.postDate}}
                             </div>
                         {{/if}}
                     </div>
@@ -100,8 +101,8 @@
                             <p id="error-message">{{ error }}</p>
                             <div>
                                 <input type="submit" value="Save" class="save-button">
-                                <a href="#" class="delete-button" data-post-id="{{post._id}}">Delete</a>
-                                <button class="cancel-button">Cancel</button>
+                                <a href="#" id="post-delete-button-main" class="delete-button" data-post-id="{{post._id}}">Delete</a>
+                                <button id="post-cancel-button-main" class="cancel-button">Cancel</button>
                             </div>
                         </form>
                     </div>
@@ -112,21 +113,80 @@
                     </div>
                 {{/if}}
                 <div class="post-actions">
-                    <span class = "actions">
-                        <span class="like">
-                            <span class="likecontainer" id="like"></span>
-                        </span>
-                        <span class="actiontext">
-                            {{0}} Like/s
-                        </span>
+                    <div class = "actions">
+                        <div>
+                            <span class="like">
+                                <span class="likecontainer" id="like"></span>
+                            </span>
+                            <span class="actiontext">
+                                {{0}} Like/s
+                            </span>
+                        </div>
 
-                        <span class = "comment_share">
+                        <a class="comment-collapse-button" data-bs-toggle="collapse" href="#comment-collapse-{{post._id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                             <span class = "comment"></span>
                             <span class="commentsharetext">
                                 Comment
                             </span>
-                        </span>
-                    </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse {{#if openComment}}show{{/if}}" id="comment-collapse-{{post._id}}">
+                    <div class="create-comment-card card card-body">
+                        <div>
+                            {{#if user}}
+                                <form action="/post/{{post._id}}/comment" method="POST">
+                                    <textarea type="text" name="comment" class="submit-comment-input" placeholder="Enter your comment"></textarea>
+                                    <button type="submit" class="submit-comment-button">Submit</button>
+                                    <span id="error-message">{{ commentError }}</span>
+                                </form>
+                            {{else}}
+                                <span><a href="/login">Log in</a> to comment.</span>
+                            {{/if}}
+                        </div>
+                        <hr>
+                        <div>
+                            <!--COMMENT-->
+                            {{#each post.children}}
+                                <div class="post-comment">
+                                    <span class="post-comment-username">{{uppercase creator.username}}: </span>
+                                    <div class="post-comment-content">
+                                        <span>{{content}}</span>
+                                    </div>
+
+                                    <!--EDIT COMMENT FORM-->
+                                    <div class="edit-comment-form" style="display: none;">
+                                        <form action="/post/{{../post._id}}/comment/{{_id}}?_method=PUT" method="POST">
+                                            <input type="hidden" name="_method" value="PUT">
+                                            <textarea name="comment" class="submit-comment-input">{{content}}</textarea>
+                                            <div>
+                                                <input type="submit" value="Save" class="save-button">
+                                                <a href="#" class="delete-button" data-post-id="{{../post._id}}" data-comment-id="{{_id}}">Delete</a>
+                                                <button class="cancel-button">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="date">
+                                        <span>
+                                            <a href="">View Comments</a>
+                                            &#x2022;
+                                            {{#when ../user._id 'eq' creator._id }}
+                                                <a href="">Edit</a>
+                                                &#x2022;
+                                            {{/when}}
+
+                                            {{#if lastEdited}}
+                                                LAST EDITED: {{formatDate lastEdited}}
+                                            {{else}}
+                                                {{formatDate postDate}}
+                                            {{/if}}
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr>
+                            {{/each}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

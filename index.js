@@ -56,10 +56,26 @@ const hbs = exphbs.create({
                 return "";
             }
         },
+        formatDate: function (date) {
+            if (!(date instanceof Date && !isNaN(date))) {
+                return '';
+            }
 
+            const options = {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZoneName: 'short'
+            };
+        
+            return date.toLocaleString('en-US', options);
+        },
         gt: function (a, b) {
             return a > b;
-          },
+        }
     }
 });
 app.engine('hbs', hbs.engine);

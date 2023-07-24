@@ -319,6 +319,7 @@ a.community-card:hover {
 
 .card-body {
     background-color: #f8f8f8;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -722,10 +723,6 @@ div.footer {
     padding: 0.75rem;
 }
 
-span.actions {
-    display: flex;
-}
-
 span.actiontext {
     margin-left: 0.5rem;
 }
@@ -893,4 +890,75 @@ a.link {
     color: black;
     filter: brightness(90%);
     text-decoration: none;
+}
+
+.comment-collapse-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.comment-collapse-button:hover {
+    color: black;
+    filter: brightness(90%);
+    text-decoration: none;
+}
+
+.create-comment-card {
+    background-color: #fafafa;
+    border-top: 1px solid #E8EAED;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    font-size: 0.875rem;
+    border-radius: 0px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.actions div,.actions a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.submit-comment-button {
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.3rem;
+    border: 1px solid #c8c8c8;
+    background-color: #e8e8e8;
+}
+
+.submit-comment-button:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+.submit-comment-input {
+    width: 100%;
+    border: 1px solid #d8d8d8;
+    border-radius: 0.3rem;
+
+    padding: 0.1rem 0.3rem;
+    /* margin-bottom: 1rem; */
+}
+
+.post-comment-username {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.date span a {
+    color: #999;
+    text-decoration: underline;
+}
+
+.date span a:hover {
+    color: #999;
+    
 }
