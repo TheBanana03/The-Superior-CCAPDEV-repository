@@ -136,16 +136,21 @@
                             {{#if ../user}}
                                 <!-- Actions for logged-in users -->
                                 <span class="actions">
-                                    <form action="/post/like/{{_id}}" method="POST">
-                                        <input class="like" type="submit" value="">
-                                    </form>
+                                    <div>
+                                        <form action="/post/like/{{_id}}" method="POST">
+                                            <button type="submit" class="like"><object data="/static/assets/heart-regular.svg" type="image/svg+xml"></object></button>
+                                        </form>
 
-                                    <span class="actiontext">
-                                        {{likes.length}} - Liked by {{likes.[0]}}, {{likes.[1]}}, {{likes.[2]}}
-                                    </span>
+                                        <span class="actiontext">
+                                            {{#when likes.length 'eq' 0}}
+                                                0
+                                            {{else}}
+                                                {{likes.length}} - Liked by {{#if likes.[0]}}{{likes.[0]}}{{/if}} {{#if likes.[1]}}, {{likes.[1]}}{{/if}} {{#if likes.[2]}}, {{likes.[2]}}{{/if}}
+                                            {{/when}}
+                                        </span>
+                                    </div>
 
-                                    <a href="/post/{{_id}}">
-                                        <span class="comment_share">
+                                    <a class="comment-collapse-button" href="/post/{{_id}}">
                                         <span class="comment"></span>
                                         <span class="commentsharetext">
                                             Comment
@@ -153,9 +158,6 @@
                                     </span>
                                     </a>
                                 </span>
-                            {{else}}
-                                <!-- Message for non-logged-in users -->
-                                <span><a href="/login">Log In</a> to like and comment!</span>
                             {{/if}}
                         </div>
                     </div>
