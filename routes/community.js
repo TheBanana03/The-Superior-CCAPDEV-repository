@@ -68,7 +68,19 @@ router.get('/:name', async (req, res) => {
         }
 
         const community_follower_count = await User.countDocuments({ followed_communities: community._id });
-        const posts = multipleMongooseToObj(await Post.find({ community: community._id }).populate('creator').populate('community')).reverse();
+
+        const posts = multipleMongooseToObj(
+            await Post.find({ community: community._id })
+              .populate('creator')
+              .populate({
+                path: 'children',
+                populate: {
+                  path: 'creator', 
+                  model: 'User' 
+                }
+              })
+              .populate('community')
+        ).reverse();
 
         res.render('community', {
             title: `${community.name}`,

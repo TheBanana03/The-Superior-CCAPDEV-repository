@@ -73,6 +73,9 @@ const hbs = exphbs.create({
         
             return date.toLocaleString('en-US', options);
         },
+        in: function (username, likes, options) {
+            return likes.includes(username) ? options.fn(this) : options.inverse(this);
+        },
         gt: function (a, b) {
             return a > b;
         }

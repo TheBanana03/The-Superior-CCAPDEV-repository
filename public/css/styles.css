@@ -472,6 +472,7 @@ a.community-card:hover {
 }
 
 .dashboard-button {
+    color: black;
     display: inline-block;
     text-align: center;
     vertical-align: center;
@@ -488,8 +489,10 @@ a.community-card:hover {
 }
 
 a.dashboard-button:hover {
+    color: black;
     cursor: pointer;
     opacity: 1;
+    text-decoration: none;
 }
 
 .btn-edit-community {

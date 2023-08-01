@@ -407,18 +407,6 @@ span.commentsharetext {
 
 .like {
     cursor: pointer;
-    display: inline-block;
-}
-
-.like .liked {
-    display: inline-block;
-    background-image: url("../assets/sprites2.png");
-    background-size: 411px 393px;
-    background-position: 0px -319px;
-    background-repeat: no-repeat;
-    height: 24px;
-    width: 24px;
-    cursor: pointer;
 }
 
 .comment_share {

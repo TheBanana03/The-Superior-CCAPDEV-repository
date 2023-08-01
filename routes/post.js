@@ -7,6 +7,7 @@ const Post = require('../models/post');
 const { mongooseToObj, multipleMongooseToObj } = require('../models/db');
 const community = require('../models/community');
 const comment = require('../models/comment');
+const isAuthenticated = require('./authMiddleware');
 
 const router = express.Router();
 
@@ -131,36 +132,34 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.post('/like/:id', async (req, res) => {
-  // Like Post
+router.post('/like/:id', isAuthenticated, async (req, res) => {
   const username = req.session.user.username;
   const post_id = req.params.id;
 
   try {
+    res.header('Content-Type', 'application/json');
     const post = await Post.findOne({ _id: post_id });
 
     if (!post) {
-      return res.render('404');
+      return res.status(404).json({ error: 'Post not found' });
     }
 
-      const likedIndex = post.likes.indexOf(username);
-      if (likedIndex !== -1) {
-        post.likes.splice(likedIndex, 1); // Unlike the post
-      } else {
-        post.likes.push(username); // Like the post
-      }
+    const likedIndex = post.likes.indexOf(username);
+    if (likedIndex !== -1) {
+      post.likes.splice(likedIndex, 1);
+    } else {
+      post.likes.push(username);
+    }
 
     await post.save();
-    res.redirect(`/post/${post_id}`);
-    
+
+    const isLiked = likedIndex !== -1;
+
+    res.json({ likeCount: post.likes.length, isLiked });
+
   } catch (err) {
     console.error(err);
-
-    res.render('likepost', {
-      title: 'Animo Like Post',
-      user: req.session.user,
-      error: 'Error liking post\n' + err
-    });
+    res.status(500).json({ error: 'Error liking post' });
   }
 });
 
