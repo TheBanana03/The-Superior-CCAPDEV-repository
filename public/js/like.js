@@ -1,4 +1,4 @@
-console.log("like.js loaded")
+// console.log("like.js loaded")
 
 $(document).ready(function () {
     $(".like-button").on("click", function (e) {

@@ -5,6 +5,7 @@ const Post = require('../models/post');
 const { mongooseToObj, multipleMongooseToObj } = require('../models/db');
 const multer = require('multer');
 const path = require('path');
+const isAuthenticated = require('./authMiddleware');
 
 const router = express.Router();
 
@@ -97,7 +98,7 @@ router.get('/:name', async (req, res) => {
 });
 
 //Delete Community
-router.delete('/:name', async (req, res) => {
+router.delete('/:name', isAuthenticated, async (req, res) => {
     const community_name = req.params.name;
     const user = req.session.user;
 
@@ -127,7 +128,7 @@ router.delete('/:name', async (req, res) => {
 });
 
 //Edit Community
-router.post('/:name', upload.single('cover'), async (req, res) => {
+router.post('/:name', isAuthenticated, upload.single('cover'), async (req, res) => {
     const community_name = req.params.name;
     const user = req.session.user;
     
@@ -172,7 +173,8 @@ router.post('/:name', upload.single('cover'), async (req, res) => {
 });
 
 //Create Community
-router.post('/', async (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
+    console.log(req.body)
     const user = req.session.user;
     
     const community = new Community({

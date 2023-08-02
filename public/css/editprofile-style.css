@@ -162,3 +162,9 @@ select {
   font-family: sans-serif;
   font-size: 14px;
 }
+
+.form-subtitle {
+  font-size: 0.65rem;
+  color: gray;
+  margin-left: 0.5rem;
+}

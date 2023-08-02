@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/static/js/community.js" ></script>
+
 <!--HTML-->
 {{> navbar user=user }}
 
@@ -26,22 +29,22 @@
 
             <!--Edit Profile Form-->
             <div class="details-container">
-                <form action="/community" method="POST">
+                <form class="create-community-form community-form" action="/community" method="POST">
 
-                    <label for="name">Name:</label>
+                    <label for="name">Name:</label><small class="form-subtitle">(3-24 Characters)</small>
                     <input type="text" id="name" name="name" placeholder="Enter the community name" value="{{ community.name }}">
 
-                    <label for="tagline">Tagline:</label>
+                    <label for="tagline">Tagline:</label><small class="form-subtitle">(3-32 Characters)</small>
                     <input type="text" id="tagline" name="tagline" placeholder="Enter the Tagline" value="{{ community.tagline }}">
 
-                    <label for="description">Description:</label><br>
+                    <label for="description">Description:</label><small class="form-subtitle">(3-256 Characters)</small><br>
                     <textarea id="description" name="description" placeholder="Enter the community description">{{ community.description }}</textarea>
 
                     <p id="error-message">{{ error }}</p>
 
                     <!--Buttons-->
                     <div class="buttons-container">
-                        <input class="edit-profile-submit" type="submit" value="Save">
+                        <input id="submit-button" class="edit-profile-submit" type="submit" value="Save">
                     </div>
                 </form>
             </div>
