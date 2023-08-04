@@ -975,3 +975,10 @@ a.link {
     padding-left: 0.3rem;
     border-left: 1px solid #d8d8d8;
 }
+
+#error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+}

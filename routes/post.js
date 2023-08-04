@@ -65,7 +65,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create Post
-router.post('/:name', upload.single('attachment'), async (req, res) => {
+router.post('/:name', isAuthenticated, upload.single('attachment'), async (req, res) => {
   const user = req.session.user;
   const community_name = req.params.name;
 
@@ -110,13 +110,26 @@ router.post('/:name', upload.single('attachment'), async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   // Edit Post
+
+  console.log("Editing post");
   const user = req.session.user;
   const post_id = req.params.id;
 
   const { title, description } = req.body;
 
   try {
-    const post = mongooseToObj(await Post.findOne({ _id: post_id }));
+    const post = mongooseToObj(
+      await Post.findOne({ _id: post_id })
+        .populate('creator')
+        .populate({
+          path: 'children',
+          populate: {
+            path: 'creator', 
+            model: 'User' 
+          }
+        })
+        .populate('community')
+    );
 
     if (!post) {
       return res.render('404');
@@ -126,9 +139,15 @@ router.put('/:id', async (req, res) => {
     post.description = description;
 
     await post.save();
-    res.redirect('/post/' + post_id);
+    res.render('post', {
+      title: post.title,
+      user: user,
+      post: post,
+      openComment: req.query.openComment === 'true' || false,
+    });
   } catch (err) {
-    // TODO: Handle error
+    console.error(err);
+    res.status(500).send('Internal Server Error');
   }
 });
 

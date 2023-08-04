@@ -45,4 +45,13 @@ const postSchema = new mongoose.Schema({
     }
 });
 
+postSchema.path('title').validate(function (value) {
+    return value.trim().length > 0 && value.trim().length <= 25;
+}, 'Invalid post title. It must be between 1 and 25 characters.');
+
+postSchema.path('description').validate(function (value) {
+    return value.trim().length > 0 && value.trim().length <= 255;
+}, 'Invalid content. It must be between 1 and 255 characters.');
+
+
 module.exports = mongoose.model('Post', postSchema);

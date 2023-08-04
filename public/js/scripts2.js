@@ -1,4 +1,4 @@
-console.log("Loaded Scripts2.js");
+// console.log("Loaded Scripts2.js");
 
 let loggedIn = false;
 

@@ -11,6 +11,7 @@
 <script src="/static/js/scripts.js"></script>
 <script src="/static/js/scripts2.js"></script>
 <script src="/static/js/like.js"></script>
+<script src="/static/js/post.js"></script>
 
 {{> navbar user=user }}
 
@@ -96,14 +97,14 @@
 
                     <!--EDIT FORM-->
                     <div class="edit-form" style="display: none;">
-                        <form action="/post/{{post._id}}?_method=PUT" method="POST">
+                        <form class="create-post-form" action="/post/{{post._id}}?_method=PUT" method="POST">
                             <input type="hidden" name="_method" value="PUT">
-                            <input type="text" id="title" name="title" class="post-title-edit" value="{{post.title}}">
+                            <input type="text" id="title" name="title" class="post-title-edit create-post-form-title" value="{{post.title}}">
                             <br>
-                            <textarea id="description" name="description" class="desc-edit">{{post.description}}</textarea>
-                            <p id="error-message">{{ error }}</p>
+                            <textarea id="description" name="description" class="desc-edit create-post-form-description">{{post.description}}</textarea>
+                            <p id="error-message"></p>
                             <div>
-                                <input type="submit" value="Save" class="save-button">
+                                <input type="submit" value="Save" class="save-button create-post-submit-btn">
                                 <a href="#" id="post-delete-button-main" class="delete-button" data-post-id="{{post._id}}">Delete</a>
                                 <button id="post-cancel-button-main" class="cancel-button">Cancel</button>
                             </div>

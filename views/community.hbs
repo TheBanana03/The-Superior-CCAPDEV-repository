@@ -8,6 +8,7 @@
 <!--JS-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/static/js/like.js" ></script>
+<script src="/static/js/post.js" ></script>
 
 {{> navbar user=user }}
 
@@ -83,7 +84,7 @@
                             <input class="create-post-form-title" type="text" name="title" placeholder="Enter the title" value="{{post.title}}">
 
                             <label for="description">Description</label>
-                            <textarea name="description" placeholder="I want to write about...">{{post.description}}</textarea>
+                            <textarea class="create-post-form-description" name="description" placeholder="I want to write about...">{{post.description}}</textarea>
 
                             <!-- Photo Upload Input -->
                             <div class="create-post-form-end">
