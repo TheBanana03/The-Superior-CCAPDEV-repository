@@ -1,5 +1,7 @@
+// signup.js
 const express = require('express');
 const User = require('../models/user');
+const { hashPassword } = require('./hashPassword'); // Update the path
 
 const router = express.Router();
 
@@ -14,21 +16,22 @@ router
     })
     // Signup
     .post(async (req, res) => {
+        const hashedPassword = await hashPassword(req.body.password);
+
         const user = new User({
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password,
+            password: hashedPassword,
             followed_communities: []
         });
 
         // Insert Data Validation Here
-        //console.log(user);
+        // console.log(user);
 
         try {
             const newUser = await user.save();
-            //console.log("NEW USER: ", newUser);
+            // console.log("NEW USER: ", newUser);
             res.redirect('/login');
-
         } catch (err) {
             res.render('signup', {
                 title: 'Animo Signup',
@@ -37,4 +40,5 @@ router
             });
         }
     });
+
 module.exports = router;

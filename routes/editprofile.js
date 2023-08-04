@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/user');
 const multer = require('multer');
 const path = require('path');
+const { hashPassword } = require('./hashPassword');
 
 const router = express.Router();
 
@@ -67,7 +68,7 @@ router
         
                 user.username = username;
                 user.email = email;
-                user.password = password;
+                user.password = await hashPassword(password);
                 if (college === "") { user.college = undefined } else { user.college = college; }
                 if (course === "") { user.course = undefined } else { user.course = course; }
                 if (id_num === "") { user.id_num = undefined } else { user.id_num = id_num; }

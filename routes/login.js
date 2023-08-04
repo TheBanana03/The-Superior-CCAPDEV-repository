@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
+const { comparePassword } = require('./hashPassword');
 
 const router = express.Router();
 
@@ -21,7 +22,9 @@ router
             });
         }
 
-        if (req.body.password == user.password) {
+        const checkPass = await comparePassword(req.body.password, user.password);
+
+        if (checkPass) {
             req.session.user = user;
             req.session.authenticated = true;
             return res.redirect('/');
