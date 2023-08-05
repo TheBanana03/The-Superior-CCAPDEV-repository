@@ -1,6 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
-const { comparePassword } = require('./hashPassword');
+const { comparePassword } = require('../hashPassword');
 
 const router = express.Router();
 
