@@ -1,5 +1,5 @@
 // helpers.js
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt.js');
 
 module.exports = {
     hashPassword: async function (password) {
