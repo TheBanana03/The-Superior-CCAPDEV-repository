@@ -2,7 +2,7 @@ const express = require('express');
 const User = require('../models/user');
 const multer = require('multer');
 const path = require('path');
-const { hashPassword } = require('../hashPassword');
+const { hashPassword } = require('./hashPassword');
 
 const router = express.Router();
 

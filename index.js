@@ -78,7 +78,7 @@ const hbs = exphbs.create({
         gt: function (a, b) {
             return a > b;
         },
-        hashPassword: require('./hashPassword').hashPassword
+        hashPassword: require('./routes/hashPassword').hashPassword
     }
 });
 app.engine('hbs', hbs.engine);

@@ -1,7 +1,7 @@
 // signup.js
 const express = require('express');
 const User = require('../models/user');
-const { hashPassword } = require('../hashPassword'); // Update the path
+const { hashPassword } = require('./hashPassword'); // Update the path
 
 const router = express.Router();
 
