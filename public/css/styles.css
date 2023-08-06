@@ -982,3 +982,34 @@ a.link {
     margin: 0;
     padding: 0;
 }
+
+/* ABOUT */
+.about-text {
+    font-size: 4rem;
+    color: #083704;
+    font-weight: bold;
+}
+
+.about-subtext {
+    margin-top: -20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: gray;
+}
+
+.about-title {
+    font-size: 2rem;
+    color: #083704;
+    font-weight: bold;
+}
+
+.about-textbox {
+    text-align: justify;
+}
+
+.about-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
