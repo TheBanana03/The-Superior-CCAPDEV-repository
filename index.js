@@ -136,6 +136,10 @@ app.use('/search', searchRouter);
 const postRouter = require('./routes/post');
 app.use('/post', postRouter);
 
+/* ABOUT ROUTE */
+const aboutRouter = require('./routes/about');
+app.use('/about', aboutRouter);
+
 /* 404 MIDDLEWARE */
 // app.use((req,res,err) => {
 //     res.status(404);
