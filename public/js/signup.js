@@ -4,10 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitButton = document.querySelector("#submitButton");
 
     async function checkUsernameAvailability(username) {
+        console.log('Checking username availability:', username); // Add this line
         try {
-            const response = await fetch(`/checkUsername?username=${username}`);
+            const response = await fetch(`/signup/checkUsername?username=${username}`);
             if (response.ok) {
                 const data = await response.json();
+                console.log('Username availability response:', data); // Add this line
                 return data.exists;
             } else {
                 console.error("An error occurred while checking username");
@@ -17,11 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("An error occurred while checking username:", error);
             return false;
         }
-    }
+    }  
 
     function validateUsername(username) {
         if (username.length < 3 || username.length > 16) {
-            usernameError.textContent = "Username must be between 3 and 16 characters long";
+            usernameError.textContent = "Username must be between 3 and 16 characters long.";
             return false;
         } else {
             usernameError.textContent = "";
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isValidLength) {
             const exists = await checkUsernameAvailability(username);
             if (exists) {
-                usernameError.textContent = "Username already exists";
+                usernameError.textContent = "Username already exists. Please choose another one.";
                 submitButton.disabled = true;
             } else {
                 usernameError.textContent = "";
