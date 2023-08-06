@@ -12,11 +12,11 @@
 
     <!--SIGN UP FORM-->
     <form id="signup" method="POST" action="/signup">
-
       <!--USERNAME-->
       <div class="input-group">
-        <input type="text" id="username" name="username" placeholder="Enter your username" value="" required>
+        <input type="text" id="username" name="username" placeholder="Enter your username" value="{{ user.username }}" required>
       </div>
+      <p class="error-message" id="usernameError"></p>
       <br>
 
       <!--EMAIL-->
@@ -37,7 +37,7 @@
       </div>
 
       <!--SIGN UP BUTTON-->
-      <input type="submit" class="btn" value="Sign Up"/>
+      <input type="submit" class="btn" id="submitButton" value="Sign Up" disabled>
 
       <!--ERROR MESSAGE-->
       <p id="error-message">{{ error }}</p>
@@ -48,3 +48,5 @@
   <p class="p-login">Already have an account?</p>
   <a href="login" class="btn-login">Log In</a>
 </div>
+
+<script src="static/js/signup.js" defer></script>
