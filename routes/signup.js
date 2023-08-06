@@ -54,16 +54,16 @@ router
         }
     });
 
-// Check if the provided username already exists
-router.get('/checkUsername', async function (req, res) {
-    const { username } = req.query;
-    try {
-        const user = await User.findOne({ username });
-        res.json({ exists: !!user });
-    } catch (error) {
-        console.error('An error occurred while checking username:', error);
-        res.status(500).send('An error occurred while checking username');
-    }
-});
+    router.get('/checkUsername', async function (req, res) {
+        const { username } = req.query;
+        try {
+            const user = await User.findOne({ username });
+            res.json({ exists: !!user });
+        } catch (error) {
+            console.error('An error occurred while checking username:', error);
+            res.status(500).send('An error occurred while checking username');
+        }
+    });
+    
 
 module.exports = router;
