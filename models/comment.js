@@ -29,4 +29,32 @@ const commentSchema = new mongoose.Schema({
     }
 });
 
+commentSchema.pre('deleteOne', async function (next) {
+    try {
+        const comment = await this.model.findOne(this.getFilter());
+        const commentIds = post.children;
+        if (commentIds && commentIds.length > 0) {
+            await this.model.deleteMany({ _id: { $in: commentIds } });
+        }
+        next();
+    } catch(err) {
+        next(err);
+    }
+});
+
+commentSchema.pre('deleteMany', async function (next) {
+    const commentsToDelete = await this.model.find(this.getFilter());
+    const commentIds = commentsToDelete.reduce((acc, post) => {
+        return acc.concat(post.children);
+    }, []);
+    if (commentIds && commentIds.length > 0) {
+        try {
+            await this.model.deleteMany({ _id: { $in: commentIds } });
+        } catch (err) {
+            return next(err);
+        }
+    }
+    next();
+});
+
 module.exports = mongoose.model('Comment', commentSchema);
