@@ -38,26 +38,13 @@ router
     // Update current user
     .post(
         multer(multerConfig).single('profilePicture'),
-        function (req, res, next) {
-            // console.log('hi');
-            if (!req.file) {
-                // return res.send('Error uploading the file.');
-            }
-            else {
-                const filePath = req.file.path;
-                const filename = path.basename(filePath);
-                req.session.filename = filename;
-            }
-            next();
-
-        },
         async (req, res) => {
-            const { username, email, password, id_num, college, course } = req.body;
+            const { username, email, newPassword, confirmNewPassword, id_num, college, course } = req.body;
             const userId = req.session.user._id;
-        
+    
             try {
                 const user = await User.findById(userId);
-        
+    
                 if (!user) {
                     return res.render('editprofile', {
                         title: 'Animo Edit Profile',
@@ -65,20 +52,26 @@ router
                         error: 'User not found'
                     });
                 }
-        
+    
                 user.username = username;
                 user.email = email;
-                user.password = await hashPassword(password);
-                if (college === "") { user.college = undefined } else { user.college = college; }
-                if (course === "") { user.course = undefined } else { user.course = course; }
-                if (id_num === "") { user.id_num = undefined } else { user.id_num = id_num; }
-                if (!req.session.filename) {  user.profilePicturePath = user.profilePicturePath; } else { user.profilePicturePath = req.session.filename; }
-        
+    
+                if (newPassword || confirmNewPassword) {
+                    if (newPassword !== confirmNewPassword) {
+                        return res.render('editprofile', {
+                            title: 'Animo Edit Profile',
+                            user: req.session.user,
+                            error: 'New passwords do not match'
+                        });
+                    }
+                    user.password = await hashPassword(newPassword);
+                }
+    
                 await user.save();
-
+    
                 req.session.user = user;
                 res.redirect('/user');
-
+    
             } catch (err) {
                 console.error(err);
                 res.render('editprofile', {
