@@ -97,36 +97,32 @@
                             {{postDate}}
                         </div>
                         <hr>
-                        {{#if ../user}}
-                            <!-- Actions for logged-in users -->
-                            <span class="actions">
-                                <div>
-                                    <a href="/post/like/{{_id}}" class="dashboard-button like-button">
-                                        {{#in ../user.username likes}}
-                                            <object data="/static/assets/heart-solid.svg" type="image/svg+xml" class="like-symbol"></object>
-                                        {{else}}
-                                            <object data="/static/assets/heart-regular.svg" type="image/svg+xml" class="like-symbol"></object>
-                                        {{/in}}
-                                        <div>
-                                            <span class="actiontext">
-                                            {{likes.length}}
-                                            </span>
-                                        </div>
-                                    </a>
-                                </div>
 
-                                <a class="comment-collapse-button" href="/post/{{_id}}">
-                                    <span class="comment"></span>
-                                    <span class="commentsharetext">
-                                        Comment
-                                    </span>
-                                </span>
+                        <!-- Actions for logged-in users -->
+                        <span class="actions">
+                            <div>
+                                <a href="/post/like/{{_id}}" class="dashboard-button like-button">
+                                    {{#in ../user.username likes}}
+                                        <object data="/static/assets/heart-solid.svg" type="image/svg+xml" class="like-symbol"></object>
+                                    {{else}}
+                                        <object data="/static/assets/heart-regular.svg" type="image/svg+xml" class="like-symbol"></object>
+                                    {{/in}}
+                                    <div>
+                                        <span class="actiontext">
+                                        {{likes.length}}
+                                        </span>
+                                    </div>
                                 </a>
+                            </div>
+
+                            <a class="comment-collapse-button" href="/post/{{_id}}">
+                                <span class="comment"></span>
+                                <span class="commentsharetext">
+                                    Comment
+                                </span>
                             </span>
-                        {{else}}
-                            <!-- Message for non-logged-in users -->
-                            <span><a href="/login">Log In</a> to like and comment!</span>
-                        {{/if}}
+                            </a>
+                        </span>
                     </div>
                 </div>
             {{/each}}

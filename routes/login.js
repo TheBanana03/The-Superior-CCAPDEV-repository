@@ -4,36 +4,51 @@ const { comparePassword } = require('./hashPassword');
 
 const router = express.Router();
 
-router
-    .route('/')
-    // Goto login page
-    .get((req, res) => {
-        res.render('login', {
-            title: 'Animo Login'
-        });
-    })
-    // Login
-    .post(async (req, res) => {
-        const user = await User.findOne({ username: req.body.username.toLowerCase() });
-        if (user == null) {
-            return res.render('login', {
-                title: 'Animo Login',
-                error: 'User not found'
-            });
-        }
+router.get('/', (req, res) => {
+  res.render('login', {
+    title: 'Animo Login'
+  });
+});
 
-        const checkPass = await comparePassword(req.body.password, user.password);
+router.post('/', async (req, res) => {
+  const { username, password, remember } = req.body;
+  console.log(username, password, remember);
 
-        if (checkPass) {
-            req.session.user = user;
-            req.session.authenticated = true;
-            return res.redirect('/');
-        }
+  try {
+    const user = await User.findOne({ username: username.toLowerCase() });
+    if (!user) {
+      return res.render('login', {
+        title: 'Animo Login',
+        error: 'User not found'
+      });
+    }
 
-        res.render('login', {
-            title: 'Animo Login',
-            error: 'Incorrect Password'
-        });
+    const checkPass = await comparePassword(password, user.password);
+    if (!checkPass) {
+      return res.render('login', {
+        title: 'Animo Login',
+        error: 'Incorrect Password'
+      });
+    }
+
+    req.session.user = user;
+    req.session.authenticated = true;
+
+    if (remember) {
+        const maxAgeInMilliseconds = 1000 * 60 * 60 * 24 * 7 * 3; // 3 weeks
+        req.session.cookie.maxAge = maxAgeInMilliseconds;
+    } else {
+        req.session.cookie.expires = false;
+    }
+
+    res.redirect('/');
+  } catch (error) {
+    console.error('Error during login:', error);
+    res.status(500).render('error', {
+      title: 'Animo Error',
+      error: 'Internal Server Error'
     });
+  }
+});
 
 module.exports = router;

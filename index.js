@@ -5,23 +5,45 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const methodOverride = require('method-override');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const { connect, mongooseToObj, multipleMongooseToObj } = require('./models/db');
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 
+/* MONGOOSE/MONGODB */
+connect();
+const User = require('./models/user');
+const Community = require('./models/community');
+
 /* USING DEPENDENCIES */
 const app = express();
 app.use("/static",express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use(methodOverride('_method'));
-app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: false
-}));
+
+/* SESSIONS */
+const store = MongoStore.create({
+    mongoUrl: process.env.DATABASE_URL,
+    collectionName: 'sessions',
+    mongooseConnection: mongoose.connection,
+});
+  
+store.on('error', function (error) {
+    console.error('Session store error:', error);
+});
+  
+app.use(
+    session({
+        secret: 'uwu',
+        resave: false,
+        saveUninitialized: false,
+        store: store,
+    })
+);
+
 /* HANDLEBARS */
 const hbs = exphbs.create({
     extname: 'hbs',
@@ -82,11 +104,6 @@ const hbs = exphbs.create({
 });
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
-
-/* MONGOOSE/MONGODB */
-connect();
-const User = require('./models/user');
-const Community = require('./models/community');
 
 /* HOME PAGE */
 app.get("/", async (req,res) => {

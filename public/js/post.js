@@ -23,8 +23,6 @@ $(document).ready(function () {
         }
     });
 
-    // $(".")
-
     function showError(message) {
         console.log("Showing error message:", message)
         $(".create-post-form").find("#error-message").text(message);
