@@ -20,27 +20,28 @@ document.addEventListener('DOMContentLoaded', function () {
         editForm.style.display = 'none';
     });
 
-    const deleteButtons = document.querySelector("#post-delete-button-main");
+    const deleteButtons = document.querySelectorAll("#post-delete-button-main");
     deleteButtons.forEach((button) => {
         button.addEventListener("click", async function (e) {
-        e.preventDefault();
-        const postId = button.getAttribute("data-post-id");
-        console.log("Deleting post with id:", postId);
+            // console.log("Clicked delete button")
+            e.preventDefault();
+            const postId = button.getAttribute("data-post-id");
+            console.log("Deleting post with id:", postId);
 
-        button.disabled = true;
+            button.disabled = true;
 
-        try {
-            const response = await deletePost(postId);
-            if (response.ok) {
-                window.location.href = "/user";
-            } else {
-                console.error("Error deleting post:", response.statusText);
+            try {
+                const response = await deletePost(postId);
+                if (response.ok) {
+                    window.location.href = "/user";
+                } else {
+                    console.error("Error deleting post:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Error deleting post:", error);
+            } finally {
+                button.disabled = false;
             }
-        } catch (error) {
-            console.error("Error deleting post:", error);
-        } finally {
-            button.disabled = false;
-        }
         });
     });
 });

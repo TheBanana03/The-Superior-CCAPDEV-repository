@@ -108,7 +108,7 @@ router.post('/:name', isAuthenticated, upload.single('attachment'), async (req, 
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAuthenticated, async (req, res) => {
   // Edit Post
 
   console.log("Editing post");
@@ -118,18 +118,16 @@ router.put('/:id', async (req, res) => {
   const { title, description } = req.body;
 
   try {
-    const post = mongooseToObj(
-      await Post.findOne({ _id: post_id })
-        .populate('creator')
-        .populate({
-          path: 'children',
-          populate: {
-            path: 'creator', 
-            model: 'User' 
-          }
-        })
-        .populate('community')
-    );
+    const post = await Post.findOne({ _id: post_id })
+      .populate('creator')
+      .populate({
+        path: 'children',
+        populate: {
+          path: 'creator', 
+          model: 'User' 
+        }
+      })
+      .populate('community');
 
     if (!post) {
       return res.render('404');
@@ -142,12 +140,43 @@ router.put('/:id', async (req, res) => {
     res.render('post', {
       title: post.title,
       user: user,
-      post: post,
+      post: mongooseToObj(post),
       openComment: req.query.openComment === 'true' || false,
     });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
+  }
+});
+
+router.delete('/:id', isAuthenticated, async (req, res) => {
+  const post_id = req.params.id;
+  const user = req.session.user;
+
+  const { title, description } = req.body;
+  console.log(title + description);
+
+  try {
+      const result = await Post.deleteOne({ _id: post_id });
+
+      if (result.deletedCount == 0) {
+          return res.render('post', {
+              title: title,
+              user: req.session.user,
+              post: { _id: post_id, title, description },
+              error: 'Error deleting Post'
+          });
+      }
+
+      return res.render('user', {
+          title: req.session.user.username + '\'s Profile',
+          user: req.session.user,
+          viewUser: req.session.user
+      });
+
+  } catch(err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
   }
 });
 
