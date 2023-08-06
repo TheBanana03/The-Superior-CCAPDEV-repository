@@ -983,10 +983,9 @@ a.link {
     padding: 0;
 }
 
-/* ABOUT */
 .about-text {
     font-size: 4rem;
-    color: #083704;
+    color: green;
     font-weight: bold;
 }
 
@@ -999,8 +998,9 @@ a.link {
 
 .about-title {
     font-size: 2rem;
-    color: #083704;
+    color: green;
     font-weight: bold;
+    text-align: center;
 }
 
 .about-textbox {
@@ -1009,7 +1009,27 @@ a.link {
 
 .about-box {
     background-color: #f0f0f0;
-    padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bullet-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.bullet-list li::before {
+    content: '\2022'; /* Unicode character for bullet point */
+    margin-right: 8px;
+}
+
+.bullet-title {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: green;
 }
