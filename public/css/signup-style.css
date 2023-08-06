@@ -85,6 +85,11 @@ h3 {
   background-color: #45a049;
 }
 
+.btn:disabled {
+  background-color: darkgray;
+  cursor: not-allowed;
+}
+
 .p-login {
   margin-top: 20px;
   text-align: center;
@@ -123,7 +128,7 @@ h3 {
   color: #051f02;
 }
 
-#error-message {
+.error-message {
   text-align: center;
   color: red;
   font-family: sans-serif;
