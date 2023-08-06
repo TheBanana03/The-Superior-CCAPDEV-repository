@@ -1,4 +1,4 @@
-console.log("Loaded Scripts2.js");
+// console.log("Loaded Scripts2.js");
 
 let loggedIn = false;
 
@@ -211,3 +211,46 @@ function renderDate(lastEdited, postDate) {
     `;
     return formattedDate;
 }
+
+// For comment validation
+document.addEventListener('DOMContentLoaded', function () {
+    // Handling the comment submission form
+    const commentForms = document.querySelectorAll('.create-comment-card form');
+    const commentInputs = document.querySelectorAll('.submit-comment-input');
+    const errorMessages = document.querySelectorAll('.error-message');
+    console.log(commentInputs.length);
+
+    commentForms.forEach((commentForm, index) => {
+        commentForm.addEventListener('submit', function (event) {
+            const commentInput = commentInputs[index];
+            const errorMessage = errorMessages[index];
+            
+            if (commentInput.value.trim() === '') {
+                event.preventDefault();
+                errorMessage.textContent = 'Comment cannot be empty.';
+                errorMessage.style.color = 'red';
+            }
+        });
+    });
+
+    // Handling the edit comment form
+    const editCommentForms = document.querySelectorAll('.edit-comment-form form');
+    const editCommentInputs = document.querySelectorAll('.edit-comment-form .submit-comment-input');
+    const editErrorMessages = document.querySelectorAll('.edit-comment-form .error-message');
+    console.log(editCommentInputs.length);
+
+    editCommentForms.forEach((editCommentForm, index) => {
+        editCommentForm.addEventListener('submit', function (event) {
+            const editCommentInput = editCommentInputs[index];
+            const editErrorMessage = editErrorMessages[index];
+
+            console.log("HI");
+
+            if (editCommentInput.value.trim() === '') {
+                event.preventDefault();
+                editErrorMessage.textContent = 'Comment cannot be empty.';
+                editErrorMessage.style.color = 'red';
+            }
+        });
+    });
+});
