@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fetchNestedComments(postId, commentId) {
-    const apiUrl = `comment/getchildren/${commentId}`;
+    const apiUrl = `${postId}/comment/getchildren/${commentId}`;
 
     return new Promise((resolve, reject) => {
         fetch(apiUrl)
