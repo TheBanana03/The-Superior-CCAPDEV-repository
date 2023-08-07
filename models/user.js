@@ -29,15 +29,9 @@ const userSchema = new mongoose.Schema({
         required: false,
         validate: {
             validator: function(value) {
-                return value >= 0 && value <= 123;
+                return Number.isInteger(value) && value >= 0 && value <= 123;
             },
-            message: 'User ID is only until 123'
-            },
-        validate: {
-            validator: function(value) {
-                return Number.isInteger(value) && value.toString().length === 3;
-            },
-            message: 'User ID must be a 3-digit number'
+            message: 'User ID must be a number between 0 and 123'
         }
     },
     college: {
@@ -48,7 +42,7 @@ const userSchema = new mongoose.Schema({
     course: {
         type: String,
         required: false,
-        max: 16
+        maxlength: 16
     },
     followed_communities: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -59,6 +53,14 @@ const userSchema = new mongoose.Schema({
         required: false,
     },
 });
+
+userSchema.path('username').validate(function (value) {
+    return value.trim().length >= 3 && value.trim().length <= 16;
+}, 'Invalid username. It must be between 3 and 16 characters.');
+
+userSchema.path('password').validate(function (value) {
+    return value.trim().length >= 6;
+}, 'Invalid password. It must greater than 6 characters.');
 
 userSchema.pre('deleteOne', async function (next) {
   

@@ -39,6 +39,7 @@ router.post('/', async (req, res) => {
         req.session.cookie.maxAge = maxAgeInMilliseconds;
     } else {
         req.session.cookie.expires = false;
+        req.session.cookie.maxAge = 1000 * 60 * 60 * 7; // 7 hours
     }
 
     res.redirect('/');
