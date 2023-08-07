@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.querySelector("#password");
     const confirmPasswordInput = document.querySelector("#confirm-password");
     const submitButton = document.querySelector("#submitButton");
-    const checkUsernameAction = document.querySelector("#check-username-action");
 
     let isUsernameInvalid = false;
     let isUsernameTaken = false;
@@ -96,15 +95,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateSubmitButton() {
+        const username = usernameInput.value;
         const email = emailInput.value;
         const confirmEmail = confirmEmailInput.value;
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
 
+        const isValidLength = validateUsername(username);
         const isEmailValid = validateEmail(email, confirmEmail);
         const isPasswordValid = validatePassword(password, confirmPassword);
 
-        submitButton.disabled = !(isUsernameInvalid || isUsernameTaken) || !isEmailValid || !isPasswordValid;
+        if (!isValidLength) {
+            submitButton.disabled = true;
+            return;
+        }
+
+        checkUsernameAvailability(username).then(exists => {
+            if (exists) {
+                usernameError.textContent = "Username already exists. Please choose another one.";
+                isUsernameTaken = true;
+            } else {
+                usernameError.textContent = "";
+                isUsernameTaken = false;
+            }
+
+            submitButton.disabled = isUsernameInvalid || isUsernameTaken || !isEmailValid || !isPasswordValid;
+        });
     }
 
     usernameInput.addEventListener("input", updateSubmitButton);
@@ -112,5 +128,4 @@ document.addEventListener("DOMContentLoaded", function () {
     confirmPasswordInput.addEventListener("input", updateSubmitButton);
 
     updateSubmitButton();
-
 });
