@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const usernameInput = document.querySelector("#username");
     const newPasswordInput = document.querySelector("#new-password");
     const confirmNewPasswordInput = document.querySelector("#confirm-new-password");
     const submitButton = document.querySelector("#submitButton");
     const passwordMatchError = document.querySelector("#password-match-error");
 
-    // Get the current user's username from the script tag in your template
     const currentUserUsername = "{{ currentUserUsername }}";
 
     function validateUsername(username) {
@@ -12,13 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     async function checkUsernameAvailability(username, currentUserUsername) {
-        console.log('Checking username availability:', username);
         try {
             const response = await fetch(`/signup/checkUsername?username=${username}`);
             if (response.ok) {
                 const data = await response.json();
-                console.log('Username availability response:', data);
-                return data.exists && username !== currentUserUsername;
+                return data.exists && (username !== currentUserUsername);
             } else {
                 console.error("An error occurred while checking username");
                 return false;
@@ -27,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("An error occurred while checking username:", error);
             return false;
         }
-    }
+    }  
 
     function validatePasswords(newPassword, confirmNewPassword) {
         if (newPassword !== confirmNewPassword) {
@@ -40,17 +38,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateSubmitButton() {
+        const username = usernameInput.value;
         const newPassword = newPasswordInput.value;
         const confirmNewPassword = confirmNewPasswordInput.value;
-
+    
+        const isUsernameValid = validateUsername(username);
         const arePasswordsMatching = validatePasswords(newPassword, confirmNewPassword);
-
-        if (!arePasswordsMatching) {
-            submitButton.disabled = true;
-        } else {
+    
+        console.log("Username:", username);
+        console.log("Password Match:", arePasswordsMatching);
+    
+        if (!username) {
+            console.log("No username provided. Enabling submit button.");
             submitButton.disabled = false;
+            document.querySelector("#username-error").textContent = "";
+        } else if (!isUsernameValid) {
+            console.log("Invalid username length. Disabling submit button.");
+            submitButton.disabled = true;
+            document.querySelector("#username-error").textContent = "Username must be between 3 and 16 characters";
+        } else {
+            console.log("Checking username availability...");
+            checkUsernameAvailability(username, currentUserUsername).then(isTaken => {
+                console.log("Username Taken:", isTaken);
+                if (!isTaken || username === currentUserUsername) {
+                    submitButton.disabled = !arePasswordsMatching;
+                    document.querySelector("#username-error").textContent = "";
+                } else {
+                    submitButton.disabled = true;
+                    document.querySelector("#username-error").textContent = "Username is already taken";
+                }
+            });
         }
     }
+    
+    usernameInput.addEventListener("input", function () {
+        updateSubmitButton();
+    });
 
     newPasswordInput.addEventListener("input", function () {
         updateSubmitButton();
