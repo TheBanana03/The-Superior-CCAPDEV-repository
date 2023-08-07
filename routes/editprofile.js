@@ -36,6 +36,18 @@ router
     // Update current user
     .post(
         multer(multerConfig).single('profilePicture'),
+        function (req, res, next) {
+            // console.log('hi');
+            if (!req.file) {
+                // return res.send('Error uploading the file.');
+            }
+            else {
+                const filePath = req.file.path;
+                const filename = path.basename(filePath);
+                req.session.filename = filename;
+            }
+            next();
+        },
         async (req, res) => {
             const { username, email, newPassword, confirmNewPassword, id_num, college, course } = req.body;
             const userId = req.session.user._id;
