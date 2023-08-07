@@ -7,6 +7,7 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
+const cors = require('cors');
 const { connect, mongooseToObj, multipleMongooseToObj } = require('./models/db');
 
 if (process.env.NODE_ENV !== 'production') {
@@ -23,6 +24,7 @@ const app = express();
 app.use("/static",express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use(methodOverride('_method'));
+app.use(cors());
 
 /* SESSIONS */
 const store = MongoStore.create({
