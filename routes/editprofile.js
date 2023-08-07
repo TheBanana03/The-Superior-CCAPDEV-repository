@@ -72,7 +72,7 @@ router
                 if (course === "") { user.course = undefined } else { user.course = course; }
                 if (id_num === "") {user.id_num = undefined;} else {user.id_num = id_num;}
                 if (!req.session.filename) {  user.profilePicturePath = user.profilePicturePath; } else { user.profilePicturePath = req.session.filename; }
-    
+
                 if (newPassword || confirmNewPassword) {
                     if (newPassword !== confirmNewPassword) {
                         return res.render('editprofile', {
