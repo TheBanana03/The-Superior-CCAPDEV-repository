@@ -22,15 +22,16 @@ Alternatively, you may also make a copy of the repository instead of doing 1-2.
 
 Accessible accounts for testing are the following:
 
-1.  Username: csenjoyer1
-    Password: password
-        Has access to edit:
-        csenjoyer1's profile
-        csenjoyer1's posts
-        csenjoyer1's comments
-        BSMSCS Community
+1.
+Username: csenjoyer1
+Password: password
+Has access to edit:
+> csenjoyer1's profile
+> csenjoyer1's posts
+> csenjoyer1's comments
+> BSMSCS Community
 
-2.  Username: taravalo
+3.  Username: taravalo
     Password: gaming123
         Has access to edit:
         taravalo's profile
@@ -39,7 +40,7 @@ Accessible accounts for testing are the following:
         Samahan ng mga Gamer Community
         COB Community
 
-3.  Username: preciousmoments
+4.  Username: preciousmoments
     Password: 123
         Has access to edit:
         preciousmoments's profile
@@ -48,7 +49,7 @@ Accessible accounts for testing are the following:
         DLSU Photography
         College of Liberal Arts community
 
-4.  Username: meme.pepe
+5.  Username: meme.pepe
     Password: 123
         Has access to edit:
         meme.pepe's profile
