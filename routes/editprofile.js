@@ -55,6 +55,11 @@ router
                     user.username = username;
                 }
                 user.email = email;
+
+                if (college === "") { user.college = undefined } else { user.college = college; }
+                if (course === "") { user.course = undefined } else { user.course = course; }
+                if (id_num === "") {user.id_num = undefined;} else {user.id_num = id_num;}
+                if (!req.session.filename) {  user.profilePicturePath = user.profilePicturePath; } else { user.profilePicturePath = req.session.filename; }
     
                 if (newPassword || confirmNewPassword) {
                     if (newPassword !== confirmNewPassword) {
@@ -66,13 +71,8 @@ router
                     }
                     user.password = await hashPassword(newPassword);
                 }
-
-                user.id_num = id_num;
-                user.college = college;
-                user.course = course;
-    
+                
                 await user.save();
-    
                 req.session.user = user;
                 res.redirect('/user');
     

@@ -28,7 +28,7 @@
         </label>
         </br>
         
-        <label for="username">Username:</label>
+        <label for="username">Username:</label> <small class="form-subtitle">(3-16 Characters)</small>
         <input type="text" id="username" name="username" placeholder="Leave blank if no change" value="">
         <p id="username-error" class="error-message"></p>
 
@@ -42,8 +42,9 @@
         <input type="password" id="confirm-new-password" name="confirmNewPassword" placeholder="Leave blank if no change">
         <p class="error-message" id="password-match-error"></p>
 
-        <label for="idnum">ID Number:</label>
+        <label for="idnum">ID Number:</label> <small class="form-subtitle">(3 Digits)</small>
         <input type="number" id="idnum" name="id_num" placeholder="Enter your new ID Number" value="{{user.id_num}}">
+        <p class="error-message">{{ id_num_error }}</p>
 
         <label for="College">College:</label>
         <select name="college" id="dropdown">
