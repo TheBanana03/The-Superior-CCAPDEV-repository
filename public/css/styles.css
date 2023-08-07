@@ -976,11 +976,12 @@ a.link {
     border-left: 1px solid #d8d8d8;
 }
 
-#error-message {
+.error-message {
     color: red;
-    font-size: 0.8rem;
     margin: 0;
     padding: 0;
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
 
 .about-text {

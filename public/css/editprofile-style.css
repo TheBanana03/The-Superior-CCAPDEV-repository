@@ -156,15 +156,20 @@ select {
   margin-bottom: 0px;
 }
 
-#error-message {
-  text-align: center;
-  color: red;
-  font-family: sans-serif;
-  font-size: 14px;
-}
-
 .form-subtitle {
   font-size: 0.65rem;
   color: gray;
   margin-left: 0.5rem;
+}
+
+.edit-profile-submit[disabled] {
+  background-color: darkgray;
+  cursor: not-allowed; 
+}
+
+#error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
 }

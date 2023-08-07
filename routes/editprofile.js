@@ -22,18 +22,16 @@ router
     // Goto edit profile page
     .get((req, res) => {
         const user = req.session.user;
-        //console.log(req);
-        
-        if(user) {
+    
+        if (user) {
             res.render('editprofile', {
                 title: 'Animo Edit Profile',
-                user: user
+                user: user,
+                currentUserUsername: user.username // Pass the current user's username
             });
-        }
-        else {
+        } else {
             res.redirect('/login');
         }
-
     })
     // Update current user
     .post(
