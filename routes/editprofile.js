@@ -66,6 +66,10 @@ router
                     }
                     user.password = await hashPassword(newPassword);
                 }
+
+                user.id_num = id_num;
+                user.college = college;
+                user.course = course;
     
                 await user.save();
     
