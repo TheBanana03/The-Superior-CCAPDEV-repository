@@ -37,9 +37,10 @@ function renderNestedComments(nestedComments, container, postId, commentId) {
     if (loggedIn) {
         container.innerHTML = `
         <span style="margin-top:0.5rem;">Reply</span>
-        <form action="/post/${postId}/comment/nest/${commentId}" method="POST">
+        <form class="nested-comment-form" action="/post/${postId}/comment/nest/${commentId}" method="POST">
             <textarea type="text" name="comment" class="submit-comment-input" placeholder="Enter your comment"></textarea>
-            <button type="submit" class="submit-comment-button">Submit</button>
+            <div id="error-message-nested" style="color: red;"></div>
+            <button type="submit" class="submit-nested-button">Submit</button>
         </form>
         <hr>`;
     }
@@ -60,6 +61,7 @@ function renderNestedComments(nestedComments, container, postId, commentId) {
                 <form action="/post/${comment.post._id}/comment/${comment._id}?_method=PUT" method="POST">
                     <input type="hidden" name="_method" value="PUT">
                     <textarea name="comment" class="submit-comment-input">${comment.content}</textarea>
+                    <p id="error-message-edit" style="color: red;"></p>
                     <div>
                         <input type="submit" value="Save" class="save-button">
                         <a href="#" class="delete-button" data-post-id="${comment.post._id}" data-comment-id="${comment._id}">Delete</a>
@@ -148,10 +150,21 @@ function setupEditButtonListeners(editButtons) {
   
         // Submit button functionality
         submitButton.addEventListener('click', function (e) {
-          e.preventDefault();
-  
-          const form = editForm.querySelector('form');
-          form.submit();
+            e.preventDefault();
+
+            let self = $(this);
+            let form = self.closest(".edit-comment-form");
+            let comment = form.find(".submit-comment-input").val();
+            let errorMessage = form.find("#error-message-edit");
+            console.log(errorMessage)
+            
+            if (comment.trim() === "") {
+                console.log("Comment cannot be empty");
+                errorMessage.text("Comment cannot be empty.")
+            } else {
+                console.log("Submitting form");
+                form.submit();
+            }
         });
   
         // Delete button functionality
@@ -211,3 +224,44 @@ function renderDate(lastEdited, postDate) {
     `;
     return formattedDate;
 }
+
+// For comment validation
+document.addEventListener('DOMContentLoaded', function () {
+    // Handling the comment submission form
+    const commentForms = document.querySelectorAll('.create-comment-card form');
+    const commentInputs = document.querySelectorAll('.submit-comment-input');
+    const errorMessages = document.querySelectorAll('.error-message');
+    console.log(commentInputs.length);
+
+    commentForms.forEach((commentForm, index) => {
+        commentForm.addEventListener('submit', function (event) {
+            const commentInput = commentInputs[index];
+            const errorMessage = errorMessages[index];
+            
+            if (commentInput.value.trim() === '') {
+                event.preventDefault();
+                errorMessage.textContent = 'Comment cannot be empty.';
+                errorMessage.style.color = 'red';
+            }
+        });
+    });
+});
+
+
+$(document).ready(function () {
+    $(document).on("click", ".submit-nested-button", function (e) {
+        e.preventDefault();
+        let self = $(this);
+        let form = self.closest(".nested-comment-form");
+        let comment = form.find(".submit-comment-input").val();
+        let errorMessage = form.find("#error-message-nested");
+        
+        if (comment.trim() === "") {
+            console.log("Comment cannot be empty");
+            errorMessage.text("Comment cannot be empty.");
+        } else {
+            console.log("Submitting nested comment form");
+            form.submit();
+        }
+    });
+});
