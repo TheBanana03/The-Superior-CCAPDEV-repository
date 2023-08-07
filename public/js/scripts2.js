@@ -15,12 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function fetchNestedComments(postId, commentId) {
     const apiUrl = `http://localhost:3000/post/${postId}/comment/getchildren/${commentId}`;
-    
+
     return new Promise((resolve, reject) => {
-        // Simulate a delay for fetching nested comments
-        axios.get(apiUrl)
+        fetch(apiUrl)
             .then(response => {
-                resolve(response.data); // Assuming the API returns the nested comments as an array
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                resolve(data); 
             })
             .catch(error => {
                 reject(error);
@@ -28,7 +33,6 @@ function fetchNestedComments(postId, commentId) {
     });
 }
 
-// Replace this function with your actual code to render nested comments
 function renderNestedComments(nestedComments, container, postId, commentId) {
 
     console.log("Rendering nested comments");
