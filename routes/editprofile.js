@@ -51,7 +51,9 @@ router
                     });
                 }
     
-                user.username = username;
+                if (username.trim() !== '') {
+                    user.username = username;
+                }
                 user.email = email;
     
                 if (newPassword || confirmNewPassword) {

@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const username = usernameInput.value;
         const newPassword = newPasswordInput.value;
         const confirmNewPassword = confirmNewPasswordInput.value;
-    
+
         const isUsernameValid = validateUsername(username);
         const arePasswordsMatching = validatePasswords(newPassword, confirmNewPassword);
-    
+
         console.log("Username:", username);
         console.log("Password Match:", arePasswordsMatching);
-    
-        if (!username) {
+
+        if (!username.trim()) {
             console.log("No username provided. Enabling submit button.");
             submitButton.disabled = false;
             document.querySelector("#username-error").textContent = "";
@@ -56,11 +56,15 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Invalid username length. Disabling submit button.");
             submitButton.disabled = true;
             document.querySelector("#username-error").textContent = "Username must be between 3 and 16 characters";
+        } else if (username.trim() === currentUserUsername) {
+            console.log("Username unchanged. Enabling submit button.");
+            submitButton.disabled = !arePasswordsMatching;
+            document.querySelector("#username-error").textContent = "";
         } else {
             console.log("Checking username availability...");
             checkUsernameAvailability(username, currentUserUsername).then(isTaken => {
                 console.log("Username Taken:", isTaken);
-                if (!isTaken || username === currentUserUsername) {
+                if (!isTaken) {
                     submitButton.disabled = !arePasswordsMatching;
                     document.querySelector("#username-error").textContent = "";
                 } else {
@@ -70,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
+
     
     usernameInput.addEventListener("input", function () {
         updateSubmitButton();
