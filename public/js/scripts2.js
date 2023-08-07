@@ -14,11 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fetchNestedComments(postId, commentId) {
-    const apiUrl = `https://animo-forum.onrender.com/post/${postId}/comment/getchildren/${commentId}`;
+    const apiUrl = `comment/getchildren/${commentId}`;
 
     return new Promise((resolve, reject) => {
         fetch(apiUrl)
             .then(response => {
+                // console.log(response);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
